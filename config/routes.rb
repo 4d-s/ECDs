@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :users, only: [:edit, :update, :index, :show]
+  end
   namespace :user do
     get 'homes/top'
   end
