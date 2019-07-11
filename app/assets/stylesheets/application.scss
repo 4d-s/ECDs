@@ -1,0 +1,77 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+/*common*/
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.clearfix::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+body {
+	width: 80%;
+	margin: 0 auto;
+}
+
+/*header*/
+header {
+	height: 150px;
+}
+.logo-area {
+	height: 100px;
+	width: 100px;
+	border: solid 1px black;
+	margin: 20px;
+}
+.welcome-text{
+	margin-top: 40px;
+}
+.search-form-box{
+	height: 20px;
+	width: 400px;
+	float: left;
+	border: solid 1px black;
+	margin: 20px 0 20px 100px;
+}
+.search-box{
+	height: 20px;
+	width: 80px;
+	float: left;
+	border: solid 1px black;
+	background-color: orange;
+	margin: 20px 0 20px 20px;
+}
+nav {
+	height: 40px;
+	background-color: #000000;
+}
+.nav-list-item{
+	display: inline-block;
+	padding-right: 20px;
+	line-height: 40px;
+	color: #FFFFFF;
+}
+.nav-list-item:nth-child(3), .nav-list-item:nth-child(4), .nav-list-item:nth-child(5),{
+	float: right;
+}
+
+
