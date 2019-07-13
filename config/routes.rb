@@ -9,5 +9,13 @@ devise_for :users, controllers: {
   passwords:     'users/passwords',
   registrations: 'users/registrations'
 }
+
+  namespace :admin do
+    resources :users, only: [:edit, :update, :index, :show]
+  end
+  namespace :user do
+    get 'homes/top'
+  end
+	root 'user/homes#top'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

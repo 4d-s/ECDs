@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<title>トップページ</title>
+	<link rel="stylesheet" type="text/scss" href="user/homes.scss">
+</head>
+
+<div class="search-box">
+	<h1>ECD's</h1>
+	<form>
+		<select name="検索種別">
+			<option value="1">CD名</option>
+			<option value="2" selected>アーティスト名</option>
+			<option value="3">ジャンル</option>
+		</select>
+		<%= text_field :title, :size=>"35" %>
+		<%= submit_tag '検索' %>
+	</form>
+</div>
