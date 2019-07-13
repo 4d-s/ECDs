@@ -18,4 +18,5 @@ devise_for :users, controllers: {
   end
 	root 'user/homes#top'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+ 	get 'admin' => 'admin/homes#top'
 end
