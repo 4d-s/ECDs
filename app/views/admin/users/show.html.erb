@@ -1,2 +1,27 @@
-<h1>Admin::Users#show</h1>
-<p>Find me in app/views/admin/users/show.html.erb</p>
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<title>トップページ</title>
+	<link rel="stylesheet" type="text/scss" href="admin/users.scss">
+</head>
+
+<div class="profile-box">
+	<h1>三古太郎のマイページ</h1>
+	
+	<p>名前（姓・名）</p>
+	<%= @user.last_name + @user.first_name %>
+	<p>名前（セイ・メイ）</p>
+	<%= @user.last_name_katakana + @user.first_name_katakana %>
+	<p>郵便番号</p>
+	<%= @user.postal_code %>
+	<p>住所</p>
+	<%= @user.street_address %>
+	<p>電話番号</p>
+	<%= @user.phone_number %>
+	<p>メールアドレス</p>
+	<%= @user.email %>
+
+	<%= button_to "編集", {controller: 'users', action: 'edit'}, {method: :get} %>
+	<button type="button" onclick="history.back()">戻る</button>
+	<%= button_to "ユーザー情報を削除", {controller: 'users', action: 'update'}, {method: :patch} %>
+</div>
