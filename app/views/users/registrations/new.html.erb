@@ -6,6 +6,10 @@
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="field">
+      <b>ユーザー名</b><br>
+      <%= f.text_field :name, autofocus: true, autocomplete: "username" %>
+    </div>
+    <div class="field">
       <b>名前（姓・名）</b><br>
       <%= f.text_field :last_name, autofocus: true, autocomplete: "山田" %>
       <%= f.text_field :first_name, autofocus: true, autocomplete: "太郎" %>
@@ -52,6 +56,4 @@
       <%= f.submit "登録" %>
     </div>
   <% end %>
-
-  <%= render "users/shared/links" %>
 </div>
