@@ -9,9 +9,9 @@
 	<h1>三古太郎のマイページ</h1>
 	
 	<p>名前（姓・名）</p>
-	<%= @user.last_name + @user.first_name %>
+	<%=@user.last_name%><%=@user.first_name%>
 	<p>名前（セイ・メイ）</p>
-	<%= @user.last_name_katakana + @user.first_name_katakana %>
+	<%= @user.last_name_katakana%><%= @user.first_name_katakana%>
 	<p>郵便番号</p>
 	<%= @user.postal_code %>
 	<p>住所</p>
