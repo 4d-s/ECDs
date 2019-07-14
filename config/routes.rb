@@ -1,23 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'item_selects/index'
-  get 'item_selects/create'
-  get 'item_selects/update'
-  get 'item_selects/destroy'
-
-
-  namespace :user do
-    get 'items/index'
-    get 'items/show'
-  end
-  namespace :admin do
-    get 'items/index'
-    get 'items/show'
-    get 'items/new'
-    get 'items/edit'
-  end
-
-
 devise_for :admins, controllers: {
   sessions:      'admins/sessions',
   passwords:     'admins/passwords',
