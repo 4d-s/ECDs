@@ -1,40 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :user do
-    get 'addresses/index'
-    get 'addresses/new'
-    get 'addresses/edit'
-  end
-
-  namespace :admin do
-    get 'orders/index'
-    get 'orders/show'
-    get 'orders/edit'
-  end
-  namespace :user do
-    get 'orders/new'
-    get 'orders/adress'
-    get 'orders/index'
-  end
-
-  get 'item_selects/index'
-  get 'item_selects/create'
-  get 'item_selects/update'
-  get 'item_selects/destroy'
-  devise_for :admins
-	devise_for :users
-
-  namespace :user do
-    get 'items/index'
-    get 'items/show'
-  end
-  namespace :admin do
-    get 'items/index'
-    get 'items/show'
-    get 'items/new'
-    get 'items/edit'
-  end
-
 devise_for :admins, controllers: {
   sessions:      'admins/sessions',
   passwords:     'admins/passwords',
@@ -48,17 +13,26 @@ devise_for :users, controllers: {
 
   namespace :admin do
     resources :users, only: [:edit, :update, :index, :show]
+    resources :items, only: [:index, :show, :new, :edit, :create, :update, :destroy]
+    resources :orders, only: [:index, :show, :edit, :update]
   end
   namespace :user do
-    get 'homes/top'
+    resources :addresses, only: [:index, :new, :edit, :update, :destroy]
+    resources :items, only: [:index, :show]
+    resources :orders, only: [:new, :create, :index]
+    get 'orders/address' => 'orders/#address' ,as: 'order_address'
+    post 'orders/address' => 'orders/#create_address' ,as: 'create_order_address'
+    resources :item_selects, only: [:index, :create, :update, :destroy]
   end
+
+  # namespaceに属さないルーティング
+  get 'admin' => 'admin/homes#top'
+  get '/mypage', to: 'user/users#show'
+  get '/mypage/edit', to: 'user/users#edit'
+  patch '/user', to: 'user/users#update'
+  post '/user' , to: 'user/users#create'
 
 	root 'user/homes#top'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
- 	  get 'admin' => 'admin/homes#top'
-    get '/mypage', to: 'user/users#show'
-    get '/mypage/edit', to: 'user/users#edit'
-    patch '/user', to: 'user/users#update'
-    post '/user' , to: 'user/users#create'
 end
