@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'orders/index'
+    get 'orders/show'
+    get 'orders/edit'
+  end
+  namespace :user do
+    get 'orders/new'
+    get 'orders/adress'
+    get 'orders/index'
+  end
 devise_for :admins, controllers: {
   sessions:      'admins/sessions',
   passwords:     'admins/passwords',
