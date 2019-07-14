@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_14_041607) do
+ActiveRecord::Schema.define(version: 2019_07_14_074427) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "user_id"
@@ -41,6 +41,27 @@ ActiveRecord::Schema.define(version: 2019_07_14_041607) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "artists", force: :cascade do |t|
+    t.integer "item_id"
+    t.string "artist_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "discs", force: :cascade do |t|
+    t.integer "item_id"
+    t.integer "disc_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.integer "item_id"
+    t.string "gunre_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "items", force: :cascade do |t|
     t.string "item_name"
     t.integer "stock"
@@ -50,6 +71,23 @@ ActiveRecord::Schema.define(version: 2019_07_14_041607) do
     t.integer "order_count"
     t.datetime "updated_at", null: false
     t.datetime "created_at", null: false
+  end
+
+  create_table "labels", force: :cascade do |t|
+    t.integer "item_id"
+    t.string "label_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "order_item_histories", force: :cascade do |t|
+    t.integer "order_id"
+    t.string "item_name"
+    t.integer "item_price"
+    t.text "image_id"
+    t.integer "order_item_count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "orders", force: :cascade do |t|
@@ -70,6 +108,14 @@ ActiveRecord::Schema.define(version: 2019_07_14_041607) do
     t.integer "item_id"
     t.integer "user_id"
     t.integer "item_count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "songs", force: :cascade do |t|
+    t.integer "disc_id"
+    t.integer "song_number"
+    t.string "song_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
