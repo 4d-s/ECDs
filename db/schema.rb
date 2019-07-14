@@ -10,6 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 2019_07_14_041607) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "postal_code"
+    t.string "street_address"
+    t.string "phone_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 ActiveRecord::Schema.define(version: 2019_07_14_035009) do
 ActiveRecord::Schema.define(version: 2019_07_14_035207) do
