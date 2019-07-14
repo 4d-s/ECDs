@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_07_14_035207) do
+=======
+ActiveRecord::Schema.define(version: 2019_07_14_033706) do
+>>>>>>> 696913074ee01178f166c5d828f82d653c53cb78
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -30,12 +34,24 @@ ActiveRecord::Schema.define(version: 2019_07_14_035207) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+<<<<<<< HEAD
   create_table "select_items", force: :cascade do |t|
     t.integer "item_id"
     t.integer "user_id"
     t.integer "item_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+=======
+  create_table "items", force: :cascade do |t|
+    t.string "item_name"
+    t.integer "stock"
+    t.integer "price"
+    t.boolean "is_sold"
+    t.text "image_id"
+    t.integer "order_count"
+    t.datetime "updated_at", null: false
+    t.datetime "created_at", null: false
+>>>>>>> 696913074ee01178f166c5d828f82d653c53cb78
   end
 
   create_table "users", force: :cascade do |t|
@@ -52,6 +68,14 @@ ActiveRecord::Schema.define(version: 2019_07_14_035207) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "last_name"
+    t.string "first_name"
+    t.string "last_name_katakana"
+    t.string "first_name_katakana"
+    t.string "street_address"
+    t.string "postal_code"
+    t.string "phone_number"
+    t.boolean "is_deleted"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
