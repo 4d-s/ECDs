@@ -4,11 +4,6 @@ Rails.application.routes.draw do
     get 'addresses/new'
     get 'addresses/edit'
   end
-  get 'addresses/index'
-  get 'addresses/new'
-  get 'addresses/edit'
-  get 'addresses/update'
-  get 'addresses/destroy'
   namespace :admin do
     resources :users, only: [:edit, :update, :index, :show]
   end
