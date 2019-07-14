@@ -1,0 +1,2 @@
+class OrderItemHistory < ApplicationRecord
+end
