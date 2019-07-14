@@ -1,0 +1,2 @@
+class SelectItem < ApplicationRecord
+end

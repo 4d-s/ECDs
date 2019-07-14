@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   namespace :user do
     get 'addresses/index'
     get 'addresses/new'
@@ -9,6 +10,47 @@ Rails.application.routes.draw do
   get 'addresses/edit'
   get 'addresses/update'
   get 'addresses/destroy'
+
+  namespace :admin do
+    get 'orders/index'
+    get 'orders/show'
+    get 'orders/edit'
+  end
+  namespace :user do
+    get 'orders/new'
+    get 'orders/adress'
+    get 'orders/index'
+  end
+
+  get 'item_selects/index'
+  get 'item_selects/create'
+  get 'item_selects/update'
+  get 'item_selects/destroy'
+  devise_for :admins
+	devise_for :users
+
+  namespace :user do
+    get 'items/index'
+    get 'items/show'
+  end
+  namespace :admin do
+    get 'items/index'
+    get 'items/show'
+    get 'items/new'
+    get 'items/edit'
+  end
+
+devise_for :admins, controllers: {
+  sessions:      'admins/sessions',
+  passwords:     'admins/passwords',
+  registrations: 'admins/registrations'
+}
+devise_for :users, controllers: {
+  sessions:      'users/sessions',
+  passwords:     'users/passwords',
+  registrations: 'users/registrations'
+}
+
   namespace :admin do
     resources :users, only: [:edit, :update, :index, :show]
   end
