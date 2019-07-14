@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   namespace :admin do
     get 'orders/index'
     get 'orders/show'
@@ -9,6 +10,25 @@ Rails.application.routes.draw do
     get 'orders/adress'
     get 'orders/index'
   end
+
+  get 'item_selects/index'
+  get 'item_selects/create'
+  get 'item_selects/update'
+  get 'item_selects/destroy'
+  devise_for :admins
+	devise_for :users
+
+  namespace :user do
+    get 'items/index'
+    get 'items/show'
+  end
+  namespace :admin do
+    get 'items/index'
+    get 'items/show'
+    get 'items/new'
+    get 'items/edit'
+  end
+
 devise_for :admins, controllers: {
   sessions:      'admins/sessions',
   passwords:     'admins/passwords',
