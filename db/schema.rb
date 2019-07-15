@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_14_074427) do
+ActiveRecord::Schema.define(version: 2019_07_15_093809) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "user_id"
@@ -21,6 +21,19 @@ ActiveRecord::Schema.define(version: 2019_07_14_074427) do
     t.string "phone_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "administrators", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.index ["email"], name: "index_administrators_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_administrators_on_reset_password_token", unique: true
   end
 
   create_table "artists", force: :cascade do |t|
