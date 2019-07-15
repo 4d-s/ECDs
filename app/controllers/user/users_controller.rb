@@ -5,8 +5,11 @@ class User::UsersController < ApplicationController
 	end
 
 	def edit
+		@user = User.find(params[:id])
 	end
 
 	def update
+		@user = User.find(params[:id])
+		redirect_to mypage_path(@user.id)
 	end
 end
