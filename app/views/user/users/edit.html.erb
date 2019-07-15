@@ -1,0 +1,28 @@
+<!DOCTYPEhtml>
+<head>
+	<meta charset="utf-8">
+	<title>ユーザー情報編集</title>
+	<link rel="stylesheet" href="users/show.scss">
+</head>
+<body>
+	<div class="title">ユーザー情報編集</div>
+  	<%= form_for(@user) do |f| %>
+	<div class="user-form">
+		<div class="text">
+			<h2>名前（姓・名）</h2>
+			<%= f.text_field :last_name, placeholder:"姓" %>
+			<%= f.text_field :first_name, placeholder:"名" %>
+			<div class="space">入力フォーム</div>
+			<h2>名前（カナ姓・カナ名）</h2>
+			<div class="space">入力フォーム</div>
+			<h2>郵便番号</h2>
+			<div class="space">入力フォーム</div>
+			<h2>住所</h2>
+			<div class="space">入力フォーム</div>
+			<h2>電話番号</h2>
+			<div class="space">入力フォーム</div>
+			<h2>メールアドレス</h2>
+			<div class="space">入力フォーム</div>
+		</div>
+	</div>
+</body>
