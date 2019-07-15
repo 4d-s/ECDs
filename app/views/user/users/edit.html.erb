@@ -5,25 +5,34 @@
 	<link rel="stylesheet" href="users/show.scss">
 </head>
 <body>
-	<div class="title">ユーザー情報編集</div>
-  	<%= form_for(@user) do |f| %>
-	<div class="user-form">
-		<div class="text">
-			<h2>名前（姓・名）</h2>
-			<div class="space"><%= f.text_field :first_name, placeholder:"姓" %></div>
-			<div class="space"><%= f.text_field :last_name, placeholder:"名" %></div>
-			<h2>名前（カナ姓・カナ名）</h2>
-			<div class="space"><%= f.text_field :first_name_katakana, placeholder:"セイ" %></div>
-			<div class="space"><%= f.text_field :last_name_katakana, placeholder:"メイ" %></div>
-			<h2>郵便番号</h2>
-			<div class="space"><%= f.text_field :postal_code, placeholder:"郵便番号" %></div>
-			<h2>住所</h2>
-			<div class="space"><%= f.text_field :street_address, placeholder:"住所" %></div>
-			<h2>電話番号</h2>
-			<div class="space"><%= f.text_field :phone_number, placeholder:"電話番号" %></div>
-			<h2>メールアドレス</h2>
-			<div class="space"><%= f.text_field :email, placeholder:"メールアドレス" %></div>
+	<div class="container">
+	<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-6">
+				<h1>ユーザ情報編集</h1>
+			  	<%= form_for(current_user) do |f| %>
+				<div class="user-form">
+					<div class="text">
+						<h2>名前（姓・名）</h2>
+						<span><%= f.text_field :first_name, placeholder:"姓" %></span>
+						<span><%= f.text_field :last_name, placeholder:"名" %></span>
+						<h2>名前（カナ姓・カナ名）</h2>
+						<span><%= f.text_field :first_name_katakana, placeholder:"セイ" %></span>
+						<span><%= f.text_field :last_name_katakana, placeholder:"メイ" %></span>
+						<h2>郵便番号</h2>
+						<div><%= f.text_field :postal_code, placeholder:"郵便番号" %></div>
+						<h2>住所</h2>
+						<div><%= f.text_field :street_address, placeholder:"住所" %></div>
+						<h2>電話番号</h2>
+						<div><%= f.text_field :phone_number, placeholder:"電話番号" %></div>
+						<h2>メールアドレス</h2>
+						<div><%= f.text_field :email, placeholder:"メールアドレス" %></div>
+					</div>
+					<%=link_to "back"%>
+					<%= f.submit "プロフィール変更", class: "btn-btn primary col-xs-3"%>
+				</div>
+				<% end %>
+			</div>
+			<div class="col-md-3"></div>
 		</div>
-	</div>
-	<% end %>
 </body>
