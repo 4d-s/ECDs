@@ -5,21 +5,33 @@
 	<link rel="stylesheet" href="users/show.scss">
 </head>
 <body>
-	<div class="title">マイページ</div>
-	<div class="user-form">
-		<div class="text">
-				<h2>名前（姓・名）</h2>
-				<div class="space">入力内容</div>
-				<h2>名前（カナ姓・カナ名）</h2>
-				<div class="space">入力内容ム</div>
-				<h2>郵便番号</h2>
-				<div class="space">入力内容ム</div>
-				<h2>住所</h2>
-				<div class="space">入力内容</div>
-				<h2>電話番号</h2>
-				<div class="space">入力内容</div>
-				<h2>メールアドレス</h2>
-				<div class="space">入力内容</div>
+<div class="container">
+	<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-6">
+				<span class="pofile">マイプロフィール</span>
+				<span class="btn"><%= link_to "アドレス帳", mypage_edit_path(current_user), class: "btn btn-success" %></span>
+				<span class="btn"><%= link_to "購入履歴", user_orders_path(current_user), class: "btn btn-success" %></span>
+				<!-- プロフィール内容 -->
+				<div class="user-form">
+					<div class="text">
+						<h2>名前（姓・名）</h2>
+						<div class="space"><%= @user.name %></div>
+						<h2>名前（カナ姓・カナ名）</h2>
+						<div class="space"><%= @user.first_name_katakana %><% @user.last_name_katakana %></div>
+						<h2>郵便番号</h2>
+						<div class="space"><%= @user.postal_code %></div>
+						<h2>住所</h2>
+						<div class="space"><%= @user.street_address %></div>
+						<h2>電話番号</h2>
+						<div class="space"><%= @user.phone_number %></div>
+						<h2>メールアドレス</h2>
+						<div class="space"><%= @user.email %></div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3"></div>
 		</div>
 	</div>
+</div>
 </body>
