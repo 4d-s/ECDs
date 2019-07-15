@@ -1,3 +1,18 @@
 // Place all the styles related to the admin/items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.item-box{
+	width: 31%;
+	float: left;
+	display: inline-block;
+	margin-right: 15px;
+	margin-left: 10px;
+	margin-bottom: 20px;
+	border: solid 1px;
+	text-align: center;
+}
+.item-contents{
+	margin: 0 auto;
+	padding: 0 15px 0 15px;
+}
