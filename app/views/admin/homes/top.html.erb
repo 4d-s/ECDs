@@ -19,7 +19,9 @@
 					<li><a href="#">注文一覧</a></li>
 					<li><a href="#">商品一覧</a>
 					</li>
-					<li><a href="#">ログアウト</a></li>
+					<li>
+					<%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "link-decoration" %>
+					</li>
 				</div>
 			</div>
 		</div>
