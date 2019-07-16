@@ -2,6 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// ユーザ一覧ページ
+.admin-users-area{
+	width: 50%;
+	margin: 0 auto;
+}
+.admin-users-title{
+	padding: 20px 0;
+}
+
+// ユーザ詳細ページ
 .profile-box{
 	text-align:  center;
 }

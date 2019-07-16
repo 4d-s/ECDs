@@ -6,7 +6,6 @@
 </head>
 
 <body>
-<h1 class="header">ECD`s</h1>
 	<div class="main">
 		<h2>管理者TOP PAGE</h2>
 		<div>管理者用のページです</div>
@@ -20,7 +19,7 @@
 					<li><a href="#">商品一覧</a>
 					</li>
 					<li>
-					<%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "link-decoration" %>
+					<%= link_to "ログアウト", destroy_administrator_session_path, method: :delete, class: "link-decoration" %>
 					</li>
 				</div>
 			</div>

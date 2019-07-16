@@ -15,7 +15,7 @@
       </div>
     </div>
     <!-- ナビゲーションメニュー  -->
-    <nav class="col-xs-12">
+    <div class="nav-menu col-xs-12">
       <% if user_signed_in? %>
         <li class="nav-list-item">
           <%= link_to "会員登録", new_user_registration_path, class: "link-decoration" %>
@@ -23,9 +23,15 @@
         <li class="nav-list-item">
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "link-decoration" %>
         </li>
-        <li class="nav-list-item">商品一覧</li>
-        <li class="nav-list-item">カート</li>
-        <li class="nav-list-item">マイページ</li>
+        <li class="nav-list-item">
+          <%= link_to "商品一覧", user_items_path, class: "link-decoration" %>
+        </li>
+        <li class="nav-list-item">
+          <%= link_to "カート", user_item_selects_path, class: "link-decoration" %>
+        </li>
+        <li class="nav-list-item">
+          <%= link_to "マイページ", mypage_path, class: "link-decoration" %>
+        </li>
       <% else %>
         <li class="nav-list-item">
           <%= link_to "会員登録", new_user_registration_path, class: "link-decoration" %>
@@ -33,10 +39,16 @@
         <li class="nav-list-item">
           <%= link_to "ログイン", new_user_session_path, class: "link-decoration" %>
         </li>
-        <li class="nav-list-item">商品一覧</li>
-        <li class="nav-list-item">カート</li>
-        <li class="nav-list-item">マイページ</li>
+        <li class="nav-list-item">
+          <%= link_to "商品一覧", user_items_path, class: "link-decoration" %>
+        </li>
+        <li class="nav-list-item">
+          <%= link_to "カート", user_item_selects_path, class: "link-decoration" %>
+        </li>
+        <li class="nav-list-item">
+          <%= link_to "マイページ", mypage_path, class: "link-decoration" %>
+        </li>
       <% end %>
-    </nav>
+    </div>
 
   </header>
