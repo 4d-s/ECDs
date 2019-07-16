@@ -7,11 +7,11 @@ Rails.application.routes.draw do
  }
 devise_for :users, controllers: {
   sessions:      'users/sessions',
-  passwords:     'users/passwords',
+  passwords:     'updatesers/passwords',
   registrations: 'users/registrations'
 }
 
-   namespace :administrators do
+   namespace :admin do
      resources :users, only: [:edit, :update, :index, :show]
      resources :items, only: [:index, :show, :new, :edit, :create, :update, :destroy]
      resources :orders, only: [:index, :show, :edit, :update]
