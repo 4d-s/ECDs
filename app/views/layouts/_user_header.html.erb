@@ -8,7 +8,15 @@
     </div>
     <!-- 検索バー -->
     <div class="col-xs-10">
-      <p class="welcome-text">ようこそ、guestさん！！</p>
+        <% if user_signed_in? %>
+            <p class="welcome-text">
+                ようこそ、<%= current_user.name %>さん！！
+            </p>
+        <% else %>
+            <p class="welcome-text">
+                ようこそ、ECD'sへ！！
+            </p>
+        <% end %>
       <div class="search-form-box"></div>
       <div class="search-box">
         <p>商品検索</p>
