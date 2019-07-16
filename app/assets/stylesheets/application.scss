@@ -61,7 +61,7 @@ header {
 	background-color: orange;
 	margin: 20px 0 20px 20px;
 }
-nav {
+.nav-menu {
 	height: 40px;
 	background-color: #000000;
 }
@@ -73,6 +73,26 @@ nav {
 }
 .nav-list-item:nth-child(3), .nav-list-item:nth-child(4), .nav-list-item:nth-child(5),{
 	float: right;
+}
+
+//  管理側ヘッダー
+.admin-header-title{
+	text-align: center;
+	font-size: 60px;
+	margin: 50px 20px 0 0;
+}
+
+// 管理側サイドバー
+.sidebar{
+}
+.admin-sidebar-list{
+	font-size: 24px;
+	margin: 0 auto;
+	padding-left: 40px;
+}
+.admin-sidebar-list-menu{
+	text-align: left;
+	font-size: 18px;
 }
 
 

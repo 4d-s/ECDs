@@ -2,10 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+
+// ユーザ一覧ページ
+.admin-users-area{
+	width: 50%;
+	margin: 0 auto;
+}
+.admin-users-title{
+	padding: 20px 0;
 }
 
 .profile-box{
