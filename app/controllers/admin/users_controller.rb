@@ -11,6 +11,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def update
+
   end
 
   private
