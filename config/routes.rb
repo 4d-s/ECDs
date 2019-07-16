@@ -27,7 +27,7 @@ devise_for :users, controllers: {
   end
 
   # namespaceに属さないルーティング
-  get '/administrator' => 'administrators/homes#top'
+  get '/admin' => 'admin/homes#top'
   get '/mypage', to: 'user/users#show'
   get '/mypage/edit', to: 'user/users#edit'
   patch '/user', to: 'user/users#update'
