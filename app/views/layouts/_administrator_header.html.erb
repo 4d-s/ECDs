@@ -1,0 +1,15 @@
+<!-- ヘッダー -->
+  <header class="page-header">
+    <!-- ロゴ -->
+    <div class="col-xs-2">
+      <div class="logo-area">
+        logo
+      </div>
+    </div>
+    <div class="col-xs-10">
+      <p class="admin-logout-link">
+        <%= link_to "ログアウト", destroy_administrator_session_path, method: :delete, class: "link-decoration" %>
+      </p>
+    </div>
+
+  </header>
