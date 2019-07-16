@@ -14,9 +14,9 @@ class ApplicationController < ActionController::Base
 
   def after_sign_out_path_for(resource)
     if resource.is_a?(Administrator)#Administrator　model名
-      administrator_session_path
+      admin_path
     else
-      administrator_session_path
+      user_session_path
     end
   end
 
