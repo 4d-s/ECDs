@@ -31,13 +31,16 @@
 				<%= @user.phone_number %>
 			</div>
 			<div class="profile-contents6">
-				<h4>メールアドレス</h4>	
+				<h4>メールアドレス</h4>
 				<%= @user.email %>
 			</div>
-			<%= link_to '編集', edit_admin_user_path(@user.id), class: "btn btn-default" %>
 			<button type="button" onclick="history.back()" class="btn btn-default">戻る</button>
+			<%= link_to '編集', edit_admin_user_path(@user.id), class: "btn btn-default" %>
 		</div>
-		<%= button_to "ユーザー情報を削除", {controller: 'users', action: 'update'}, {method: :patch}%>
-		<%= link_to "ユーザー情報を削除", user_path(@user, params: { user: { is_deleted: "FALSE"} }), :method => :put %>
+		<% if @user.is_deleted == true%>
+		<%= link_to 'ユーザー情報を削除', admin_user_path(:id => @user.id, :is_deleted => 'false'), :method => :put %>
+		<% else %>
+		<%= link_to 'ユーザー情報を復元', admin_user_path(:id => @user.id, :is_deleted => 'true'), :method => :put %>
+		<% end %>
 	</div>
 </div>
