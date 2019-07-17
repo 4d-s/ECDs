@@ -10,8 +10,9 @@ class User::UsersController < ApplicationController
 	end
 
 	def update
-		@user = User.find(params[:id])
-		redirect_to mypage_path(@user.id)
+		@user = User.find(current_user.id)
+		@user.update(user_params)
+		redirect_to mypage_path(current_user)
 	end
 
 	private
