@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+//  商品一覧ページ
 .item-box{
 	width: 31%;
 	float: left;
@@ -15,6 +16,9 @@
 .item-contents{
 	margin: 0 auto;
 	padding: 0 15px 0 15px;
+}
+.item-index{
+	text-align: center;
 }
 
 //  商品詳細ページ
