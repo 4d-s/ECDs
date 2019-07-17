@@ -5,7 +5,6 @@ class Admin::UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
-
   end
 
   def edit
@@ -13,20 +12,20 @@ class Admin::UsersController < ApplicationController
   end
 
   def update
-  	# @user = User.find(params[:id])
-  	#  flag = params[:is_deleted]
-  	#  if flag == 'false'
-  	#  	@user.update_attribute(:is_deleted, params[:is_deleted])
-  	#  	redirect_to admin_users_path
-  	#  elsif flag == 'true'
-  	#  	@user.update_attribute(:is_deleted, params[:is_deleted])
-  	#  	redirect_to admin_users_path
-  	#  else
-      binding.pry
+  	 @user = User.find(params[:id])
+  	  flag = params[:is_deleted]
+  	  if flag == 'false'
+  	  	@user.update_attribute(:is_deleted, params[:is_deleted])
+  	  	redirect_to admin_users_path
+  	  elsif flag == 'true'
+  	  	@user.update_attribute(:is_deleted, params[:is_deleted])
+  	  	redirect_to admin_users_path
+  	  else
   		@user = User.find(params[:id])
   		@user.update(user_params)
   		redirect_to root_path
   	end
+  end
 
 
   private
