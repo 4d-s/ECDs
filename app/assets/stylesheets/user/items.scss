@@ -51,3 +51,22 @@
 	border: solid 1px black;
 	margin: 10px 0;
 }
+
+//  商品一覧ページ
+.item-box{
+	width: 31%;
+	float: left;
+	display: inline-block;
+	margin-right: 15px;
+	margin-left: 10px;
+	margin-bottom: 20px;
+	border: solid 1px;
+	text-align: center;
+}
+.item-contents{
+	margin: 0 auto;
+	padding: 0 15px 0 15px;
+}
+.item-index{
+	text-align: center;
+}
