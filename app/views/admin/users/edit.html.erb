@@ -1,2 +1,33 @@
-<h1>Admin::Users#edit</h1>
-<p>Find me in app/views/admin/users/edit.html.erb</p>
+
+<head>
+	<meta charset="utf-8">
+	<title>ユーザー編集画面</title>
+	<link rel="stylesheet" type="text/scss" href="admin/users.scss">
+</head>
+
+	<h2>ユーザー情報編集</h2>
+  	<%= form_for [:admin, @user] do |f| %>
+	<div class="user-form">
+		<div class="text">
+			<h3>名前（姓・名）</h3>
+			<%= f.text_field :last_name, placeholder:"姓" %>
+			<%= f.text_field :first_name, placeholder:"名" %>
+			<h3>名前（カナ姓・カナ名）</h3>
+			<%= f.text_field :last_name_katakana, placeholder:"セイ" %>
+			<%= f.text_field :first_name_katakana, placeholder:"メイ" %>
+			<h3>郵便番号</h3>
+			<%= f.text_field :postal_code, placeholder:"郵便番号" %>
+			<h3>住所</h3>
+			<%= f.text_field :street_address, placeholder:"住所" %>
+			<h3>電話番号</h3>
+			<%= f.text_field :phone_number, placeholder:"電話番号" %>
+			<h3>メールアドレス</h3>
+			<%= f.text_field :email, placeholder:"メールアドレス" %>
+			<br>
+			<br>
+			<br>
+			<button type="button" onclick="history.back()" class="btn btn-default">戻る</button>
+			<%= f.submit"プロフィール変更" %>
+		</div>
+	</div>
+	<% end %>
