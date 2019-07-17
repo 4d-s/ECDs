@@ -1,2 +1,27 @@
-<h1>User::Addresses#index</h1>
-<p>Find me in app/views/user/addresses/index.html.erb</p>
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<title>アドレス一覧</title>
+	<link rel="stylesheet" type="text/scss" href="user/items.scss">
+</head>
+
+<h1 class="address-index">アドレス帳</h1>
+
+<%= link_to new_user_address_path do%>
+<div class="new-address">
+	<h3>新しい住所を追加</h3>
+</div>
+<% end %>
+<% @addresses.each do |address| %>
+<div class="address-box">
+	<div class ="address-contents">
+		<%= address.last_name %><%= address.first_name %><br>
+		<%= address.postal_code %><br>
+		<%= address.street_address %><br>
+		<%= address.phone_number %><br>
+		<%= link_to "変更", edit_user_address_path(address.id) %>
+		<%= link_to '削除', user_address_path(address.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+	</div>
+</div>
+<% end %>
+

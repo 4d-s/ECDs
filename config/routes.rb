@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   end
 
   namespace :user do
-    resources :addresses, only: [:index, :new, :edit, :update, :destroy]
+    resources :addresses, only: [:index, :new, :edit, :create, :update, :destroy]
     resources :items, only: [:index, :show]
     resources :orders, only: [:new, :create, :index]
     get 'orders/address' => 'orders/#address' ,as: 'order_address'
