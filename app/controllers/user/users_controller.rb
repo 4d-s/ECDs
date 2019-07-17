@@ -1,6 +1,5 @@
 class User::UsersController < ApplicationController
 
-
 	def show
 		@user = User.find(params[:id])
 	end
@@ -11,7 +10,7 @@ class User::UsersController < ApplicationController
 
 	def update
 		@user = User.find(params[:id])
-		redirect_to mypage_path(@user.id)
+		redirect_to root_path
 	end
 
 	private

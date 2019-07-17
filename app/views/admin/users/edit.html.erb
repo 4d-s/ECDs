@@ -1,2 +1,29 @@
-<h1>Admin::Users#edit</h1>
-<p>Find me in app/views/admin/users/edit.html.erb</p>
+
+<head>
+	<meta charset="utf-8">
+	<title>ユーザー編集画面</title>
+	<link rel="stylesheet" type="text/scss" href="admin/users.scss">
+</head>
+
+	<div class="title">ユーザー情報編集</div>
+  	<%= form_for(@user) do |f| %>
+	<div class="user-form">
+		<div class="text">
+			<h2>名前（姓・名）</h2>
+			<%= f.text_field :last_name, placeholder:"姓" %>
+			<%= f.text_field :first_name, placeholder:"名" %>
+			<h2>名前（カナ姓・カナ名）</h2>
+			<%= f.text_field :last_name_katakana, placeholder:"セイ" %>
+			<%= f.text_field :first_name_katakana, placeholder:"メイ" %>
+			<h2>郵便番号</h2>
+			<%= f.text_field :postal_code, placeholder:"郵便番号" %>
+			<h2>住所</h2>
+			<%= f.text_field :street_address, placeholder:"住所" %>
+			<h2>電話番号</h2>
+			<%= f.text_field :phone_number, placeholder:"電話番号" %>
+			<h2>メールアドレス</h2>
+			<%= f.text_field :email, placeholder:"メールアドレス" %>
+		</div>
+	</div>
+	    	<%= f.submit "Update User" %>
+	<% end %>
