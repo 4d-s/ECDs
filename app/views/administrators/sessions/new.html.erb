@@ -3,8 +3,8 @@
   <br>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
-      <b>管理者名：　　</b>
-      <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+      <b>管理者メールアドレス：　　</b>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
     </div>
 
     <br>
