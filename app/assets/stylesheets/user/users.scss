@@ -1,3 +1,40 @@
 // Place all the styles related to the user/users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+//エンドユーザマイページ/ユーザ編集ページ
+.clearfix::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.text{
+	padding-left: 50px;
+}
+.user-form{
+	height: 600px;
+	margin: auto;
+	border: solid 1px;
+}
+.bottom{
+	height: 50px;
+}
+.pofile-btn{
+	text-align: right;
+	padding: 30px;
+}
+//マイページ
+.pofile{
+	font-size: 24px;
+	padding-top: 50px;
+	padding-right: 10px;
+}
+//ユーザ編集ページ
+.space{
+	width: 60%;
+	border: solid 1px;
+}
+.btn{
+	margin-bottom: 5px;
+}
