@@ -9,30 +9,40 @@
 				<h1>商品編集画面</h1>
 				<div class="item-edit-form">
 					<div class="item-edit-text">
-						<h3>商品名</h3>
-						<input type="text" name="~~~~~">
-						<h3>価格</h3>
-						￥<input type="text" name="~~~~~">
-						<h3>商品画像</h3>
-						<div class="image-form">
-							<div class="image-area">イメージ写真</div>
-							<div class="iamge-txet">
-								<div class="image-edit-btn"><%= link_to "画像を変更", root_path, class: "btn btn-success" %></div>
-								<div>ファイル名</div>
-								<a name="ファイル名">
+						<% form_for [:admin, @item] do |f|%>
+							<h3>商品名</h3>
+							<%= f.text_field :item_name %>
+							<h3>価格</h3>
+							￥<%= f.text_field :price %>
+							<h3>商品画像</h3>
+							<div class="image-form">
+								<div class="image-area"><%= attachment_feild :image_id %></div>
+								<div class="iamge-txet">
+									<div class="image-edit-btn"><%= link_to "画像を変更", root_path, class: "btn btn-success" %></div>
+									<div>ファイル名:</div>
 							</div>
-						</div>
-						<h3>在庫数</h3>
-						<input type="text" name="~~~~~~">個
+							<h3>在庫数</h3>
+							<%= f.text_feild :stock %>個
+						<% end %>
+
 						<h3>アーティスト名</h3>
-						<input type="text" name="~~~~~~">
-						<h3>シングル/アルバム</h3>
-						<input type="text" name="~~~~~~">
+						<% form_for [:admin, @artist] do |f| %>
+							<%= f.text_field :artist_name %>
+						<% end %>
+
 						<h3>レーベル</h3>
-						<input type="text" name="~~~~~~">
+						<% form_for [:admin, @label] do |f|%>
+							<%= f.text_feild :label_name %>
+						<% end %>
+
 						<h3>ジャンル</h3>
 						<%= select_tag 'genre', options_for_select({ロック: 1, sanple2: 2, sanple3: 3},1) %>
+
 						<h3>曲名リスト</h3>
+						<h4>・ディスク１</h4>
+						<input type="text" name="name">
+						<h4>・ディスク２</h4>
+						<input type="text" name="name">
 					</div>
 				</div>
 			</div>
