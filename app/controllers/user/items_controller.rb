@@ -10,12 +10,13 @@ class User::ItemsController < ApplicationController
 		#曲名での検索
 		elsif select_item_kind == "3"
 			@items = Item.page(params[:page]).per(12).reverse_order.Song_search(params[:keyword])
-
 		#検索せずに全商品を表示
 		else
 			@items = Item.page(params[:page]).per(12).reverse_order
 		end
 	end
 	def show
+		@item = Item.find(params[:id])
 	end
 end
+
