@@ -1,2 +1,41 @@
-<h1>Admin::Items#edit</h1>
-<p>Find me in app/views/admin/items/edit.html.erb</p>
+
+<link rel="stylesheets" herf="admin/items.scss"><body>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3" style="background-color: red; height: 1300px;">
+				<h2>サイドバースペース</h2>
+			</div>
+			<div class="col-lg-9">
+				<h1>商品編集画面</h1>
+				<div class="item-edit-form">
+					<div class="item-edit-text">
+						<h3>商品名</h3>
+						<input type="text" name="~~~~~">
+						<h3>価格</h3>
+						￥<input type="text" name="~~~~~">
+						<h3>商品画像</h3>
+						<div class="image-form">
+							<div class="image-area">イメージ写真</div>
+							<div class="iamge-txet">
+								<div class="image-edit-btn"><%= link_to "画像を変更", root_path, class: "btn btn-success" %></div>
+								<div>ファイル名</div>
+								<a name="ファイル名">
+							</div>
+						</div>
+						<h3>在庫数</h3>
+						<input type="text" name="~~~~~~">個
+						<h3>アーティスト名</h3>
+						<input type="text" name="~~~~~~">
+						<h3>シングル/アルバム</h3>
+						<input type="text" name="~~~~~~">
+						<h3>レーベル</h3>
+						<input type="text" name="~~~~~~">
+						<h3>ジャンル</h3>
+						<%= select_tag 'genre', options_for_select({ロック: 1, sanple2: 2, sanple3: 3},1) %>
+						<h3>曲名リスト</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
