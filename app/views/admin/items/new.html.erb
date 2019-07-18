@@ -1,2 +1,44 @@
-<h1>Admin::Items#new</h1>
-<p>Find me in app/views/admin/items/new.html.erb</p>
+<h1>新規商品追加画面</h1>
+<div>
+  	<%= form_for [:admin, @item] do |item| %>
+  	<div class="field">
+		<br>
+		<label>商品名</label>
+		<br>
+		<%= item.text_field :item_name %>
+		<br>
+		<label >価格</label>
+		<br>
+		<%= item.text_field :price %>
+		<br>
+		<label >在庫数</label>
+		<br>
+		<%= item.text_field :stock %>
+		<br>
+		<label >販売ステータス</label>
+		<br>
+		<%= item.check_box :is_sold %>
+		<br>
+		<label >画像</label>
+		<br>
+    	<%= item.attachment_field :image %>
+		<br>
+		<label >累計販売個数</label>
+		<br>
+		<%= item.text_field :order_count %>
+	</div>
+	<div class ="field">
+	 <%= item.fields_for :discs do |disc| %>
+          <%= disc.label :disc_number %>
+          <%= disc.text_field :disc_number %>
+          <%= disc.fields_for :songs do |song| %>
+          	  <%= song.label :song_name %>
+              <%= song.text_field :song_name %>
+              <%= song.text_field :song_number %>
+          <% end %>
+     <% end %>
+    </div>
+    <div class="actions">
+      <%= item.submit %>
+    </div>
+<% end %>
