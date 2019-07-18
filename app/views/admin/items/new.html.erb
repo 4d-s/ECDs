@@ -1,30 +1,44 @@
 <h1>新規商品追加画面</h1>
 <div>
-  	<%= form_for [:admin, @item] do |f| %>
+  	<%= form_for [:admin, @item] do |item| %>
+  	<div class="field">
 		<br>
 		<label>商品名</label>
 		<br>
-		<%= f.text_field :item_name %>
+		<%= item.text_field :item_name %>
 		<br>
 		<label >価格</label>
 		<br>
-		<%= f.text_field :price %>
+		<%= item.text_field :price %>
 		<br>
 		<label >在庫数</label>
 		<br>
-		<%= f.text_field :stock %>
+		<%= item.text_field :stock %>
 		<br>
 		<label >販売ステータス</label>
 		<br>
-		<%= f.text_field :is_sold %>
+		<%= item.check_box :is_sold %>
 		<br>
 		<label >画像</label>
 		<br>
-		<%= f.text_field :image_id %>
+    	<%= item.attachment_field :image %>
 		<br>
 		<label >累計販売個数</label>
 		<br>
-		<%= f.text_field :order_count %>
-		<%= f.submit "追加" %>
-	<% end %>
-</div>
+		<%= item.text_field :order_count %>
+	</div>
+	<div class ="field">
+	 <%= item.fields_for :discs do |disc| %>
+          <%= disc.label :disc_number %>
+          <%= disc.text_field :disc_number %>
+          <%= disc.fields_for :songs do |song| %>
+          	  <%= song.label :song_name %>
+              <%= song.text_field :song_name %>
+              <%= song.text_field :song_number %>
+          <% end %>
+     <% end %>
+    </div>
+    <div class="actions">
+      <%= item.submit %>
+    </div>
+<% end %>

@@ -2,17 +2,16 @@ class User::UsersController < ApplicationController
 
 
 	def show
-		@user = current_user
+		@user = User.find(params[:id])
 	end
 
 	def edit
-		@user = current_user
+		@user = User.find(params[:id])
 	end
 
 	def update
-		@user = User.find(current_user.id)
-		@user.update(user_params)
-		redirect_to mypage_path(current_user)
+		@user = User.find(params[:id])
+		redirect_to mypage_path(@user.id)
 	end
 
 	private
