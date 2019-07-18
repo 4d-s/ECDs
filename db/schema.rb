@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_18_091240) do
+ActiveRecord::Schema.define(version: 2019_07_18_095540) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "user_id"
@@ -37,9 +37,9 @@ ActiveRecord::Schema.define(version: 2019_07_18_091240) do
   end
 
   create_table "artists", force: :cascade do |t|
-    t.integer "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "artist_name"
   end
 
   create_table "discs", force: :cascade do |t|
@@ -50,7 +50,6 @@ ActiveRecord::Schema.define(version: 2019_07_18_091240) do
   end
 
   create_table "genres", force: :cascade do |t|
-    t.integer "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "genre_name"
@@ -65,10 +64,12 @@ ActiveRecord::Schema.define(version: 2019_07_18_091240) do
     t.integer "order_count"
     t.datetime "updated_at", null: false
     t.datetime "created_at", null: false
+    t.integer "genre_id"
+    t.integer "artist_id"
+    t.integer "label_id"
   end
 
   create_table "labels", force: :cascade do |t|
-    t.integer "item_id"
     t.string "label_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
