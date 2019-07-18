@@ -6,9 +6,25 @@
 		<br>
 		<%= f.text_field :item_name %>
 		<br>
+		<label >価格</label>
+		<br>
+		<%= f.text_field :price %>
+		<br>
 		<label >在庫数</label>
 		<br>
 		<%= f.text_field :stock %>
+		<br>
+		<label >販売ステータス</label>
+		<br>
+		<%= f.text_field :is_sold %>
+		<br>
+		<label >画像</label>
+		<br>
+		<%= f.text_field :image_id %>
+		<br>
+		<label >累計販売個数</label>
+		<br>
+		<%= f.text_field :order_count %>
 		<%= f.submit "追加" %>
 	<% end %>
 </div>
