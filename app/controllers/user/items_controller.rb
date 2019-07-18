@@ -6,4 +6,8 @@ class User::ItemsController < ApplicationController
   def show
   	@item = Item.find(params[:id])
   end
+
+  def item_selects_params
+  	params.require(:item_select).permit(:item_count)
+  end
 end

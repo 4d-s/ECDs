@@ -41,8 +41,13 @@
 					<%= @item.price %>
 				</p>
 			</div>
-				数量 １個<br><br>
-			<%= button_to 'カートに入れる', user_item_selects_path, method: :post %>
+
+            <%= form_tag(user_item_selects_path, method: :post) do %>
+                <%# hidden_field_tagによる商品IDの引継ぎ %>
+                <%= hidden_field_tag(:item_id, @item.id) %>
+                <%= select_tag('item_count',options_for_select((1..10), selected: '1'))%>
+                <%= submit_tag("カートに入れる") %>
+            <% end %><br>
 
 			<p class ="item-price-title" ><br>在庫：
 			<% if @item.stock > 0 %>
