@@ -18,6 +18,7 @@ class User::ItemsController < ApplicationController
 	end
 	def show
 		@item = Item.find(params[:id])
+		@item_select = current_user.item_selects.new(item_id: @item.id)
 	end
 
 end

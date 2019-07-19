@@ -41,8 +41,9 @@
 					<%= @item.price %>
 				</p>
 			</div>
-			<%= link_to user_item_item_selects_path(@item), method: :post do %>
-				カートに入れる
+			<%= form_for @item_select, url: user_item_item_selects_path(@item) do |f| %>
+				<%= f.select :item_count, (1..5) %>
+				<%= f.submit "カートに入れる" %>
     		<% end %>
 
 			<p class ="item-price-title" ><br>在庫：
