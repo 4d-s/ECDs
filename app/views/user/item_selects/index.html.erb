@@ -6,7 +6,7 @@
 		</div>
 			<div class="col-xs-3">
 					<% @sum = 0 %>
-					<% @item_select.each do |item| %>
+					<% @item_selects.each do |item| %>
 						<% @sum += item.price %>
 					<% end %>
 					<p class="payment-text">
@@ -20,7 +20,7 @@
 			</div>
 	</div>
 	<!-- 商品１ -->
-	<% @item_select.each do |item| %>
+	<% @item_selects.each do |item| %>
 	<div class="cart-item col-xs-12">
 		<div class="item-image col-xs-3">
 			<%= attachment_image_tag item, :image_id, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>

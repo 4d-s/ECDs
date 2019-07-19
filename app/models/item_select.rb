@@ -1,0 +1,2 @@
+class ItemSelect < ApplicationRecord
+end
