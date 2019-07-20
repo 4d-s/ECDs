@@ -5,15 +5,11 @@
 	<link rel="stylesheet" type="text/scss" href="user/homes.scss">
 </head>
 
-<div class="search-box">
+<div class="top-search-box">
 	<h1>ECD's</h1>
-	<form>
-		<select name="検索種別">
-			<option value="1">CD名</option>
-			<option value="2" selected>アーティスト名</option>
-			<option value="3">ジャンル</option>
-		</select>
-		<%= text_field :title, :size=>"35" %>
-		<%= submit_tag '検索' %>
-	</form>
+	<%= form_tag user_items_path, method: :get do %>
+	<%= select_tag 'select_id', options_for_select([["CD名","1"], ["アーティスト名","2"], ["曲名","3"]], :selected=>"1") %>
+	<%= text_field_tag :keyword %>
+	<%= submit_tag '検索' , :item_name => nil%>
+	<% end %>
 </div>
