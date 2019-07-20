@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_18_031015) do
+ActiveRecord::Schema.define(version: 2019_07_19_043017) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "user_id"
@@ -55,7 +55,6 @@ ActiveRecord::Schema.define(version: 2019_07_18_031015) do
   end
 
   create_table "artists", force: :cascade do |t|
-    t.integer "item_id"
     t.string "artist_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -69,10 +68,17 @@ ActiveRecord::Schema.define(version: 2019_07_18_031015) do
   end
 
   create_table "genres", force: :cascade do |t|
-    t.integer "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "genre_name"
+  end
+
+  create_table "item_selects", force: :cascade do |t|
+    t.integer "item_id"
+    t.integer "user_id"
+    t.integer "item_count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "items", force: :cascade do |t|
@@ -84,10 +90,12 @@ ActiveRecord::Schema.define(version: 2019_07_18_031015) do
     t.integer "order_count"
     t.datetime "updated_at", null: false
     t.datetime "created_at", null: false
+    t.integer "genre_id"
+    t.integer "artist_id"
+    t.integer "label_id"
   end
 
   create_table "labels", force: :cascade do |t|
-    t.integer "item_id"
     t.string "label_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
