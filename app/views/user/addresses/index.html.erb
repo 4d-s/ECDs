@@ -12,7 +12,6 @@
 <% end %>
 
 <% @addresses.each do |address| %>
-<% if address.user_id == current_user.id %>
 <div class="address-box">
 	<div class ="address-contents">
 		<%= address.last_name %><%= address.first_name %><br>
@@ -23,7 +22,5 @@
 		<%= link_to '削除', user_address_path(address.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
 	</div>
 </div>
-<% end %>
-<% else %>
 <% end %>
 
