@@ -17,43 +17,43 @@
                 ようこそ、ECD'sへ！！
             </p>
         <% end %>
-      <div class="search-form-box"></div>
-      <div class="search-box">
-        <p>商品検索</p>
+      <div class="header-search-box">
+        <%= form_tag user_items_path, method: :get do %>
+        <%= select_tag 'select_id', options_for_select([["CD名","1"], ["アーティスト名","2"], ["曲名","3"]], :selected=>"1") %>
+          <%= text_field_tag :keyword %>
+        <%= submit_tag '検索' , :item_name => nil%>
+        <% end %>
       </div>
     </div>
     <!-- ナビゲーションメニュー  -->
     <div class="nav-menu col-xs-12">
       <% if user_signed_in? %>
-        <li class="nav-list-item">
-          <%= link_to "会員登録", new_user_registration_path, class: "link-decoration" %>
-        </li>
-        <li class="nav-list-item">
+        <li class="nav-list-item-left">
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "link-decoration" %>
         </li>
-        <li class="nav-list-item">
+        <li class="nav-list-item-right">
           <%= link_to "商品一覧", user_items_path, class: "link-decoration" %>
         </li>
-        <li class="nav-list-item">
+        <li class="nav-list-item-right">
           <%= link_to "カート", user_item_selects_path, class: "link-decoration" %>
         </li>
-        <li class="nav-list-item">
+        <li class="nav-list-item-right">
           <%= link_to "マイページ", mypage_path, class: "link-decoration" %>
         </li>
       <% else %>
-        <li class="nav-list-item">
+        <li class="nav-list-item-left">
           <%= link_to "会員登録", new_user_registration_path, class: "link-decoration" %>
         </li>
-        <li class="nav-list-item">
+        <li class="nav-list-item-left">
           <%= link_to "ログイン", new_user_session_path, class: "link-decoration" %>
         </li>
-        <li class="nav-list-item">
+        <li class="nav-list-item-right">
           <%= link_to "商品一覧", user_items_path, class: "link-decoration" %>
         </li>
-        <li class="nav-list-item">
+        <li class="nav-list-item-right">
           <%= link_to "カート", user_item_selects_path, class: "link-decoration" %>
         </li>
-        <li class="nav-list-item">
+        <li class="nav-list-item-right">
           <%= link_to "マイページ", mypage_path, class: "link-decoration" %>
         </li>
       <% end %>
