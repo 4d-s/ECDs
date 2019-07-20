@@ -1,4 +1,5 @@
 class User::ItemsController < ApplicationController
+
 	def index
 		select_item_kind = params[:select_id]
 		#CD名での検索
@@ -17,6 +18,8 @@ class User::ItemsController < ApplicationController
 	end
 	def show
 		@item = Item.find(params[:id])
+		@item_select = current_user.item_selects.new(item_id: @item.id)
 	end
+
 end
 

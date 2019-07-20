@@ -19,11 +19,13 @@ Rails.application.routes.draw do
 
   namespace :user do
     resources :addresses, only: [:index, :new, :edit, :create, :update, :destroy]
-    resources :items, only: [:index, :show]
+    resources :items, only: [:index, :show] do
+      resources :item_selects, only: [:create, :destroy]
+    end
+    resources :item_selects, only: [:index,:update]
     resources :orders, only: [:new, :create, :index]
     get 'orders/address' => 'orders/#address' ,as: 'order_address'
     post 'orders/address' => 'orders/#create_address' ,as: 'create_order_address'
-    resources :item_selects, only: [:index, :create, :update, :destroy]
   end
 
   # namespaceに属さないルーティング
