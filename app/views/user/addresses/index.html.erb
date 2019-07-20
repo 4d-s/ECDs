@@ -2,9 +2,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>アドレス一覧</title>
-	<link rel="stylesheet" type="text/scss" href="user/items.scss">
 </head>
-
 <h1 class="address-index">アドレス帳</h1>
 
 <%= link_to new_user_address_path do%>
@@ -12,7 +10,9 @@
 	<h3>新しい住所を追加</h3>
 </div>
 <% end %>
+
 <% @addresses.each do |address| %>
+<% if address.user_id == current_user.id %>
 <div class="address-box">
 	<div class ="address-contents">
 		<%= address.last_name %><%= address.first_name %><br>
@@ -23,5 +23,7 @@
 		<%= link_to '削除', user_address_path(address.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
 	</div>
 </div>
+<% end %>
+<% else %>
 <% end %>
 
