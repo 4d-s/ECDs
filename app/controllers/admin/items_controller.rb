@@ -15,11 +15,12 @@ class Admin::ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
   end
 
   def create
       @item = Item.new(item_params)
-      if @item.save
+      if @item.save!
       redirect_to admin_path
       else
       render:new
@@ -30,10 +31,30 @@ class Admin::ItemsController < ApplicationController
   end
 
   def destroy
+
   end
 
   private
   def item_params
-    params.require(:item).permit(:airtist_id, :label_id, :genre_id, :item_name, :stock, :price, :is_sold, :image, :order_count, discs_attributes:[:id, :disc_number, :item_id, songs_attributes: [:id, :song_number,:song_name)]  )
+    params.require(:item).permit(:artist_id, :label_id, :genre_id, :item_name, :stock, :price, :is_sold, :image, :order_count,
+        discs_attributes:
+
+        [:id, :disc_number, :item_id, :_destroy,
+
+        songs_attributes:
+
+        [:id, :song_number, :song_name, :_destroy]
+
+     ]
+  )
   end
+
+
+
+
+
+
+
+
+>>>>>>> 7adc07f2a24dc027a5defe05ae7f690d1aaa1bd9
 end

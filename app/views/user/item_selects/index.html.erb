@@ -1,95 +1,78 @@
 <div class="main-area clearfix">
+	<% if flash[:notice] %>
+		<p class="notice"><%= flash[:notice] %></p>
+		<% end %>
 	<!-- カート上部 -->
 	<div class="cart-top col-xs-12">
-		<div class="col-xs-7">
+		<div class="col-xs-6">
 			<h2 class="cart-title">ショッピングカート</h2>
 		</div>
-		<div class="col-xs-2">
-			<p class="payment-text">
-				合計：￥5,400
-			</p>
+			<div class="col-xs-3">
+					<% @sum = 0 %>
+					<% @item_selects.each do |item_select| %>
+						<% @sum += item_select.item.price %>
+					<% end %>
+					<p class="payment-text">
+							合計：￥ <%= @sum %>
+					</p>
+			</div>
+			<div class="buy-button-area col-xs-2">
+				<button type="button" class="btn btn-warning buy-button">
+					購入ページへ
+				</button>
+			</div>
+	</div>
+	<!-- 商品１ -->
+	<% @item_selects.each do |item_select| %>
+	<div class="cart-item col-xs-12">
+		<div class="item-image col-xs-3">
+			<%= attachment_image_tag item_select.item, :image_id, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
 		</div>
-		<div class="buy-button-area col-xs-2">
-			<button type="button" class="btn btn-warning buy-button">
+		<div class="col-xs-9">
+			<div class="item-text col-xs-12">
+				<%= item_select.item.item_name %>
+			</div>
+			<div class="col-xs-5">
+                	<%= link_to user_item_item_select_path([item_select.item.id], id: item_select.id), method: :delete do %>
+                	この商品をカートから削除
+                	<% end %>
+			</div>
+			<div class="col-xs-5">
+				<table width="300">
+					<thead>
+						<tr>
+							<th>単価</th>
+							<th>数量</th>
+							<th>小計</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td>¥ <%= item_select.item.price %></td>
+								<td> <%= item_select.item_count %></td>
+								<td>¥ <%= item_select.item.price %></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<% end %>
+
+	<!-- カート下部 -->
+	<% if @sum == 0 %>
+		カートに商品がありません
+	<% else %>
+		<div class="col-xs-6"></div>
+		<div class="col-xs-2">
+			<button type="button" class="btn btn-warning">
 				購入ページへ
 			</button>
 		</div>
-	</div>
-	<!-- 商品１ -->
-	<div class="cart-item col-xs-12">
-		<div class="item-image col-xs-3">
-			ジャケット
+		<div class="total-area col-xs-4">
+			<p class="payment-text2">
+				合計：￥ <%= @sum %>
+			</p>
 		</div>
-		<div class="col-xs-9">
-			<div class="item-text col-xs-12">
-				CD名
-			</div>
-			<div class="col-xs-5">
-				カートから削除
-			</div>
-			<div class="col-xs-5">
-				<table width="300">
-					<thead>
-						<tr>
-							<th>単価</th>
-							<th>数量</th>
-							<th>小計</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>¥5400</td>
-							<td>1</td>
-							<td>¥5400</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</div>
-	<!-- 商品２ -->
-	<div class="cart-item col-xs-12">
-		<div class="item-image col-xs-3">
-			ジャケット
-		</div>
-		<div class="col-xs-9">
-			<div class="item-text col-xs-12">
-				CD名
-			</div>
-			<div class="col-xs-5">
-				カートから削除
-			</div>
-			<div class="col-xs-5">
-				<table width="300">
-					<thead>
-						<tr>
-							<th>単価</th>
-							<th>数量</th>
-							<th>小計</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>¥5400</td>
-							<td>1</td>
-							<td>¥5400</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</div>
-	<!-- カート下部 -->
-	<div class="col-xs-6"></div>
-	<div class="col-xs-2">
-		<button type="button" class="btn btn-warning">
-			購入ページへ
-		</button>
-	</div>
-	<div class="total-area col-xs-4">
-		<p class="payment-text2">
-			合計：¥5,400
-		</p>
-	</div>
-
+	<% end %>
 </div>

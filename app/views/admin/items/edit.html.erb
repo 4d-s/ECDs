@@ -1,2 +1,50 @@
-<h1>Admin::Items#edit</h1>
-<p>Find me in app/views/admin/items/edit.html.erb</p>
+
+<link rel="stylesheets" herf="admin/items.scss">
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3" style="background-color: red; height: 1300px;">
+				<h2>サイドバースペース</h2>
+			</div>
+			<div class="col-lg-9">
+				<h1>商品編集画面</h1>
+				<div class="item-edit-form">
+					<div class="item-edit-text">
+						<%= form_for [:admin, @item] do |f|%>
+							<h3>商品名</h3>
+							<%= f.text_field :item_name %>
+							<h3>価格</h3>
+							￥<%= f.text_field :price %>
+							<h3>商品画像</h3>
+							<div class="image-form">
+								<%= attachment_image_tag @item, :image_id, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+								<%= f.file_field :image %>
+							</div>
+							<h3>在庫数</h3>
+								<%= f.text_field :stock %>個
+
+							<h3>アーティスト名</h3>
+								<%= f.text_field :artist %>
+
+							<h3>レーベル</h3>
+								<%= f.text_field :label %>
+
+							<h3>ジャンル</h3>
+								<%= select_tag 'genre', options_for_select({ロック: 1, sanple2: 2, sanple3: 3},1) %>
+							<h3>曲名リスト</h3>
+							<h4>・ディスク１</h4>
+								<%= f.fields_for :discs do |disc|%>
+									<%= disc.fields_for :songs do |song| %>
+										<%= song.text_field :song_name %>
+									<% end %>
+								<% end %>
+								<span><button type='submit' name='action' value='add'>ディスクの追加</button></span>
+								<span><button type='submit' name='action' value='del'>削除</button></span>
+								<%= f.submit "商品の変更" %>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
