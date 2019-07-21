@@ -1,2 +1,31 @@
-<h1>Admin::Orders#index</h1>
-<p>Find me in app/views/admin/orders/index.html.erb</p>
+<div class="main-area clearfix col-xs-9">
+	<div class = "admin-orders-area">
+	<h1 class= "admin-orders-title">注文一覧</h1>
+	<table class ="table table-hover table-inverse">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>注文者</th>
+				<th>受注日</th>
+				<th>商品名</th>
+				<th>注文数</th>
+				<th>在庫</th>
+				<th>配送状況</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @orders.each do |order| %>
+				<tr>
+					<td><%= order.user.id %></td>
+					<td><%= order.user.name %></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<% end %>
+		</tbody>
+	</table>
+	</div>
+</div>
