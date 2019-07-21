@@ -17,3 +17,40 @@
 	width: auto;
 	float: left;
 }
+
+.order-title{
+	font-size: 22px;
+}
+.order-text{
+	font-size: 12px;
+}
+
+// 注文内容確認欄
+.order-item-area{
+	padding: 20px 0;
+	border: solid 1px black;
+}
+.order-item-image{
+	height: 120px;
+	border: solid 1px black;
+}
+.item-payment{
+	float: right;
+}
+// 注文確定欄
+.order-confirm-area{
+	padding: 20px 0;
+	margin-left: 20px;
+	border: solid 1px black;
+}
+// 配送住所選択欄
+.order-address-choice{
+	height: 120px;
+	border: solid 1px black;
+}
+
+// 支払い情報選択欄
+.order-payment-choice{
+	height: 120px;
+	border: solid 1px black;
+}
