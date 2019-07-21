@@ -27,6 +27,9 @@ class Admin::ItemsController < ApplicationController
   end
 
   def update
+    @item = Item.find(item_params)
+    @item.update
+    redirect_to admin_item_path
   end
 
   def destroy
@@ -48,6 +51,3 @@ class Admin::ItemsController < ApplicationController
   )
   end
 end
-
-
-

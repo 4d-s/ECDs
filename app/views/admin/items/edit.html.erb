@@ -10,7 +10,7 @@
 				<h1>商品編集画面</h1>
 				<div class="item-edit-form">
 					<div class="item-edit-text">
-						<%= form_for [:admin, @item] do |f|%>
+						<%= form_for @item, url:admin_item_path do |f|%>
 							<h3>商品名</h3>
 							<%= f.text_field :item_name %>
 							<h3>価格</h3>
@@ -30,13 +30,14 @@
 								<%= f.text_field :label %>
 
 							<h3>ジャンル</h3>
-								<%= select_tag 'genre', options_for_select({ロック: 1, sanple2: 2, sanple3: 3},1) %>
+  								<%= f.collection_select :genre_id, Genre.all, :id, :genre_name %>
 							<h3>曲名リスト</h3>
 							<h4>・ディスク１</h4>
 								<%= f.fields_for :discs do |disc|%>
-									<%= disc.fields_for :songs do |song| %>
-										<%= song.text_field :song_name %>
-									<% end %>
+									<%= disc.text_field :disc_id %>
+										<%= disc.fields_for :songs do |song| %>
+											<%= song.text_field :song_name %>
+										<% end %>
 								<% end %>
 								<span><button type='submit' name='action' value='add'>ディスクの追加</button></span>
 								<span><button type='submit' name='action' value='del'>削除</button></span>
