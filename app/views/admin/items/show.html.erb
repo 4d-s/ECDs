@@ -1,36 +1,57 @@
 <div class="main-area col-xs-9">
 	<!-- ジャケット画像 -->
 	<div class = "item-image-area col-xs-4">
-		ジャケット
+		<%= attachment_image_tag @item, :image_id, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
 	</div>
 	<!-- 商品情報 -->
 	<div class = "col-xs-8">
 		<div class = "item-name-area col-xs-8">
 			<!-- シングル、アルバム名 -->
 			<h4 class = "item-title">シングル/アルバム名：</h4>
-			<p class= "item-title-text">&ensp;我らが4D's</p>
+			<p class= "item-title-text">
+				<%= @item.item_name %>
+			</p>
 			<h4 class = "item-title">アーティスト名：<h4>
-			<p class= "item-title-text">&ensp;4D's</p>
+			<p class= "item-title-text">
+				4D's
+			</p>
 			<!-- 登録情報 -->
 			<div class = "item-text-area panel panel-default">
 				<h4 class= "item-title">登録情報</h4>
 				<h4 class= "item-title">レーベル名：</h4>
-				<br>
+				<p class= "item-title-text">
+					WEBCAMP
+				</p>
 				<h4 class= "item-title">ジャンル：</h4>
 				<br>
 			</div>
 		</div>
 		<!-- 価格情報 -->
+		<div class = "edit-link-area col-xs-4">
+			<%= link_to "商品編集ページへ", edit_admin_item_path, method: :get, class: "btn btn-primary" %>
+		</div>
 		<div class = "item-price-area well col-xs-4">
-			<p class ="item-price-title" >取扱情報：取り扱い中</p>
+			<p class ="item-price-title" >取扱情報：
+				<% if @item.is_sold %>
+					取り扱い中
+				<% else %>
+					取扱停止中
+				<% end %>
+			</p>
 			<div class = "panel">
 				<p class="item-price-text">値段（税込）</p>
-				<p class="item-price-number">¥ 5,000</p>
+				<p class="item-price-number">¥
+					<%= @item.price %>
+				</p>
 			</div>
-			<p class ="item-price-title" >取扱情報：取り扱い中</p>
-				数量 １個<br>
-			<button type="button" class="btn btn-warning buy-button">カートに入れる</button>
-			<p class ="item-price-title" ><br>在庫：有り</p>
+
+			<p class ="item-price-title" ><br>在庫：
+			<% if @item.stock > 0 %>
+				有り
+			<% else %>
+				無し
+			<% end %>
+			</p>
 		</div>
 	</div>
 	<div class = "item-song-text-area col-xs-12">

@@ -1,2 +1,21 @@
-<h1>User::Addresses#edit</h1>
-<p>Find me in app/views/user/addresses/edit.html.erb</p>
+<h1>アドレス編集</h1>
+<%= form_for [:user, @edit_address] do |a| %>
+
+	<h4>名前</h4>
+	
+	<%= a.text_field :last_name %>
+	<%= a.text_field :first_name %>
+
+	<h4>住所</h4>
+	<%= a.text_field :street_address ,size:70%>
+
+	<h4>郵便番号</h4>
+	<%= a.text_field :postal_code ,size:70%>
+
+	<h4>電話番号</h4>
+	<%= a.text_field :phone_number ,size:70%>
+	<br><br>
+
+	<%= a.submit '保存', class: "btn btn-default" %>
+	<%= link_to '戻る', user_addresses_path, class: "btn btn-default"%>
+<% end %>
