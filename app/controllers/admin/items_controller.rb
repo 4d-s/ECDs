@@ -37,11 +37,13 @@ class Admin::ItemsController < ApplicationController
   private
   def item_params
     params.require(:item).permit(:artist_id, :label_id, :genre_id, :item_name, :stock, :price, :is_sold, :image, :order_count,
-     discs_attributes:
-     [
-       :id, :disc_number, :item_id, :_destroy, 
+        discs_attributes:
 
-        songs_attributes: [:id, :song_number, :song_name, :_destroy]
+        [:id, :disc_number, :item_id, :_destroy,
+
+        songs_attributes:
+
+        [:id, :song_number, :song_name, :_destroy]
 
      ]
   )

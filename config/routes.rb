@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    get 'genre/new'
+  end
+  namespace :admin do
+    get 'label/new'
+  end
+  namespace :admin do
+    get 'artists/new'
+  end
+  get 'artists/new'
   devise_for :administrators, controllers: {
     sessions:      'administrators/sessions',
     passwords:     'administrators/passwords',
