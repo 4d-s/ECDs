@@ -32,7 +32,7 @@
 							<h3>ジャンル</h3>
   								<%= f.collection_select :genre_id, Genre.all, :id, :genre_name %>
 							<h3>曲名リスト</h3>
-							<h4>・ディスク１</h4>
+							<h4>・ディスク１</h>
 								<%= f.fields_for :discs do |disc|%>
 									<%= disc.text_field :disc_id %>
 										<%= disc.fields_for :songs do |song| %>
