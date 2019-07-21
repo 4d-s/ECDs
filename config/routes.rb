@@ -1,15 +1,6 @@
 Rails.application.routes.draw do
 
-  namespace :admin do
-    get 'genre/new'
-  end
-  namespace :admin do
-    get 'label/new'
-  end
-  namespace :admin do
-    get 'artists/new'
-  end
-  get 'artists/new'
+
   devise_for :administrators, controllers: {
     sessions:      'administrators/sessions',
     passwords:     'administrators/passwords',
@@ -25,6 +16,9 @@ Rails.application.routes.draw do
     resources :users, only: [:edit, :update, :index, :show]
     resources :items, only: [:index, :show, :new, :edit, :create, :update, :destroy]
     resources :orders, only: [:index, :show, :edit, :update]
+    resources :artists, only: [:new, :create]
+    resources :labels, only: [:new, :create]
+    resources :genres, only: [:new, :create]
   end
 
   namespace :user do
