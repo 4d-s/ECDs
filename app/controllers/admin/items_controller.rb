@@ -13,6 +13,15 @@ class Admin::ItemsController < ApplicationController
     disc = @item.discs.build
     disc.songs.build
   end
+  def artist
+    @artists = Artist.all
+  end
+  def genre
+    @genres = Genre.all
+  end
+  def label
+    @labels = Label.all
+  end
 
   def edit
     @item = Item.find(params[:id])
@@ -52,9 +61,3 @@ class Admin::ItemsController < ApplicationController
 
 
 
-
-
-
-
->>>>>>> 7adc07f2a24dc027a5defe05ae7f690d1aaa1bd9
-end

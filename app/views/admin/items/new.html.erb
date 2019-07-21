@@ -27,7 +27,7 @@
 		<br>
 		<%= item.text_field :order_count %>
 		<label>アーティスト</label>
-  		<%= f.collection_select :artist_id, Artist.all, :id, :artist_name %>
+  		<%= f.collection_select :artist_id, Artist.all, :id, :artiist_name %>
   		<% end %>
 		<label>レーベル</label>
   		<%= f.collection_select :label_id, Label.all, :id, :label_name %>
