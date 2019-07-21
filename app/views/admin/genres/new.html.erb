@@ -1,2 +1,10 @@
-<h1>Admin::Genre#new</h1>
-<p>Find me in app/views/admin/genre/new.html.erb</p>
+<h1>ジャンル登録</h1>
+	<%= form_for(@genre, url: admin_genres_path) do |f| %>
+		<br>
+		<label>ジャンル名</label>
+		<br>
+		<%= f.text_field :genre_name %>
+		<br>
+		<br>
+		<%= f.submit %>
+		<% end %>
