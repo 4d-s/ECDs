@@ -13,26 +13,16 @@ class Admin::ItemsController < ApplicationController
     disc = @item.discs.build
     disc.songs.build
   end
-  def artist
-    @artists = Artist.all
-  end
-  def genre
-    @genres = Genre.all
-  end
-  def label
-    @labels = Label.all
-  end
-
   def edit
     @item = Item.find(params[:id])
   end
 
   def create
       @item = Item.new(item_params)
-      if @item.save!
+      if @item.save
       redirect_to admin_path
       else
-      render:new
+      redirect_to new_admin_item_path
       end
   end
 
@@ -48,16 +38,16 @@ class Admin::ItemsController < ApplicationController
     params.require(:item).permit(:artist_id, :label_id, :genre_id, :item_name, :stock, :price, :is_sold, :image, :order_count,
         discs_attributes:
 
-        [:id, :disc_number, :item_id, :_destroy,
+        [:id, :disc_number, :item_id,
 
         songs_attributes:
 
-        [:id, :song_number, :song_name, :_destroy]
+        [:id, :song_number, :song_name]
 
      ]
   )
   end
-
+end
 
 
 
