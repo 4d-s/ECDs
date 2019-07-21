@@ -36,14 +36,29 @@ class User::OrdersController < ApplicationController
   	redirect_to root_path
   end
 
-  def adress
+  def address
+  	@new_address = Address.new
+  end
+
+  def create_address
+  	@new_address = Address.new(address_params)
+    @new_address.user_id = current_user.id
+    @new_address.save
+    render :new
   end
 
   def index
+  	@user = current_user
+  	@orders = @user.orders
   end
 
   private
-    def order_params
+
+  def order_params
       params.require(:order).permit(:order_address, :payment)
-    end
+  end
+
+  def address_params
+    params.require(:address).permit(:last_name, :first_name, :street_address, :postal_code, :phone_number)
+  end
 end

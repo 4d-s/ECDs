@@ -1,12 +1,30 @@
 // Place all the styles related to the user/orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// 購入履歴
+.order-date{
+	border: solid 1px;
+}
+.delivery-status{
+	text-align: right;
+}
+.order-address{
+	width: auto;
+	float: left;
+}
+.order-item-info{
+	width: auto;
+	float: left;
+}
+
 .order-title{
 	font-size: 22px;
 }
 .order-text{
 	font-size: 12px;
 }
+
 // 注文内容確認欄
 .order-item-area{
 	padding: 20px 0;
