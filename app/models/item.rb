@@ -23,7 +23,6 @@ class Item < ApplicationRecord
        all
    	end
 	end
-
 	def self.Song_search(keyword)
 		if keyword
       where(['song_name LIKE ?', "%#{keyword}%"])

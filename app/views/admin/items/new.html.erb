@@ -1,6 +1,6 @@
 <h1>新規商品追加画面</h1>
 <div>
-  	<%= form_for [:admin, @item] do |item| %>
+  	<%= form_for [:admin, @item, @artist, @label, @genre] do |item| %>
   	<div class="field">
 		<br>
 		<label>商品名</label>
@@ -26,14 +26,25 @@
 		<label >累計販売個数</label>
 		<br>
 		<%= item.text_field :order_count %>
+		<label>アーティスト</label>
+  		<%= f.collection_select :artist_id, Artist.all, :id, :artist_name %>
+  		<% end %>
+		<label>レーベル</label>
+  		<%= f.collection_select :label_id, Label.all, :id, :label_name %>
+  		<% end %>
+  		<label>ジャンル</label>
+  		<%= f.collection_select :genre_id, Genre.all, :id, :genre_name %>
+  		<% end %>
 	</div>
 	<div class ="field">
 	 <%= item.fields_for :discs do |disc| %>
           <%= disc.label :disc_number %>
           <%= disc.text_field :disc_number %>
+          <br>
           <%= disc.fields_for :songs do |song| %>
           	  <%= song.label :song_name %>
               <%= song.text_field :song_name %>
+              <%= song.label :song_number %>
               <%= song.text_field :song_number %>
           <% end %>
      <% end %>
