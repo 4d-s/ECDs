@@ -8,61 +8,47 @@
 		<h2 class="order-title">購入内容の確認・変更</h2>
 		<p class="order-text">
 			「注文を確定する」ボタンを押してご注文いただくことで、商品をご注文されたことになります。<br>
-			「注文を確定する」ボタンをクリックする前に、配送料と注文合計をご確認ください。
+			「注文を確定する」ボタンをクリックする前に、<u>配送料</u>と<u>注文合計</u>をご確認ください。
 		</p>
 	</div>
 	<div class="order-item-area col-xs-7">
 		<!-- 商品１ -->
-		<div class="order-item-image col-xs-3">
-			item picture
-		</div>
-		<div class="col-xs-9">
-			<div class="item-text-area col-xs-12">
-				<p class= "order-item-text">
-					item name<br>
-					artist name<br>
-					単価：¥ 4000<br>
-					数量：1
-				</p>
-				<p class ="item-payment">
-					¥ 4000
-				</p>
+		<% @sum = 0 %>
+		<% @item_selects.each do |item_select| %>
+			<% @sum += item_select.item.price * item_select.item_count %>
+			<div class="order-item-image col-xs-3">
+				<%= attachment_image_tag item_select.item, :image_id, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
 			</div>
-		</div>
-		<!-- 商品２ -->
-		<div class="order-item-image col-xs-3">
-			item picture
-		</div>
-		<div class="col-xs-9">
-			<div class="item-text-area col-xs-12">
-				<p class= "order-item-text">
-					item name<br>
-					artist name<br>
-					単価：¥ 5000<br>
-					数量：1
-				</p>
-				<p class ="item-payment">
-					¥ 5000
-				</p>
+			<div class="col-xs-9">
+				<div class="item-text-area col-xs-12">
+					<p class= "order-item-text">
+						「<%= item_select.item.item_name %>」 <br>
+						アーティスト名：artist name<br>
+						単価：¥ <%= item_select.item.price %> <br>
+						数量：<%= item_select.item_count %>
+					</p>
+					<p class ="item-payment">
+						¥ <%= item_select.item.price * item_select.item_count %>
+					</p>
+				</div>
 			</div>
-		</div>
-		<!-- 合計金額 -->
-		<div class="item-text-area col-xs-12">
-			<p class= "item-payment">
-				合計金額：¥ 9000
-			</p>
-		</div>
+		<% end %>
+		<p class ="item-payment">
+			<u><b>合計金額： ¥ <%= @sum %>（税込み）</b></u>
+		</p>
 	</div>
 
 	<!-- 注文確定欄 -->
+	<%= form_with model: [:user, @order] do |f| %>
+
 	<div class="order-confirm-area col-xs-4">
-			<%= link_to "注文を確定する", user_orders_path, class: "btn btn-warning col-xs-12" %>
+			<%= f.submit "注文を確定する" %>
 			<table width="200">
 				<caption><b>注文内容</b></caption>
 				<tbody>
 					<tr>
 						<td>商品の小計：</td>
-						<td>¥ 9,000</td>
+						<td>¥ <%= @sum %></td>
 					</tr>
 					<tr>
 						<td>配送料：</td>
@@ -70,12 +56,12 @@
 					</tr>
 					<tr>
 						<td>合計：</td>
-						<td>¥ 9,500</td>
+						<td>¥ <%= @sum + 500 %></td>
 					</tr>
 				</tbody>
 			</table>
 			<p class= "item-payment">
-				ご請求額：¥ 9,000
+				注文合計：¥ <%= @sum + 500 %>
 			</p>
 	</div>
 
@@ -84,6 +70,15 @@
 		<h2 class="order-title">配送住所選択</h2>
 	</div>
 	<div class="order-address-choice col-xs-7">
+		<div class = "order-address-radio">
+			<label><%= f.radio_button :address_select, "0" , {:checked => true} %>
+			 規定の住所に配送する</label><br><br>
+			<label><%= f.radio_button :address_select, "1" %> 登録済みの住所から配送先を選択する</label><br>
+			<%= f.collection_select :address_id, Address.all, :id, :street_address,
+                               :prompt => "配送先を選択" %><br><br>
+			<label><%= f.radio_button :address_select, "2" %> 配送先を新しく入力する</label><br>
+			<%= link_to "新規配送先入力ページへ", user_order_address_path %>
+		</div>
 	</div>
 
 	<!-- 支払い方法選択 -->
@@ -91,6 +86,13 @@
 		<h2 class="order-title">支払い方法選択</h2>
 	</div>
 	<div class="order-payment-choice col-xs-7">
+		<div class = "order-payment-radio">
+			<label><%= f.radio_button :payment, "1", {:checked => true} %>銀行振込</label><br>
+			<label><%= f.radio_button :payment, "2" %>クレジット支払い</label><br>
+			<label><%= f.radio_button :payment, "3" %>代引き</label>
+		</div>
 	</div>
+
+	<% end %>
 
 </div>

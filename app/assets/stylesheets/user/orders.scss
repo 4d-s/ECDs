@@ -53,12 +53,16 @@
 }
 // 配送住所選択欄
 .order-address-choice{
-	height: 120px;
 	border: solid 1px black;
+}
+.order-address-radio {
+	margin: 20px;
 }
 
 // 支払い情報選択欄
 .order-payment-choice{
-	height: 120px;
 	border: solid 1px black;
+}
+.order-payment-radio{
+	margin: 20px;
 }

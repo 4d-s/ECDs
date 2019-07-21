@@ -4,6 +4,9 @@
 	<title>トップページ</title>
 </head>
 
+<% if flash[:notice] %>
+	<p class="notice"><%= flash[:notice] %></p>
+<% end %>
 <div class="top-search-box">
 	<h1>ECD's</h1>
 	<%= form_tag user_items_path, method: :get do %>
