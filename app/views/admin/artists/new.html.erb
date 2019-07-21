@@ -1,2 +1,9 @@
-<h1>Admin::Artists#new</h1>
-<p>Find me in app/views/admin/artists/new.html.erb</p>
+<h1>アーティスト編集</h1>
+	<%= form_for [:admin, @artist] do |f| %>
+		<br>
+		<label>商品名</label>
+		<br>
+		<%= item.text_field :item_name %>
+		<br>
+		<%= item.submit %>
+		<% end %>
