@@ -39,7 +39,7 @@
 	</div>
 
 	<!-- 注文確定欄 -->
-	<%= form_for [:user, @order] do |f| %>
+	<%= form_with model: [:user, @order] do |f| %>
 
 	<div class="order-confirm-area col-xs-4">
 			<%= f.submit "注文を確定する" %>
@@ -71,14 +71,12 @@
 	</div>
 	<div class="order-address-choice col-xs-7">
 		<div class = "order-address-radio">
-			<label><%= f.radio_button :order_address, current_user.street_address %>規定の住所に配送する</label>
-			<label><%= f.radio_button :order_address, "2" %>登録済みの住所から配送先を選択する</label>
-			<label><%= f.radio_button :order_address, "3" %>配送先を新しく入力する</label>
-		  <label class="radio"><input id="radio2" type="radio" name="address_radios">
-		  登録済みの住所から配送先を選択する</label>
-
-		  <label class="radio"><input id="radio3" type="radio" name="address_radios">
-		  配送先を新しく入力する</label>
+			<label><%= f.radio_button :address_select, "0" , {:checked => true} %>
+			規定の住所に配送する</label><br>
+			<label><%= f.radio_button :address_select, "1" %>登録済みの住所から配送先を選択する</label><br>
+			<%= f.collection_select :address_id, Address.all, :id, :street_address,
+                               :prompt => "配送先を選択" %><br><br>
+			<label><%= f.radio_button :address_select, "2" %>配送先を新しく入力する</label><br>
 		</div>
 	</div>
 
@@ -88,9 +86,9 @@
 	</div>
 	<div class="order-payment-choice col-xs-7">
 		<div class = "order-payment-radio">
-			<label><%= f.radio_button :delivery_status, "1" %>銀行振込</label>
-			<label><%= f.radio_button :delivery_status, "2" %>クレジット支払い</label>
-			<label><%= f.radio_button :delivery_status, "3" %>代引き</label>
+			<label><%= f.radio_button :payment, "1", {:checked => true} %>銀行振込</label><br>
+			<label><%= f.radio_button :payment, "2" %>クレジット支払い</label><br>
+			<label><%= f.radio_button :payment, "3" %>代引き</label>
 		</div>
 	</div>
 
