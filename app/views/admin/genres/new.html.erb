@@ -1,7 +1,11 @@
-<%= form_for @genre, :url => admin_genres_path do |f| %>
 
-	<h2>ジャンル名</h2>
-	<%= f.text_field :genre_name %>
-	<%= f.submit "追加" %>
-
-<% end %>
+<h1>レーベル登録</h1>
+	<%= form_for(@genre, url: admin_genre_path) do |f| %>
+		<br>
+		<label>ジャンル名</label>
+		<br>
+		<%= f.text_field :genre_name %>
+		<br>
+		<br>
+		<%= f.submit %>
+		<% end %>

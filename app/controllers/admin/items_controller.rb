@@ -13,7 +13,6 @@ class Admin::ItemsController < ApplicationController
     disc = @item.discs.build
     disc.songs.build
   end
-
   def edit
     @item = Item.find(params[:id])
   end
@@ -51,5 +50,5 @@ class Admin::ItemsController < ApplicationController
      ]
   )
   end
-
 end
+
