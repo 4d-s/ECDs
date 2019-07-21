@@ -29,27 +29,37 @@
 				<% end %>
 			</div>
 		</div>
+		<% end %>
+
 		<div class="col-lg-9">
 			<% order.order_item_histories.each do |his| %>
 			<div class="order-item-info">
-				<table cellpadding="5">
+				<table class="user-order-table">
 					<tr>
-						<th colspan="2">商品　　</th>
-						<th>単価　　</th>
-						<th>個数　　</th>
-						<th>小計　　</th>
+						<th colspan="2" class="user-order-cell">商品</th>
+						<th class="user-order-cell">単価</th>
+						<th class="user-order-cell">個数</th>
+						<th class="user-order-cell">小計</th>
 					</tr>
 					<tr>
-						<td><%= attachment_image_tag his, :image_id, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></td>
-						<td><%= his.item_name %></td>
-						<td><%= his.item_price%><%='円（税別）'%></td>
-						<td><%= his.order_item_count %></td>
-						<td><%= his.order_item_count * his.item_price %><%='円'%></td>
+						<td class="user-order-cell"><%= attachment_image_tag his, :image_id, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></td>
+						<td class="user-order-cell"><%= his.item_name %></td>
+						<td class="user-order-cell"><%= his.item_price%><%='円（税別）'%></td>
+						<td class="user-order-cell"><%= his.order_item_count %></td>
+						<td class="user-order-cell"><%= his.order_item_count * his.item_price %><%='円'%></td>
 					</tr>
 				</table>
 			</div>
 		</div>
 		<% end %>
+		
+		<% order.order_item_histories.each do |his| %>
+		<div class="user-order-payment">
+			<h4>送料　　　　　５００円</h4>
+			<h4>小計（税込）:      <%= his.item_price%> </h4>
+			<%@sum += his.item_price %>
+		</div>
 		<% end %>
+		<h4>合計</h4><%= @sum %>
 	</div>
 </div>
