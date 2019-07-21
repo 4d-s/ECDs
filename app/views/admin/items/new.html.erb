@@ -26,10 +26,15 @@
 		<label >累計販売個数</label>
 		<br>
 		<%= item.text_field :order_count %>
-
-		<%= f.select :artist, [["キロロ", "キロロ"], ["中森明菜", "中森明菜"],  ["松田聖子", "松田聖子"], ["きのこ帝国", "きのこ帝国"],["ピンクレディー", "ピンクレディー"] ],  :prompt => "選択してください" %>
-
-
+		<label>アーティスト</label>
+  		<%= f.collection_select :artist_id, Artist.all, :id, :artist_name %>
+  		<% end %>
+		<label>レーベル</label>
+  		<%= f.collection_select :label_id, Label.all, :id, :label_name %>
+  		<% end %>
+  		<label>ジャンル</label>
+  		<%= f.collection_select :genre_id, Genre.all, :id, :genre_name %>
+  		<% end %>
 	</div>
 	<div class ="field">
 	 <%= item.fields_for :discs do |disc| %>
