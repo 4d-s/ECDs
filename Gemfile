@@ -75,3 +75,5 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'payjp'
 
 gem 'kaminari','~> 1.1.1'
+
+gem 'seed-fu'
