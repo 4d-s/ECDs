@@ -27,8 +27,12 @@ class User::OrdersController < ApplicationController
   		@order.order_address = @address.street_address
   		@order.order_phone_number = @address.phone_number
   	elsif params[:order][:address_select] == "2" then
+      @order.order_last_name = @new_address.last_name
+      @order.order_first_name = @new_address.first_name
+      @order.order_postal_code = @new_address.postal_code
+      @order.order_address = @new_address.street_address
+      @order.order_phone_number = @new_address.phone_number
   	end
-
   	@order.total = @sum
   	@order.delivery_status = 1
   	@order.save
