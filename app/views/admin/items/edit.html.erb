@@ -22,13 +22,14 @@
 								<%= f.text_field :stock %>個
 
 							<h3>アーティスト名</h3>
-								<%= f.text_field :artist_id %>
-
+								<%= f.collection_select :artist_id, Artist.all, :id, :artist_name %>
+								<%= link_to "アーティスト名の追加", new_admin_artist_path %>
 							<h3>レーベル</h3>
-								<%= f.text_field :label %>
-
+								<%= f.collection_select :label_id, Label.all, :id, :label_name %>
+								<%= link_to "レーベル名の追加", new_admin_label_path %>
 							<h3>ジャンル</h3>
   								<%= f.collection_select :genre_id, Genre.all, :id, :genre_name %>
+  								<%= link_to "ジャンル名の追加", new_admin_genre_path %>
 							<h3>曲名リスト</h3>
 							<h4>・ディスク１</h>
 								<%= f.fields_for :discs do |disc|%>
