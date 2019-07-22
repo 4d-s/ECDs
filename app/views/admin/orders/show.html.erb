@@ -15,6 +15,7 @@
 </div>
 
 <div class="container">
+	<div class="row row-eq-height">
 		<div class="col-xs-2">
 			<div class="order-address-box">
 				<h4>送付先</h4>
@@ -33,7 +34,7 @@
 		</div>
 		<div class="col-xs-7">
 			<div class="order-item-box">
-				<table width="700">
+				<table width="600">
 					<tr>
 						<th colspan="2">商品</th>
 						<th>単価</th>
@@ -42,7 +43,7 @@
 					</tr>
 					<% order.order_item_histories.each do |his| %>
 					<tr>
-						<td><%= attachment_image_tag his, :image_id, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></td>
+						<td><%= attachment_image_tag his, :image, 100, 100, fallback: "no_image.jpg" %></td>
 						<td><%= his.item_name %></td>
 						<td><%= his.item_price%><%='円（税別）'%></td>
 						<td><%= his.order_item_count %></td>
@@ -52,6 +53,8 @@
 				</table>
 			</div>
 		</div>
+	</div>
+	<%= link_to '編集', edit_admin_order_path(order.id), class: "btn btn-default"%>
 	<div class="user-order-payment">
 		<div class="user-delivery-pay">
 			<p>送料：500円</p>
@@ -66,7 +69,7 @@
 			<p>合計：<%= order.total%><%='円'%></p>
 		</div>
 	</div>
-	<% end %>
 	</div>
+	<% end %>
 </div>
 </main>

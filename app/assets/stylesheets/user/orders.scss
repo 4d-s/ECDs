@@ -8,15 +8,6 @@
 	border: solid 1px;
 	width: auto;
 }
-.delivery-status{
-	float:right;
-	clear:  right;
-}
-.delivery-status2{
-	float:right;
-	clear:  right;
-}
-
 .order-address-box{
 	width: auto;
 	float: left;
@@ -27,6 +18,10 @@
 }
 .user-delivery-pay{
 	text-align: right;
+}
+.user-order-payment{
+	width: 750px;
+	display: inline-block;
 }
 .syoukei{
 	text-align: right;
