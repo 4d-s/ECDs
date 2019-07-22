@@ -39,7 +39,6 @@
   		<%= item.collection_select :genre_id, Genre.all, :id, :genre_name %>
   		<%= link_to "登録", new_admin_genre_path %>
   		<br>
-
 	</div>
 	<div class ="field">
 	 <%= item.fields_for :discs do |disc| %>
