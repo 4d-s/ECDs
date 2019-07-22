@@ -5,25 +5,32 @@
 	</div>
 	<!-- 商品情報 -->
 	<div class = "col-xs-8">
-		<div class = "item-name-area col-xs-7">
+		<div class = "item-name-area col-xs-8">
 			<!-- シングル、アルバム名 -->
 			<h4 class = "item-title">シングル/アルバム名：</h4>
 			<p class= "item-title-text">
 				<%= @item.item_name %>
 			</p>
 			<h4 class = "item-title">アーティスト名：<h4>
-			<p class= "item-title-text">4ds</p>
+			<p class= "item-title-text">
+				4D's
+			</p>
 			<!-- 登録情報 -->
 			<div class = "item-text-area panel panel-default">
 				<h4 class= "item-title">登録情報</h4>
 				<h4 class= "item-title">レーベル名：</h4>
-				<br>
+				<p class= "item-title-text">
+					WEBCAMP
+				</p>
 				<h4 class= "item-title">ジャンル：</h4>
 				<br>
 			</div>
 		</div>
 		<!-- 価格情報 -->
-		<div class = "item-price-area well col-xs-5">
+		<div class = "edit-link-area col-xs-4">
+			<%= link_to "商品編集ページへ", edit_admin_item_path, method: :get, class: "btn btn-primary" %>
+		</div>
+		<div class = "item-price-area well col-xs-4">
 			<p class ="item-price-title" >取扱情報：
 				<% if @item.is_sold %>
 					取り扱い中
@@ -37,8 +44,6 @@
 					<%= @item.price %>
 				</p>
 			</div>
-				数量 １個<br><br>
-			<%= button_to 'カートに入れる', user_item_selects_path, method: :post %>
 
 			<p class ="item-price-title" ><br>在庫：
 			<% if @item.stock > 0 %>

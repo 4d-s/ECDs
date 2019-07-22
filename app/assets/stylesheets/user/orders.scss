@@ -1,3 +1,68 @@
 // Place all the styles related to the user/orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// 購入履歴
+.order-date{
+	border: solid 1px;
+}
+.delivery-status{
+	text-align: right;
+}
+.order-address{
+	width: auto;
+	float: left;
+}
+.order-item-info{
+	width: auto;
+	float: left;
+}
+.user-order-table{
+	text-align: right;
+	padding: 0 50px 0 50px;
+}
+.user-order-cell{
+	text-align: right;
+	padding: 0 50px 0 50px;
+}
+
+.order-title{
+	font-size: 22px;
+}
+.order-text{
+	font-size: 12px;
+}
+
+// 注文内容確認欄
+.order-item-area{
+	padding: 20px 0;
+	border: solid 1px black;
+}
+.order-item-image{
+	height: 120px;
+	border: solid 1px black;
+}
+.item-payment{
+	float: right;
+}
+// 注文確定欄
+.order-confirm-area{
+	padding: 20px 0;
+	margin-left: 20px;
+	border: solid 1px black;
+}
+// 配送住所選択欄
+.order-address-choice{
+	border: solid 1px black;
+}
+.order-address-radio {
+	margin: 20px;
+}
+
+// 支払い情報選択欄
+.order-payment-choice{
+	border: solid 1px black;
+}
+.order-payment-radio{
+	margin: 20px;
+}

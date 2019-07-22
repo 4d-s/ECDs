@@ -1,2 +1,65 @@
-<h1>User::Orders#index</h1>
-<p>Find me in app/views/user/orders/index.html.erb</p>
+<h2>購入履歴</h2>
+<div class="container">
+	<div class="row">
+		<% @orders.each do |order| %>
+		<div class="order-date">
+			<%= order.created_at%>
+			<h6 class="delivery-status">発送ステータス</h6>
+				<% if order.delivery_status == 1 %>
+				<h4>受付中</h4>
+				<% elsif order.delivery_status == 2 %>
+				<h4>発送準備中</h4>
+				<% else %>
+				<h4>発送済み</h4>
+				<% end %>
+		</div>
+		<div class="col-lg-3">
+			<div class="order-address">
+				<h4>送付先</h4>
+				<%= order.order_last_name + '様' %><br>
+				<%= order.order_address %><br>
+				<%= order.order_postal_code %><br>
+				<%= order.order_phone_number %><br>
+				<% if order.payment == 1 %>
+				<h5>支払い方法：銀行振込</h5>
+				<% elsif order.payment == 2 %>
+				<h5>支払い方法：クレジット支払い</h5>
+				<% else %>
+				<h5>支払い方法：代引き</h5>
+				<% end %>
+			</div>
+		</div>
+		<% end %>
+
+		<div class="col-lg-9">
+			<% order.order_item_histories.each do |his| %>
+			<div class="order-item-info">
+				<table class="user-order-table">
+					<tr>
+						<th colspan="2" class="user-order-cell">商品</th>
+						<th class="user-order-cell">単価</th>
+						<th class="user-order-cell">個数</th>
+						<th class="user-order-cell">小計</th>
+					</tr>
+					<tr>
+						<td class="user-order-cell"><%= attachment_image_tag his, :image_id, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></td>
+						<td class="user-order-cell"><%= his.item_name %></td>
+						<td class="user-order-cell"><%= his.item_price%><%='円（税別）'%></td>
+						<td class="user-order-cell"><%= his.order_item_count %></td>
+						<td class="user-order-cell"><%= his.order_item_count * his.item_price %><%='円'%></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<% end %>
+		
+		<% order.order_item_histories.each do |his| %>
+		<div class="user-order-payment">
+			<h4>送料　　　　　５００円</h4>
+			<h4>小計（税込）:      <%= his.item_price%> </h4>
+			<%@sum += his.item_price %>
+		</div>
+		<% end %>
+		<h4>合計</h4><%= @sum %>
+	</div>
+</div>

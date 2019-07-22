@@ -2,9 +2,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>アドレス一覧</title>
-	<link rel="stylesheet" type="text/scss" href="user/items.scss">
 </head>
-
 <h1 class="address-index">アドレス帳</h1>
 
 <%= link_to new_user_address_path do%>
@@ -12,6 +10,7 @@
 	<h3>新しい住所を追加</h3>
 </div>
 <% end %>
+
 <% @addresses.each do |address| %>
 <div class="address-box">
 	<div class ="address-contents">
