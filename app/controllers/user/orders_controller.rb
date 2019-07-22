@@ -27,6 +27,7 @@ class User::OrdersController < ApplicationController
   		@order.order_address = @address.street_address
   		@order.order_phone_number = @address.phone_number
   	elsif params[:order][:address_select] == "2" then
+  	  @new_address = Address.last
       @order.order_last_name = @new_address.last_name
       @order.order_first_name = @new_address.first_name
       @order.order_postal_code = @new_address.postal_code
@@ -47,8 +48,13 @@ class User::OrdersController < ApplicationController
   def create_address
   	@new_address = Address.new(address_params)
     @new_address.user_id = current_user.id
-    @new_address.save
-    render :new
+    if @new_address.save
+    	session[:last_address] = @new_address.street_address
+    	redirect_to new_user_order_path
+    else
+    	session[:last_address] = nil
+    	redirect_to new_user_order_path
+    end
   end
 
   def index
