@@ -15,9 +15,10 @@ Rails.application.routes.draw do
     resources :users, only: [:edit, :update, :index, :show]
     resources :items, only: [:index, :show, :new, :edit, :create, :update, :destroy]
     resources :orders, only: [:index, :show, :edit, :update]
-    resources :genres, only: [:new, :create]
-    resources :labels, only: [:new, :create]
     resources :artists, only: [:new, :create]
+    resources :labels, only: [:new, :create]
+    resources :genres, only: [:new, :create]
+
   end
 
   namespace :user do
