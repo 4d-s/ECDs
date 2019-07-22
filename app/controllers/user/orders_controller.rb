@@ -27,16 +27,23 @@ class User::OrdersController < ApplicationController
   		@order.order_address = @address.street_address
   		@order.order_phone_number = @address.phone_number
   	elsif params[:order][:address_select] == "2" then
-  	  @new_address = Address.last
-      @order.order_last_name = @new_address.last_name
-      @order.order_first_name = @new_address.first_name
-      @order.order_postal_code = @new_address.postal_code
-      @order.order_address = @new_address.street_address
-      @order.order_phone_number = @new_address.phone_number
+  		if session[:last_address] == nil
+  			flash[:notice] = "配送先が指定されていません"
+  			redirect_to new_user_order_path
+  			return
+  		else
+	  	  @new_address = Address.last
+	      @order.order_last_name = @new_address.last_name
+	      @order.order_first_name = @new_address.first_name
+	      @order.order_postal_code = @new_address.postal_code
+	      @order.order_address = @new_address.street_address
+	      @order.order_phone_number = @new_address.phone_number
+  		end
   	end
   	@order.total = @sum
   	@order.delivery_status = 1
   	@order.save
+  	session[:last_address] = nil
   	flash[:notice] = "購入が完了しました。お買い上げありがとうございます！"
   	redirect_to root_path
   end
