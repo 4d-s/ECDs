@@ -79,3 +79,4 @@ gem 'kaminari','~> 1.1.1'
 gem 'cocoon'
 
 gem 'jquery-rails'
+gem 'pry-byebug'

@@ -3,27 +3,35 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // 購入履歴
-.order-date{
+.order-date-box{
+	height: 20px;
 	border: solid 1px;
+	width: auto;
 }
-.delivery-status{
-	text-align: right;
-}
-.order-address{
+.order-address-box{
 	width: auto;
 	float: left;
 }
-.order-item-info{
+.order-item-box{
 	width: auto;
 	float: left;
 }
-.user-order-table{
+.user-delivery-pay{
 	text-align: right;
-	padding: 0 50px 0 50px;
 }
-.user-order-cell{
+.user-order-payment{
+	width: 750px;
+	display: inline-block;
+}
+.syoukei{
 	text-align: right;
-	padding: 0 50px 0 50px;
+}
+.user-order-pay{
+	text-align: right;
+
+}
+.user-total-pay{
+	text-align: right;
 }
 
 .order-title{

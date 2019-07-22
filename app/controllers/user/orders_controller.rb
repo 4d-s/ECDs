@@ -27,39 +27,65 @@ class User::OrdersController < ApplicationController
   		@order.order_address = @address.street_address
   		@order.order_phone_number = @address.phone_number
   	elsif params[:order][:address_select] == "2" then
-      @order.order_last_name = @new_address.last_name
-      @order.order_first_name = @new_address.first_name
-      @order.order_postal_code = @new_address.postal_code
-      @order.order_address = @new_address.street_address
-      @order.order_phone_number = @new_address.phone_number
+  		if session[:last_address] == nil
+  			flash[:notice] = "配送先が指定されていません"
+  			redirect_to new_user_order_path
+  			return
+  		else
+	  	  @new_address = Address.last
+	      @order.order_last_name = @new_address.last_name
+	      @order.order_first_name = @new_address.first_name
+	      @order.order_postal_code = @new_address.postal_code
+	      @order.order_address = @new_address.street_address
+	      @order.order_phone_number = @new_address.phone_number
+  		end
   	end
   	@order.total = @sum
   	@order.delivery_status = 1
-  	@order.save
-  	flash[:notice] = "購入が完了しました。お買い上げありがとうございます！"
-  	redirect_to root_path
+   if @order.save
+    @item_selects.each{|item_select|
+      @order_item_history = OrderItemHistory.new(order_id: @order.id)
+      @order_item_history.item_name = item_select.item.item_name
+      @order_item_history.item_price = item_select.item.price
+      @order_item_history.image_id = item_select.item.image_id
+      @order_item_history.order_item_count = item_select.item_count
+      @order_item_history.save
+    }
+    @item_selects.destroy_all
+    session[:last_address] = nil
+    flash[:notice] = "購入が完了しました。お買い上げありがとうございます！"
+    redirect_to root_path
+  else
+    flash[:notice] = "購入できませんでした"
+    redirect_to new_user_order_path
   end
+end
 
-  def address
-  	@new_address = Address.new
+def address
+ @new_address = Address.new
+end
+
+def create_address
+  @new_address = Address.new(address_params)
+  @new_address.user_id = current_user.id
+  if @new_address.save
+    session[:last_address] = @new_address.street_address
+  	redirect_to new_user_order_path
+  else
+    session[:last_address] = nil
+    redirect_to new_user_order_path
   end
+end
 
-  def create_address
-  	@new_address = Address.new(address_params)
-    @new_address.user_id = current_user.id
-    @new_address.save
-    render :new
-  end
+def index
+ @user = current_user
+ @orders = @user.orders
+end
 
-  def index
-  	@user = current_user
-  	@orders = @user.orders
-  end
-
-  private
+private
 
   def order_params
-      params.require(:order).permit(:order_address, :payment)
+    params.require(:order).permit(:order_address, :payment)
   end
 
   def address_params
