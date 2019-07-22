@@ -29,7 +29,6 @@
 		<%= item.text_field :order_count %>
 		<br>
 		<label>アーティスト</label>
-<<<<<<< HEAD
   		<%= item.collection_select :artist_id, Artist.all, :id, :artist_name, :include_blank => true %>
 		<label>レーベル</label>
   		<%= item.collection_select :label_id, Label.all, :id, :label_name,  :include_blank => true %>
@@ -48,7 +47,6 @@
 	              <%= song.text_field :song_number %>
 	          <% end %>
 	     <% end %>
-=======
   		<%= item.collection_select :artist_id, Artist.all, :id, :artist_name %>
 		<%= link_to "登録", new_admin_artist_path %>
 		<br>
@@ -74,7 +72,6 @@
               <%= song.text_field :song_number %>
           <% end %>
      <% end %>
->>>>>>> develop
     </div>
     <div class="actions">
       <%= item.submit %>
