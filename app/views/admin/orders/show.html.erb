@@ -1,2 +1,72 @@
-<h1>Admin::Orders#show</h1>
-<p>Find me in app/views/admin/orders/show.html.erb</p>
+<main class="col-xs-9">
+<h2>購入履歴</h2>
+
+<% @orders.each do |order| %>
+<div class="order-date-box">
+	<p><%= order.created_at.strftime("%Y-%m-%d")%>
+	発送ステータス
+	<% if order.delivery_status == 1 %>
+	受付中</p>
+	<% elsif order.delivery_status == 2 %>
+	発送準備中</p>
+	<% else %>
+	発送済み</p>
+	<% end %>
+</div>
+
+<div class="container">
+		<div class="col-xs-2">
+			<div class="order-address-box">
+				<h4>送付先</h4>
+				<%= order.order_last_name + '様' %><br>
+				<%= order.order_address %><br>
+				<%= order.order_postal_code %><br>
+				<%= order.order_phone_number %><br>
+				<% if order.payment == 1 %>
+				<h5>支払い方法：銀行振込</h5>
+				<% elsif order.payment == 2 %>
+				<h5>支払い方法：クレジット支払い</h5>
+				<% else %>
+				<h5>支払い方法：代引き</h5>
+				<% end %>
+			</div>
+		</div>
+		<div class="col-xs-7">
+			<div class="order-item-box">
+				<table width="700">
+					<tr>
+						<th colspan="2">商品</th>
+						<th>単価</th>
+						<th>個数</th>
+						<th>小計</th>
+					</tr>
+					<% order.order_item_histories.each do |his| %>
+					<tr>
+						<td><%= attachment_image_tag his, :image_id, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></td>
+						<td><%= his.item_name %></td>
+						<td><%= his.item_price%><%='円（税別）'%></td>
+						<td><%= his.order_item_count %></td>
+						<td><%= his.order_item_count * his.item_price %><%='円'%></td>
+					</tr>
+					<% end %>
+				</table>
+			</div>
+		</div>
+	<div class="user-order-payment">
+		<div class="user-delivery-pay">
+			<p>送料：500円</p>
+		</div>
+		<p class="syoukei">小計：    </p>
+		<div class="user-order-pay">
+			<% order.order_item_histories.each do |his| %>
+			<%= his.item_price * his.order_item_count %><%='円'%><br>
+			<% end %>
+		</div>
+		<div class="user-total-pay">
+			<p>合計：<%= order.total%><%='円'%></p>
+		</div>
+	</div>
+	<% end %>
+	</div>
+</div>
+</main>
