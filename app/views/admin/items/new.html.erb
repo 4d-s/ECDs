@@ -37,29 +37,7 @@
   		<%= item.collection_select :genre_id, Genre.all, :id, :genre_name,  :include_blank => true %>
 	</div>
 	<div class ="field">
-		 <%= item.fields_for :discs do |disc| %>
-	          <%= disc.label :disc_number %>
-	          <%= disc.text_field :disc_number %>
-	          <br>
-	          <%= disc.fields_for :songs do |song| %>
-	          	  <%= song.label :song_name %>
-	              <%= song.text_field :song_name %>
-	              <%= song.label :song_number %>
-	              <%= song.text_field :song_number %>
-	          <% end %>
-	     <% end %>
-  		<%= item.collection_select :artist_id, Artist.all, :id, :artist_name %>
-		<%= link_to "登録", new_admin_artist_path %>
-		<br>
-		<label>レーベル</label>
-  		<%= item.collection_select :label_id, Label.all, :id, :label_name %>
-		<%= link_to "登録", new_admin_label_path %>
-		<br>
-  		<label>ジャンル</label>
-  		<%= item.collection_select :genre_id, Genre.all, :id, :genre_name %>
-  		<%= link_to "登録", new_admin_genre_path %>
-  		<br>
-  		<%= render 'admin/items/form', discs: @disc , f: item %>
+	<%= render 'admin/items/form', discs: @disc , f: item %>
 	</div>
 
     <div class="actions">
