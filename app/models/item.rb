@@ -12,18 +12,6 @@ class Item < ApplicationRecord
   #検索用メソッド（空欄で検索した場合は、一覧を表示する）
   def self.Item_search(keyword)
     if keyword
-      joins(:artist).where(['artist_name LIKE ?', "%#{keyword}%"])
-   	else
-       all
-   	end
-	end
-	def self.Song_search(keyword)
-		if keyword
-      where(['song_name LIKE ?', "%#{keyword}%"])
-   	else
-      all
-   	end
-	end
      where(['item_name LIKE ?', "%#{keyword}%"])
    else
      all
