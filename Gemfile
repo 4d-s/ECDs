@@ -76,6 +76,4 @@ gem 'payjp'
 
 gem 'kaminari','~> 1.1.1'
 
-gem 'seed-fu'
-
 gem 'cocoon'
