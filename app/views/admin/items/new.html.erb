@@ -28,24 +28,24 @@
 		<br>
 		<%= item.text_field :order_count %>
 		<label>アーティスト</label>
-  		<%= item.collection_select :artist_id, Artist.all, :id, :artist_name %>
+  		<%= item.collection_select :artist_id, Artist.all, :id, :artist_name, :include_blank => true %>
 		<label>レーベル</label>
-  		<%= item.collection_select :label_id, Label.all, :id, :label_name %>
+  		<%= item.collection_select :label_id, Label.all, :id, :label_name,  :include_blank => true %>
   		<label>ジャンル</label>
-  		<%= item.collection_select :genre_id, Genre.all, :id, :genre_name %>
+  		<%= item.collection_select :genre_id, Genre.all, :id, :genre_name,  :include_blank => true %>
 	</div>
 	<div class ="field">
-	 <%= item.fields_for :discs do |disc| %>
-          <%= disc.label :disc_number %>
-          <%= disc.text_field :disc_number %>
-          <br>
-          <%= disc.fields_for :songs do |song| %>
-          	  <%= song.label :song_name %>
-              <%= song.text_field :song_name %>
-              <%= song.label :song_number %>
-              <%= song.text_field :song_number %>
-          <% end %>
-     <% end %>
+		 <%= item.fields_for :discs do |disc| %>
+	          <%= disc.label :disc_number %>
+	          <%= disc.text_field :disc_number %>
+	          <br>
+	          <%= disc.fields_for :songs do |song| %>
+	          	  <%= song.label :song_name %>
+	              <%= song.text_field :song_name %>
+	              <%= song.label :song_number %>
+	              <%= song.text_field :song_number %>
+	          <% end %>
+	     <% end %>
     </div>
     <div class="actions">
       <%= item.submit %>
