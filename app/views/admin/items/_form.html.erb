@@ -1,0 +1,8 @@
+<%= f.fields_for :discs do |disc| %>
+  <div class="discs">
+      <%= render 'disc_fields', f: disc %>
+    <div class="links">
+      <%= link_to_add_association 'add disc', f, :discs %>
+    </div>
+  </div>
+<% end %>
