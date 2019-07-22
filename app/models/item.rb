@@ -5,7 +5,7 @@ class Item < ApplicationRecord
 	attachment :image
 	has_many :discs, inverse_of: :item
   accepts_nested_attributes_for :discs
-	# has_many :item_selects, dependent: :destroy
+	has_many :item_selects, dependent: :destroy
 
   # ALLOWED_PARAMS = [:name, :description, :price]
 
