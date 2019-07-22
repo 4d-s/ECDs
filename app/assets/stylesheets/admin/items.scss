@@ -73,3 +73,33 @@
 	border: solid 1px black;
 	margin: 10px 0;
 }
+
+//商品編集ページ
+.item-edit-form{
+	width: 80%;
+	height: 1200px;
+	border: solid 1px;
+}
+.item-edit-text{
+	padding-left: 50px;
+}
+.image-area{
+	width: 100px;
+	height: 100px;
+	float: left;
+	border: solid 1px;
+}
+.iamge-txet{
+	width: 300px;
+	height: 150px;
+	float: left;
+	border: solid 1px;
+}
+.image-form{
+	width: 70%;
+	height: 150px;
+	border: solid 1px;
+}
+.image-edit-btn{
+	padding: 15px;
+}
