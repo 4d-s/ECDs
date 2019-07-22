@@ -46,33 +46,40 @@ header {
 .welcome-text{
 	margin-top: 40px;
 }
-.search-form-box{
-	height: 20px;
-	width: 400px;
-	float: left;
-	border: solid 1px black;
-	margin: 20px 0 20px 100px;
-}
-.search-box{
-	height: 20px;
-	width: 80px;
-	float: left;
-	border: solid 1px black;
-	background-color: orange;
-	margin: 20px 0 20px 20px;
+.header-search-box{
+	text-align:  center;
 }
 .nav-menu {
 	height: 40px;
 	background-color: #000000;
 }
-.nav-list-item{
+.nav-list-item-left, .nav-list-item-right{
 	display: inline-block;
 	padding-right: 20px;
 	line-height: 40px;
 	color: #FFFFFF;
 }
-.nav-list-item:nth-child(3), .nav-list-item:nth-child(4), .nav-list-item:nth-child(5),{
+.nav-list-item-right{
 	float: right;
+}
+.link-decoration{
+	text-decoration: none;
+	color: #FFFFFF;
+}
+// main
+main {
+	min-height: 500px;
+}
+/*footer*/
+footer {
+	height: 50px;
+	margin-top: 30px;
+	background-color: black;
+}
+.footer-text {
+	text-align: center;
+	line-height: 50px;
+	color: #FFFFFF;
 }
 
 //  管理側ヘッダー

@@ -5,6 +5,8 @@
 	<link rel="stylesheet" type="text/scss" href="user/items.scss">
 </head>
 
+<main>
+
 <h1 class="item-index">All Items</h1>
 <% @items.each do |item| %>
 <div class="item-box">
@@ -23,3 +25,5 @@
 </div>
 <% end %>
 <%= paginate @items, class: "paginate" %>
+
+</main>

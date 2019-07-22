@@ -42,7 +42,8 @@
 				</p>
 			</div>
 			<%= form_for @item_select, url: user_item_item_selects_path(@item) do |f| %>
-				<%= f.select :item_count, (1..5) %>
+				<%= f.number_field :item_count, value: 1, class: "col-xs-4" %>
+				&nbsp;
 				<%= f.submit "カートに入れる" %>
     		<% end %>
 

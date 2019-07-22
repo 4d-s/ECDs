@@ -1,7 +1,8 @@
 class User::AddressesController < ApplicationController
   before_action :authenticate_user!
   def index
-    @addresses = Address.all
+    @user = current_user
+    @addresses = @user.addresses
   end
 
   def new
