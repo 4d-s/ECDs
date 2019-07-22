@@ -1,58 +1,48 @@
 
+<main class = "col-xs-9">
+	<h1>商品編集画面</h1>
+	<div class="item-edit-form">
+		<div class="item-edit-text">
+			<%= form_for @item, url:admin_item_path do |f|%>
+			<h3>商品名</h3>
+			<%= f.text_field :item_name, :placeholder => "商品名を入力してください" %>
+			<h3>価格</h3>
+			￥<%= f.text_field :price, :placeholder => "価格を入力してください" %>
+			<h3>商品画像</h3>
+			<%= attachment_image_tag @item, :image_id, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+			<%= f.file_field :image %>
+			<h3>在庫数</h3>
+			<%= f.text_field :stock, :placeholder => "個数を入力してください" %>個
 
-<body>
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-9">
-				<h1>商品編集画面</h1>
-				<div class="item-edit-form">
-					<div class="item-edit-text">
-						<%= form_for @item, url:admin_item_path do |f|%>
-							<h3>商品名</h3>
-							<%= f.text_field :item_name, :placeholder => "商品名を入力してください" %>
-							<h3>価格</h3>
-							￥<%= f.text_field :price, :placeholder => "価格を入力してください" %>
-							<h3>商品画像</h3>
-								<%= attachment_image_tag @item, :image_id, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-								<%= f.file_field :image %>
-							<h3>在庫数</h3>
-								<%= f.text_field :stock, :placeholder => "個数を入力してください" %>個
-
-							<h3>アーティスト名</h3>
-								<%= f.collection_select :artist_id, Artist.all, :id, :artist_name %>
-								<%= link_to "アーティスト名の追加", new_admin_artist_path %>
-							<h3>レーベル</h3>
-								<%= f.collection_select :label_id, Label.all, :id, :label_name %>
-								<%= link_to "レーベル名の追加", new_admin_label_path %>
-							<h3>ジャンル</h3>
-  								<%= f.collection_select :genre_id, Genre.all, :id, :genre_name %>
-  								<%= link_to "ジャンル名の追加", new_admin_genre_path %>
-							<h3>曲名リスト</h3>
-							<h4>・ディスク１</h4>
-							<br>
-							<div style="padding-bottom: 10px; ">
-							<%= f.fields_for :discs do |disc|%>
-							<%= disc.label :disc_number, "ディスク番号" %>
-							<%= disc.text_field :disc_number %>
-							<button type='submit' name='action' value='add'>ディスクの追加</button>
-							</div>
-							<br>
-							<%= disc.fields_for :songs do |song| %>
-							<%= song.label :song_number, "曲番号" %>
-							<%= song.text_field :song_number %>
-								<br>
-							<%= song.label :song_name, "曲名" %>
-								<%= song.text_field :song_name %>
-							<% end %>
-							<% end %>
-							<span><button type='submit' name='action' value='del'>削除</button></span><br>
-							<label>販売中<%= f.radio_button :is_sold, 'true' %></label>
-							<label>販売中止<%= f.radio_button :is_sold, 'false' %></label>
-							<%= f.submit "商品内容の変更を反映する" %>
-						<% end %>
-					</div>
-				</div>
+			<h3>アーティスト名</h3>
+			<%= f.collection_select :artist_id, Artist.all, :id, :artist_name %>
+			<h3>レーベル</h3>
+			<%= f.collection_select :label_id, Label.all, :id, :label_name %>
+			<h3>ジャンル</h3>
+			<%= f.collection_select :genre_id, Genre.all, :id, :genre_name %>
+			<h3>曲名リスト</h3>
+			<h4>・ディスク１</h4>
+			<br>
+			<div style="padding-bottom: 10px; ">
+				<%= f.fields_for :discs do |disc|%>
+				<%= disc.label :disc_number, "ディスク番号" %>
+				<%= disc.text_field :disc_number %>
+				<button type='submit' name='action' value='add'>ディスクの追加</button>
 			</div>
+			<br>
+			<%= disc.fields_for :songs do |song| %>
+			<%= song.label :song_number, "曲番号" %>
+			<%= song.text_field :song_number %>
+			<br>
+			<%= song.label :song_name, "曲名" %>
+			<%= song.text_field :song_name %>
+			<% end %>
+			<% end %>
+			<span><button type='submit' name='action' value='del'>削除</button></span><br>
+			<label>販売中<%= f.radio_button :is_sold, 'true' %></label>
+			<label>販売中止<%= f.radio_button :is_sold, 'false' %></label>
+			<%= f.submit "商品内容の変更を反映する" %>
+			<% end %>
 		</div>
 	</div>
-</body>
+</main>
