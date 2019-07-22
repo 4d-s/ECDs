@@ -77,7 +77,8 @@
 			<%= f.collection_select :address_id, Address.all, :id, :street_address,
                                :prompt => "配送先を選択" %><br><br>
 			<label><%= f.radio_button :address_select, "2" %> 配送先を新しく入力する</label><br>
-			<%= link_to "新規配送先入力ページへ", user_order_address_path %>
+			<%= link_to "新規配送先入力ページへ", user_order_address_path %><br>
+			<%= session[:last_address] %>
 		</div>
 	</div>
 
