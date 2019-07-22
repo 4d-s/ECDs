@@ -17,9 +17,11 @@
 							合計：￥ <%= @sum %>
 					</p>
 			</div>
-			<div class="buy-button-area col-xs-2">
-				<%= link_to "購入ページへ", new_user_order_path, class: "btn btn-warning buy-button" %>
-			</div>
+			<% if @sum != 0 %>
+				<div class="buy-button-area col-xs-2">
+					<%= link_to "購入ページへ", new_user_order_path, class: "btn btn-warning buy-button" %>
+				</div>
+			<% end %>
 	</div>
 	<!-- 商品１ -->
 	<% @item_selects.each do |item_select| %>
