@@ -107,14 +107,6 @@ ActiveRecord::Schema.define(version: 2019_07_19_043017) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "select_items", force: :cascade do |t|
-    t.integer "item_id"
-    t.integer "user_id"
-    t.integer "item_count"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "songs", force: :cascade do |t|
     t.integer "disc_id"
     t.integer "song_number"

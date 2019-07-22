@@ -10,7 +10,7 @@
 <div class="item-box">
 	<%= link_to admin_item_path(item.id) do%>
 	<div class ="item-contents">
-		<%= attachment_image_tag item, :image_id,  size: "200x200", fallback: "no_image.jpg" %><br>
+		<%= attachment_image_tag item, :image,  size: "200x200", fallback: "no_image.jpg" %><br>
 		<%= item.item_name %><br>
 		<%= item.price %>円（税別）<br>
 		<% if item.stock > 0 %>

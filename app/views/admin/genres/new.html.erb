@@ -1,0 +1,10 @@
+<h1>ジャンル登録</h1>
+	<%= form_for(@genre, url: admin_genres_path) do |f| %>
+		<br>
+		<label>ジャンル名</label>
+		<br>
+		<%= f.text_field :genre_name %>
+		<br>
+		<br>
+		<%= f.submit %>
+		<% end %>

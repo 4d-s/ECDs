@@ -13,8 +13,8 @@ class Admin::ItemsController < ApplicationController
     disc = @item.discs.build
     disc.songs.build
   end
-
   def edit
+    @item = Item.find(params[:id])
   end
 
   def create
@@ -22,41 +22,32 @@ class Admin::ItemsController < ApplicationController
       if @item.save
       redirect_to admin_path
       else
-      render:new
+      redirect_to new_admin_item_path
       end
   end
 
   def update
+    @item = Item.find(item_params)
+    @item.update
+    redirect_to admin_item_path
   end
 
   def destroy
+
   end
 
   private
   def item_params
-    params.require(:item).permit(:airtist_id, :label_id, :genre_id, :item_name, :stock, :price, :is_sold, :image, :order_count, discs_attributes: 
-    [
-      :id, :disc_number, :item_id, :_destroy, songs_attributes: %i(id, song_number, song_name _destroy)
-    ]
+    params.require(:item).permit(:artist_id, :label_id, :genre_id, :item_name, :stock, :price, :is_sold, :image, :order_count,
+        discs_attributes:
+
+        [:id, :disc_number, :item_id,
+
+        songs_attributes:
+
+        [:id, :song_number, :song_name]
+
+     ]
   )
-end
-
-
-
-
-
-
-
-
-
-
-     discs_attributes: 
-    [
-      :id, :disc_number, :item_id, songs_attributes: 
-    [
-      :id, :song_number, :song_name
-    ]
-  )
-end),
   end
 end

@@ -15,6 +15,9 @@ Rails.application.routes.draw do
     resources :users, only: [:edit, :update, :index, :show]
     resources :items, only: [:index, :show, :new, :edit, :create, :update, :destroy]
     resources :orders, only: [:index, :show, :edit, :update]
+    resources :genres, only: [:new, :create]
+    resources :labels, only: [:new, :create]
+    resources :artists, only: [:new, :create]
   end
 
   namespace :user do
@@ -34,7 +37,6 @@ Rails.application.routes.draw do
   get '/mypage/edit', to: 'user/users#edit'
   patch '/user', to: 'user/users#update'
   post '/user' , to: 'user/users#create'
-
 	root 'user/homes#top'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
