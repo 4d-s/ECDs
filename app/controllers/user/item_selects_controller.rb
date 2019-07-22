@@ -1,7 +1,7 @@
 class User::ItemSelectsController < ApplicationController
 
   def index
-    @item_selects = ItemSelect.all
+    @item_selects = current_user.item_selects
   end
 
   def create

@@ -62,14 +62,24 @@ header {
 .nav-list-item-right{
 	float: right;
 }
+.link-decoration{
+	text-decoration: none;
+	color: #FFFFFF;
+}
+// main
+main {
+	min-height: 500px;
+}
 /*footer*/
 footer {
 	height: 50px;
 	margin-top: 30px;
+	background-color: black;
 }
 .footer-text {
 	text-align: center;
 	line-height: 50px;
+	color: #FFFFFF;
 }
 
 //  管理側ヘッダー

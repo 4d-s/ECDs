@@ -4,6 +4,7 @@
 	<title>トップページ</title>
 </head>
 
+<main>
 <% if flash[:notice] %>
 	<p class="notice"><%= flash[:notice] %></p>
 <% end %>
@@ -15,3 +16,4 @@
 	<%= submit_tag '検索' , :item_name => nil%>
 	<% end %>
 </div>
+</main>
