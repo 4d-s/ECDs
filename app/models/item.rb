@@ -6,8 +6,7 @@ class Item < ApplicationRecord
 	has_many :discs, inverse_of: :item
   accepts_nested_attributes_for :discs
 	has_many :item_selects, dependent: :destroy
-  # ALLOWED_PARAMS = [:name, :description, :price]
-
+  ALLOWED_PARAMS = [:item_name, :stock, :price, :is_sold, :image, :order_count, :genre_id, :artist_id, :label_id]
 
   #検索用メソッド（空欄で検索した場合は、一覧を表示する）
   def self.Item_search(keyword)

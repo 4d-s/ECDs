@@ -17,6 +17,7 @@
 		<br>
 		<label >販売ステータス</label>
 		<br>
+		<p>販売中表示</p>
 		<%= item.check_box :is_sold %>
 		<br>
 		<label >画像</label>
@@ -39,21 +40,9 @@
   		<%= item.collection_select :genre_id, Genre.all, :id, :genre_name %>
   		<%= link_to "登録", new_admin_genre_path %>
   		<br>
+  		<%= render 'admin/items/form', discs: @disc , f: item %>
 	</div>
-	<div class ="field">
-	 <%= item.fields_for :discs do |disc| %>
-          <%= disc.label :disc_number %>
-          <%= disc.text_field :disc_number %>
-          <br>
-          <%= disc.fields_for :songs do |song| %>
-          	  <%= song.label :song_name %>
-              <%= song.text_field :song_name %>
-              <br>
-              <%= song.label :song_number %>
-              <%= song.text_field :song_number %>
-          <% end %>
-     <% end %>
-    </div>
+
     <div class="actions">
       <%= item.submit %>
     </div>

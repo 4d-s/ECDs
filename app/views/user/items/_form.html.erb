@@ -1,0 +1,23 @@
+<%= form_for @item do |f| %>
+<div class="field">
+  <%= f.label :item_name %>
+  <br/>
+  <%= f.text_field :item_name %>
+</div>
+<div class="field">
+  <%= f.label :price %>
+  <br/>
+  <%= f.text_field :price %>
+</div>
+
+<h3>Tasks</h3>
+<div id="tasks">
+  <%= f.fields_for :discs do |disc| %>
+    <%= render 'disc_fields', f: disc %>
+  <% end %>
+  <div class="links">
+    <%= link_to_admin 'add disc', f, :discs %>
+  </div>
+</div>
+<%= f.submit %>
+<% end %>
