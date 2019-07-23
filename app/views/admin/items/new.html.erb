@@ -25,10 +25,6 @@
 		<br>
     	<%= item.attachment_field :image %>
 		<br>
-		<label >累計販売個数</label>
-		<br>
-		<%= item.text_field :order_count %>
-		<br>
 		<label>アーティスト</label>
   		<%= item.collection_select :artist_id, Artist.all, :id, :artist_name, :include_blank => true %>
 		<label>レーベル</label>

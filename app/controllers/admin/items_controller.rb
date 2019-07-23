@@ -23,11 +23,11 @@ class Admin::ItemsController < ApplicationController
 
   def create
       @item = Item.new(item_params)
-      @item.save!
-      # redirect_to admin_path
-      # else
-      # redirect_to new_admin_item_path
-      # end
+      if @item.save!
+      redirect_to admin_items_path
+      else
+      redirect_to new_admin_item_path
+      end
   end
 
   def update
