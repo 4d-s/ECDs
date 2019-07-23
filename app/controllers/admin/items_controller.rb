@@ -10,9 +10,6 @@ class Admin::ItemsController < ApplicationController
   end
 
   def new
-    # @item = Item.new
-    # @disc = @item.discs.build
-    # @song = @disc.songs.build
     @item = Item.new
     @disc = @item.discs.build
     @song = @disc.songs.build
@@ -42,14 +39,14 @@ class Admin::ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:artist_id, :label_id, :genre_id, :item_name, :stock, :price, :is_sold, :image, :order_count,
+    params.require(:item).permit(:artist_id, :label_id, :genre_id, :item_name, :stock, :price, :is_sold, :image, :order_count, :_destroy,
         discs_attributes:
 
-        [:id, :disc_number, :item_id,
+        [:id, :disc_number, :item_id, :_destroy,
 
         songs_attributes:
 
-        [:id, :song_number, :song_name]
+        [:id, :song_number, :song_name, :_destroy]
 
      ]
   )

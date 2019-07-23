@@ -7,6 +7,7 @@
 			<%= attachment_image_tag item, :image,  size: "200x200", fallback: "no_image.jpg" %><br>
 			<%= item.item_name %><br>
 			<%= item.price %>円（税別）<br>
+			<% binding.pry %>
 			<% if item.stock > 0 %>
 			<p>在庫　あり</p>
 			<%else%>
