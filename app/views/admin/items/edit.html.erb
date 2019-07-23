@@ -4,48 +4,34 @@
 	<div class="item-edit-form">
 		<div class="item-edit-text">
 			<%= form_for @item, url:admin_item_path do |f|%>
-			<h3>商品名</h3>
-			<%= f.text_field :item_name, :placeholder => "商品名を入力してください" %>
-			<h3>価格</h3>
-			￥<%= f.text_field :price, :placeholder => "価格を入力してください" %>
-			<h3>商品画像</h3>
-			<%= attachment_image_tag @item, :image, size: "100x100", fallback: "no_image.jpg" %>
-			<%= f.file_field :image %>
-			<h3>在庫数</h3>
-			<%= f.text_field :stock, :placeholder => "個数を入力してください" %>個
+			<div>
+				<h3>商品名</h3>
+				<%= f.text_field :item_name, :placeholder => "商品名を入力してください" %>
+				<h3>価格</h3>
+				￥<%= f.text_field :price, :placeholder => "価格を入力してください" %>
+				<h3>商品画像</h3>
+				<%= attachment_image_tag @item, :image, size: "100x100", fallback: "no_image.jpg" %>
+				<%= f.file_field :image %>
+				<h3>在庫数</h3>
+				<%= f.text_field :stock, :placeholder => "個数を入力してください" %>個
 
-			<h3>アーティスト名</h3>
-			<%= f.collection_select :artist_id, Artist.all, :id, :artist_name %>
-			<h3>レーベル</h3>
-			<%= f.collection_select :label_id, Label.all, :id, :label_name %>
-			<h3>ジャンル</h3>
-			<%= f.collection_select :genre_id, Genre.all, :id, :genre_name %>
-			<h3>曲名リスト</h3>
-			<br>
-			<% @item.discs.each do |d| %>
-				<%= f.fields_for :discs do |disc|%>
-				<div class="disc-form">
-					<h4>・ディスク<%= d.disc_number %></h4>
-					<%= disc.label :disc_number, "ディスク番号" %>
-					<%= disc.text_field :disc_number %>
-					<button type='submit' name='action' value='add'>ディスクの追加</button>
-				</div>
-					<br>
-					<%= disc.fields_for :songs do |song| %>
-						<%= song.label :song_number, "曲番号" %>
-						<%= song.text_field :song_number %>
-						<br>
-						<%= song.label :song_name, "曲名" %>
-						<%= song.text_field :song_name %>
-					<% end %>
-				<% end %>
-			<% end %>
-			<span><button type='submit' name='action' value='del'>削除</button></span><br>
-			<div class="item-sale-change-btn">
-			<label>販売中<%= f.radio_button :is_sold, 'true' %></label>
-			<label>販売中止<%= f.radio_button :is_sold, 'false' %></label>
-				<div class="item-change"><%= f.submit "商品内容の変更を反映する" %><div>
+				<h3>アーティスト名</h3>
+				<%= f.collection_select :artist_id, Artist.all, :id, :artist_name %>
+				<h3>レーベル</h3>
+				<%= f.collection_select :label_id, Label.all, :id, :label_name %>
+				<h3>ジャンル</h3>
+				<%= f.collection_select :genre_id, Genre.all, :id, :genre_name %>
+				<h3>曲名リスト</h3>
+				<br>
 			</div>
+			<div>
+				<%= render 'admin/items/form', discs: @disc, f: f, song: @song %>
+			</div>
+				<div class="item-sale-change-btn">
+					<div class="item-change">
+						<%= f.submit "商品内容の変更を反映する" %>
+					</div>
+				</div>
 			<% end %>
 		</div>
 	</div>

@@ -1,11 +1,11 @@
   <div class="song">
-  	<%= f.label :song_number %>
+  	<%= f.label :"曲番号" %>
     <%= f.text_field :song_number %>
     <br>
-    <%= f.label :song_name %>
+    <%= f.label :"曲名" %>
     <%= f.text_field :song_name %>
     <div class="links">
-      <%= link_to_remove_association "remove song", f %>
+      <%= link_to_remove_association "曲の削除", f %>
     </div>
   </div>
 </div>
