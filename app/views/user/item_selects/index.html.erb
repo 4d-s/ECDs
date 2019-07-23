@@ -1,4 +1,4 @@
-<div class="main-area clearfix">
+<main class="cart-area">
 	<!-- サクセスメッセージを表示する -->
 	<% if flash[:notice] %>
 		<p class="notice"><%= flash[:notice] %></p>
@@ -27,7 +27,9 @@
 	<% @item_selects.each do |item_select| %>
 	<div class="cart-item col-xs-12">
 		<div class="item-image col-xs-3">
-			<%= attachment_image_tag item_select.item, :image, size: "200x200", fallback: "no_image.jpg" %>
+			<%= link_to user_item_path(item_select.item_id) do%>
+				<%= attachment_image_tag item_select.item, :image, size: "200x200", fallback: "no_image.jpg" %>
+			<% end %>
 		</div>
 		<div class="col-xs-9">
 			<div class="item-text col-xs-12">
@@ -80,4 +82,4 @@
 			</p>
 		</div>
 	<% end %>
-</div>
+</main>
