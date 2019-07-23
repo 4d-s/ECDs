@@ -16,8 +16,11 @@ class User::AddressesController < ApplicationController
   def create
     @new_address = Address.new(address_params)
     @new_address.user_id = current_user.id
-    @new_address.save
-    redirect_to user_addresses_path
+    if @new_address.save
+      redirect_to user_addresses_path
+    else
+      render :new
+    end
   end
 
   def update
