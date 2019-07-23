@@ -3,8 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 //  商品一覧ページ
-.item-box{
-	width: 31%;
+.addmin-item-box{
+	width: 30%;
 	float: left;
 	display: inline-block;
 	margin-right: 15px;
@@ -13,11 +13,14 @@
 	border: solid 1px;
 	text-align: center;
 }
-.item-contents{
+.addmin-item-contents{
 	margin: 0 auto;
 	padding: 0 15px 0 15px;
 }
-.item-index{
+.addmin-item-index{
+	text-align: center;
+}
+.addmin-paginate-items{
 	text-align: center;
 }
 
@@ -27,7 +30,7 @@
 //商品編集ページ
 .item-edit-form{
 	width: 80%;
-	height: 1200px;
+	height: 1000px;
 	border: solid 1px;
 }
 .item-edit-text{

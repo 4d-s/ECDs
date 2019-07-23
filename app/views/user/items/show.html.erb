@@ -44,11 +44,13 @@
 				</p>
 			</div>
 			<br>
-			<%= form_for @item_select, url: user_item_item_selects_path(@item) do |f| %>
-				<%= f.number_field :item_count, value: 1, class: "col-xs-4" %>
-				&nbsp;
-				<%= f.submit "カートに入れる" %>
-    		<% end %>
+			<% if user_signed_in? %>
+				<%= form_for @item_select, url: user_item_item_selects_path(@item) do |f| %>
+					<%= f.number_field :item_count, value: 1, class: "col-xs-4" %>
+					&nbsp;
+					<%= f.submit "カートに入れる" %>
+	    		<% end %>
+	    	<% end %>
 
 			<p class ="item-price-title" ><br>在庫：
 			<% if @item.stock > 0 %>

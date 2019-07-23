@@ -9,7 +9,7 @@
 			<h3>価格</h3>
 			￥<%= f.text_field :price, :placeholder => "価格を入力してください" %>
 			<h3>商品画像</h3>
-			<%= attachment_image_tag @item, :image_id, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+			<%= attachment_image_tag @item, :image, size: "100x100", fallback: "no_image.jpg" %>
 			<%= f.file_field :image %>
 			<h3>在庫数</h3>
 			<%= f.text_field :stock, :placeholder => "個数を入力してください" %>個

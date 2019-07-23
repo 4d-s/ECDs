@@ -5,16 +5,17 @@
 	<link rel="stylesheet" type="text/scss" href="admin/users.scss">
 </head>
 
+<main class="col-xs-9">
 	<h2>ユーザー情報編集</h2>
   	<%= form_for [:admin, @user] do |f| %>
 	<div class="user-form">
 		<div class="text">
 			<h3>名前（姓・名）</h3>
-			<%= f.text_field :first_name, placeholder:"姓" %>
-			<%= f.text_field :last_name, placeholder:"名" %>
+			<%= f.text_field :last_name, placeholder:"姓" %>
+			<%= f.text_field :first_name, placeholder:"名" %>
 			<h3>名前（カナ姓・カナ名）</h3>
-			<%= f.text_field :first_name_katakana, placeholder:"セイ" %>
-			<%= f.text_field :last_name_katakana, placeholder:"メイ" %>
+			<%= f.text_field :last_name_katakana, placeholder:"セイ" %>
+			<%= f.text_field :first_name_katakana, placeholder:"メイ" %>
 			<h3>郵便番号</h3>
 			<%= f.text_field :postal_code, placeholder:"郵便番号" %>
 			<h3>住所</h3>
@@ -31,3 +32,4 @@
 		</div>
 	</div>
 	<% end %>
+</main>
