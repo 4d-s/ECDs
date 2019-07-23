@@ -6,15 +6,25 @@
 				<tr>
 					<th>ID</th>
 					<th>ユーザー名</th>
+					<th>退会フラグ</th>
 				</tr>
 			</thead>
 			<tbody>
 				<% @users.each do |user| %>
 					<tr>
-						<td><%= user.id %></td>
-						<td><%= link_to user.name, admin_user_path(user.id) %></td>
+						<td width=30% align="left"><%= user.id %></td>
+						<td width=40% align="left"><%= link_to user.name, admin_user_path(user.id) %></td>
+						<td width=30% align="left">
+							<% if user.is_deleted == true %>
+								<%= "有効" %>
+							<% elsif user.is_deleted == false %>
+								<%= "退会済み" %>
+							<% else %>
+								<%= "要確認" %>
+							<% end %>
+						</td>
 					</tr>
-					<% end %>
+				<% end %>
 			</tbody>
 		</table>
 	</div>
