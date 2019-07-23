@@ -1,2 +1,38 @@
-<h1>Admin::Orders#index</h1>
-<p>Find me in app/views/admin/orders/index.html.erb</p>
+<main class="col-xs-9">
+	<div class = "admin-orders-area">
+		<h1 class= "admin-orders-title">注文一覧</h1>
+		<table class ="table table-hover table-inverse">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>注文者</th>
+					<th>受注日</th>
+					<th>注文数</th>
+					<th>配送状況</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @orders.each do |order| %>
+					<tr>
+						<td><%= order.user.id %></td>
+						<td><%= order.user.name %></td>
+						<td><%= order.created_at %></td>
+						<td><%= order.order_item_histories.count %></td>
+						<td>
+							<% if order.delivery_status == 1 %>
+								<%= "受付中" %>
+							<% elsif order.delivery_status == 2 %>
+								<%= "発送準備中" %>
+							<% elsif order.delivery_status == 3 %>
+								<%= "発送済み" %>
+							<% else %>
+								<%= "要確認" %>
+							<% end %>
+						</td>
+						<td><%= link_to "注文詳細ページへ", edit_admin_order_path(order), class: "btn btn-primary" %></td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</main>

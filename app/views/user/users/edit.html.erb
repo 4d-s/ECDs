@@ -16,11 +16,11 @@
 						<!-- [:user, @user] -->
 						<%= form_for current_user do |f| %>
 						<h2>名前（姓・名）</h2>
-						<span><%= f.text_field :first_name, placeholder:"姓" %></span>
-						<span><%= f.text_field :last_name, placeholder:"名" %></span>
+						<span><%= f.text_field :last_name, placeholder:"姓" %></span>
+						<span><%= f.text_field :first_name, placeholder:"名" %></span>
 						<h2>名前（カナ姓・カナ名）</h2>
-						<span><%= f.text_field :first_name_katakana, placeholder:"セイ" %></span>
-						<span><%= f.text_field :last_name_katakana, placeholder:"メイ" %></span>
+						<span><%= f.text_field :last_name_katakana, placeholder:"セイ" %></span>
+						<span><%= f.text_field :first_name_katakana, placeholder:"メイ" %></span>
 						<h2>郵便番号</h2>
 						<div><%= f.text_field :postal_code, placeholder:"郵便番号" %></div>
 						<h2>住所</h2>
@@ -41,5 +41,4 @@
 	</div>
 	</div>
 </main>
-<footer class="bottom"></footer>
 </body>

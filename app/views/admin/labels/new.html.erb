@@ -1,0 +1,11 @@
+
+<h1>レーベル登録</h1>
+	<%= form_for(@label, url: admin_labels_path) do |f| %>
+		<br>
+		<label>レーベル名</label>
+		<br>
+		<%= f.text_field :label_name %>
+		<br>
+		<br>
+		<%= f.submit %>
+		<% end %>

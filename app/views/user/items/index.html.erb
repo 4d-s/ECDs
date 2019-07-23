@@ -1,16 +1,10 @@
-<!DOCTYPE html>
-<head>
-	<meta charset="utf-8">
-	<title>商品一覧</title>
-	<link rel="stylesheet" type="text/scss" href="user/items.scss">
-</head>
-
+<main>
 <h1 class="item-index">All Items</h1>
 <% @items.each do |item| %>
 <div class="item-box">
 	<%= link_to user_item_path(item.id) do%>
 	<div class ="item-contents">
-		<%= attachment_image_tag item, :image_id,  size: "200x200", fallback: "no_image.jpg" %><br>
+		<%= attachment_image_tag item, :image,  size: "200x200", fallback: "no_image.jpg" %><br>
 		<%= item.item_name %><br>
 		<%= item.price %>円（税別）<br>
 		<% if item.stock > 0 %>
@@ -22,4 +16,7 @@
 	<% end %>
 </div>
 <% end %>
-<%= paginate @items, class: "paginate" %>
+</main>
+<div class="user-paginate-items">
+	<%= paginate @items, class: "paginate" %>
+</div>

@@ -1,14 +1,15 @@
 class Item < ApplicationRecord
-	belongs_to :genre
-	belongs_to :artist
-	belongs_to :label
-	attachment :image
-	has_many :discs, inverse_of: :item
+  belongs_to :genre
+  belongs_to :artist
+  belongs_to :label
+  attachment :image
+  has_many :discs, inverse_of: :item
+  accepts_nested_attributes_for :discs, reject_if: :all_blank, allow_destroy: true
+  has_many :item_selects, dependent: :destroy
 
-	has_many :item_selects, dependent: :destroy
-  accepts_nested_attributes_for :discs
-	has_many :select_items, dependent: :destroy
-  feature_saito_admin
+  validates :item_name, presence: true
+  validates :stock, presence: true, format: { with: /\A[0-9]+\z/, message: "半角数字のみが使用できます" }
+  validates :price, presence: true, numericality: { only_integer: true }
 
   #検索用メソッド（空欄で検索した場合は、一覧を表示する）
   def self.Item_search(keyword)

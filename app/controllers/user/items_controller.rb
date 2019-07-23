@@ -18,6 +18,9 @@ class User::ItemsController < ApplicationController
 	end
 	def show
 		@item = Item.find(params[:id])
-		@item_select = current_user.item_selects.new(item_id: @item.id)
+		if user_signed_in?
+			@item_select = current_user.item_selects.new(item_id: @item.id)
+		end
+		@discs = @item.discs
 	end
 end
