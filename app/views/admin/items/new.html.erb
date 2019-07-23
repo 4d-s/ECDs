@@ -1,42 +1,48 @@
-<h1>新規商品追加画面</h1>
+<main class = "col-xs-9">
+	<h1>新規商品追加画面</h1>
+		<div class="item-edit-form">
+			<div class="item-edit-text">
+			  	<%= form_for @item, url:admin_items_path do |item| %>
 
-  	<%= form_for @item, url:admin_items_path do |item| %>
+			  	<div class="field">
+					<br>
+					<label>商品名</label>
+					<br>
+					<%= item.text_field :item_name %>
+					<br>
+					<label >価格</label>
+					<br>
+					<%= item.text_field :price %>
+					<br>
+					<label >在庫数</label>
+					<br>
+					<%= item.text_field :stock %>
+					<br>
+					<label >販売ステータス</label>
+					<br>
+					<p>販売中表示</p>
+					<%= item.check_box :is_sold %>
+					<br>
+					<label >画像</label>
+					<br>
+			    	<%= item.attachment_field :image %>
+					<br>
+					<label>アーティスト</label>
+			  		<%= item.collection_select :artist_id, Artist.all, :id, :artist_name, :include_blank => true %>
+					<label>レーベル</label>
+			  		<%= item.collection_select :label_id, Label.all, :id, :label_name,  :include_blank => true %>
+			  		<label>ジャンル</label>
+			  		<%= item.collection_select :genre_id, Genre.all, :id, :genre_name,  :include_blank => true %>
+				</div>
+				<div class ="field">
+				<%= render 'admin/items/form', discs: @disc, f: item, song: @song %>
+				</div>
 
-  	<div class="field">
-		<br>
-		<label>商品名</label>
-		<br>
-		<%= item.text_field :item_name %>
-		<br>
-		<label >価格</label>
-		<br>
-		<%= item.text_field :price %>
-		<br>
-		<label >在庫数</label>
-		<br>
-		<%= item.text_field :stock %>
-		<br>
-		<label >販売ステータス</label>
-		<br>
-		<p>販売中表示</p>
-		<%= item.check_box :is_sold %>
-		<br>
-		<label >画像</label>
-		<br>
-    	<%= item.attachment_field :image %>
-		<br>
-		<label>アーティスト</label>
-  		<%= item.collection_select :artist_id, Artist.all, :id, :artist_name, :include_blank => true %>
-		<label>レーベル</label>
-  		<%= item.collection_select :label_id, Label.all, :id, :label_name,  :include_blank => true %>
-  		<label>ジャンル</label>
-  		<%= item.collection_select :genre_id, Genre.all, :id, :genre_name,  :include_blank => true %>
+			    <div class="actions">
+			      <%= item.submit %>
+			    </div>
+			    <br>
+			<% end %>
+		</div>
 	</div>
-	<div class ="field">
-	<%= render 'admin/items/form', discs: @disc, f: item, song: @song %>
-	</div>
-
-    <div class="actions">
-      <%= item.submit %>
-    </div>
-<% end %>
+</main>

@@ -1,5 +1,5 @@
 class User::ItemSelectsController < ApplicationController
-
+  before_action :authenticate_user!
   def index
     @item_selects = current_user.item_selects
   end

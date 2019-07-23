@@ -1,4 +1,5 @@
 class User::OrdersController < ApplicationController
+  before_action :authenticate_user!
   def new
   	@item_selects = current_user.item_selects
   	@order = Order.new
