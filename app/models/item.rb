@@ -4,7 +4,7 @@ class Item < ApplicationRecord
 	belongs_to :label
 	attachment :image
 	has_many :discs, inverse_of: :item
-  accepts_nested_attributes_for :discs
+  accepts_nested_attributes_for :discs, reject_if: :all_blank, allow_destroy: true
 	has_many :item_selects, dependent: :destroy
 
   #検索用メソッド（空欄で検索した場合は、一覧を表示する）
