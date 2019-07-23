@@ -27,7 +27,7 @@
 	<% @item_selects.each do |item_select| %>
 	<div class="cart-item col-xs-12">
 		<div class="item-image col-xs-3">
-			<%= attachment_image_tag item_select.item, :image_id, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+			<%= attachment_image_tag item_select.item, :image, size: "200x200", fallback: "no_image.jpg" %>
 		</div>
 		<div class="col-xs-9">
 			<div class="item-text col-xs-12">
