@@ -1,16 +1,15 @@
 <main class="col-xs-9">
 <h2>購入履歴</h2>
 
-<div class="order-date-box">
-	<p><%= @order.created_at.strftime("%Y-%m-%d")%>
-	発送ステータス
-	<% if @order.delivery_status == 1 %>
-	受付中</p>
-	<% elsif @order.delivery_status == 2 %>
-	発送準備中</p>
-	<% else %>
-	発送済み</p>
-	<% end %>
+<%= form_for [:admin, @order] do |ord| %>
+<div class="addmin-order-status-box">
+	<table width="600">
+		<tr>
+			<th><%= @order.created_at.strftime("%Y-%m-%d")%></th>
+			<th>発送ステータス:</th>
+			<th><%= ord.select :delivery_status, [["受付中", 1], ["発送準備中", 2], ["発送済", 3]] %></th>
+		</tr>
+	</table>
 </div>
 
 <div class="container">
@@ -53,8 +52,10 @@
 			</div>
 		</div>
 	</div>
-
-	<div class="user-order-payment">
+	<button type="button" onclick="history.back()" class="btn btn-default">戻る</button>
+	<%= ord.submit 'update user' %>
+	<% end %>
+	<div class="addmin-order-payment">
 		<div class="user-delivery-pay">
 			<p>送料：500円</p>
 		</div>
