@@ -3,10 +3,10 @@
 
 <%= form_for [:admin, @order] do |ord| %>
 <div class="addmin-order-status-box">
-	<table width="600">
+	<table width="1100">
 		<tr>
 			<th><%= @order.created_at.strftime("%Y-%m-%d")%></th>
-			<th>発送ステータス:</th>
+			<th class="delivery-status">発送ステータス:</th>
 			<th><%= ord.select :delivery_status, [["受付中", 1], ["発送準備中", 2], ["発送済", 3]] %></th>
 		</tr>
 	</table>
@@ -55,7 +55,7 @@
 	<button type="button" onclick="history.back()" class="btn btn-default">戻る</button>
 	<%= ord.submit 'update user' %>
 	<% end %>
-	<div class="addmin-order-payment">
+	<div class="addmin-order-payment-edit">
 		<div class="user-delivery-pay">
 			<p>送料：500円</p>
 		</div>
