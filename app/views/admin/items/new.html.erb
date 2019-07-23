@@ -37,7 +37,7 @@
   		<%= item.collection_select :genre_id, Genre.all, :id, :genre_name,  :include_blank => true %>
 	</div>
 	<div class ="field">
-	<%= render 'admin/items/form', discs: @disc , f: item %>
+	<%= render 'admin/items/form', discs: @disc, f: item, song: @song %>
 	</div>
 
     <div class="actions">

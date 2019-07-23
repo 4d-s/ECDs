@@ -10,9 +10,12 @@ class Admin::ItemsController < ApplicationController
   end
 
   def new
+    # @item = Item.new
+    # @disc = @item.discs.build
+    # @song = @disc.songs.build
     @item = Item.new
-    disc = @item.discs.build
-    disc.songs.build
+    @disc = @item.discs.build
+    @song = @disc.songs.build
   end
   def edit
     @item = Item.find(params[:id])
@@ -20,11 +23,11 @@ class Admin::ItemsController < ApplicationController
 
   def create
       @item = Item.new(item_params)
-      if @item.save
-      redirect_to admin_path
-      else
-      redirect_to new_admin_item_path
-      end
+      @item.save!
+      # redirect_to admin_path
+      # else
+      # redirect_to new_admin_item_path
+      # end
   end
 
   def update
