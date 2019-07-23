@@ -71,12 +71,21 @@
 	</div>
 	<div class="order-address-choice col-xs-7">
 		<div class = "order-address-radio">
-			<label><%= f.radio_button :address_select, "0" , {:checked => true} %>
-			 規定の住所に配送する</label><br><br>
+			<% if session[:last_address] == nil %>
+				<label><%= f.radio_button :address_select, "0" , {:checked => true} %>
+				 規定の住所に配送する</label><br><br>
+			<% else %>
+				<label><%= f.radio_button :address_select, "0" %>
+				 規定の住所に配送する</label><br><br>
+			<% end %>
 			<label><%= f.radio_button :address_select, "1" %> 登録済みの住所から配送先を選択する</label><br>
 			<%= f.collection_select :address_id, current_user.addresses, :id, :street_address,
                                :prompt => "配送先を選択" %><br><br>
-			<label><%= f.radio_button :address_select, "2" %> 配送先を新しく入力する</label><br>
+            <% if session[:last_address] == nil %>
+				<label><%= f.radio_button :address_select, "2" %> 配送先を新しく入力する</label><br>
+			<% else %>
+				<label><%= f.radio_button :address_select, "2", {:checked => true} %> 配送先を新しく入力する</label><br>
+			<% end %>
 			<%= link_to "新規配送先入力ページへ", user_order_address_path %><br>
 			<%= session[:last_address] %>
 		</div>
