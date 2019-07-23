@@ -12,20 +12,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def after_sign_out_path_for(resource)
-    # if resource.is_a?(Administrator)#Administrator　model名
-    #   user_session_path
-
-    # else
-    #   new_administrator_session_path
-    # end
-	    # case resource
-		   #  when User
-		    	new_user_session_path
-		   #  when Administrator
-		   # 		new_administrator_session_path
-	   	# end
-   end
+  def after_sign_out_path_for(resource_or_scope)
+    if resource_or_scope == :user
+      new_user_session_path
+    else
+      new_administrator_session_path
+    end
+  end
 
   protected#ストロングパラメータ
 

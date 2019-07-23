@@ -9,11 +9,14 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <% if user_signed_in? %>
-    <%= render 'layouts/user_header' %>
-  <% elsif administrator_signed_in? %>
-    <%= render 'layouts/administrator_header' %>
-    <%= render 'layouts/administrator_sidebar' %>
+  <!-- URLから表示するヘッダー、サイドバーを判断する -->
+  <% if request.fullpath.index('/admin') %>
+    <% if request.fullpath.index('/administrators/') %>
+      <%= render 'layouts/administrator_header' %>
+    <% else %>
+      <%= render 'layouts/administrator_header' %>
+      <%= render 'layouts/administrator_sidebar' %>
+    <% end %>
   <% else %>
     <%= render 'layouts/user_header' %>
   <% end %>
