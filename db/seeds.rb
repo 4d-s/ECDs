@@ -6,10 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Item.delete_all
 Artist.delete_all
 Genre.delete_all
 Label.delete_all
-Item.delete_all
 
 Artist.create([
 	{
@@ -95,39 +95,7 @@ Item.create([
 	}
 ])
 
-Disc.create([
-	{
-		item_id: "1",
-		disc_number: "1"
-	},
-	{
-		item_id: "1",
-		disc_number: "2"
-	},
-	{
-		item_id: "2",
-		disc_number: "1"
-	},
-	{
-		item_id: "2",
-		disc_number: "2"
-	},
-	{
-		item_id: "3",
-		disc_number: "1"
-	},
-	{
-		item_id: "3",
-		disc_number: "2"
-	},
-	{
-		item_id: "3",
-		disc_number: "3"
-	}
-])
-
 p "Artistを#{Artist.count}件、作成完了"
 p "Genreを#{Genre.count}件、作成完了"
 p "Labelを#{Label.count}件、作成完了"
 p "Itemを#{Item.count}件、作成完了"
-p "Discを#{Item.count}件、作成完了"

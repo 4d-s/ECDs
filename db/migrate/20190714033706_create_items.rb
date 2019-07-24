@@ -6,7 +6,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer :price
       t.boolean :is_sold
       t.text :image_id
-      t.integer :order_count
+      t.integer :order_count, default: 0
       t.datetime :updated_at
       t.datetime :created_at
 
