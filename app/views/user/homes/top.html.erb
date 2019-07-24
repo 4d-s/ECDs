@@ -12,8 +12,8 @@
 	<h1>ECD's</h1>
 	<%= form_tag user_items_path, method: :get do %>
 	<%= select_tag 'select_id', options_for_select([["CD名","1"], ["アーティスト名","2"], ["曲名","3"]], :selected=>"1") %>
-	<%= text_field_tag :keyword%>
-	<%= submit_tag '検索' , :item_name => nil%>
+	<%= text_field_tag :keyword, '', placeholder: "キーワードで検索", size: 30%>
+	<%= submit_tag '検索' , :item_name => nil, class: "btn btn-default"%>
 	<% end %>
 </div>
 </main>
