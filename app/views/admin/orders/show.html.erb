@@ -3,7 +3,7 @@
 
 	<% @orders.each do |order| %>
 	<div class="order-date-box">
-		<table width="600">
+		<table width="800">
 			<tr>
 				<th><%= order.created_at.strftime("%Y-%m-%d")%></th>
 				<th class="delivery-status">発送ステータス</th>
@@ -60,11 +60,11 @@
 			</div>
 		</div>
 		<%= link_to '編集', edit_admin_order_path(order.id), class: "btn btn-default"%>
-		<div class="user-order-payment">
+		<div class="addmin-order-payment">
 			<div class="user-delivery-pay">
 				<p>送料：500円</p>
 			</div>
-			<p class="syoukei">小計：    </p>
+			<p>小計：    </p>
 			<div class="user-order-pay">
 				<% order.order_item_histories.each do |his| %>
 				<%= his.item_price * his.order_item_count %><%='円'%><br>
