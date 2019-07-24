@@ -13,6 +13,7 @@ class User::ItemsController < ApplicationController
 		@items = Item.page(params[:page]).per(12).reverse_order.Song_search(params[:keyword])
 		#検索せずに全商品を表示
 		else
+			params[:keyword] = ""
 			@items = Item.page(params[:page]).per(12).reverse_order
 		end
 	end

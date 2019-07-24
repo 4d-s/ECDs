@@ -13,7 +13,6 @@
 	padding-left: 50px;
 }
 .user-form{
-	height: 600px;
 	margin: auto;
 	border: solid 1px;
 }
@@ -27,12 +26,28 @@
 //マイページ
 .pofile{
 	font-size: 24px;
+	color: orange;
 	padding-top: 50px;
 	padding-right: 10px;
+}
+.container{
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+.mori{
+	background-image: url(../piano.jpg);
+	background-size: cover;
+  	background-position: center;
+  	opacity: 0.5;
+}
+.user-form{
+	background: white;
+	opacity: 1;
 }
 //ユーザ編集ページ
 .space{
 	width: 60%;
+	padding: 10px;
 	border: solid 1px;
 }
 .btn{
