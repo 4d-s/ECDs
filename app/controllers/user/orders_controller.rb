@@ -51,7 +51,10 @@ class User::OrdersController < ApplicationController
       @order_item_history.image_id = item_select.item.image_id
       @order_item_history.order_item_count = item_select.item_count
       @order_item_history.save
+      item_select.item.order_count += item_select.item_count
+      item_select.item.save
     }
+
     @item_selects.destroy_all
     session[:last_address] = nil
     flash[:notice] = "購入が完了しました。お買い上げありがとうございます！"
