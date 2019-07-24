@@ -2,36 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// 購入履歴
+// ユーザー購入履歴
 .order-date-box{
 	height: 20px;
 	border: solid 1px;
-	width: auto;
 }
 .order-address-box{
-	width: auto;
 	float: left;
 }
 .order-item-box{
-	width: auto;
 	float: left;
 }
 .user-delivery-pay{
 	text-align: right;
 }
 .user-order-payment{
-	width: 750px;
-	display: inline-block;
-}
-.syoukei{
 	text-align: right;
-}
-.user-order-pay{
-	text-align: right;
-
-}
-.user-total-pay{
-	text-align: right;
+	width: 1100px;
 }
 
 .order-title{

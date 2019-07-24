@@ -10,9 +10,6 @@ class Admin::ItemsController < ApplicationController
   end
 
   def new
-    # @item = Item.new
-    # @disc = @item.discs.build
-    # @song = @disc.songs.build
     @item = Item.new
     @disc = @item.discs.build
     @song = @disc.songs.build

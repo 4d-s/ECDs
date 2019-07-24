@@ -7,6 +7,6 @@ class AddNameToUsers < ActiveRecord::Migration[5.2]
     add_column :users, :street_address, :string
     add_column :users, :postal_code, :string
     add_column :users, :phone_number, :string
-    add_column :users, :is_deleted, :boolean
+    add_column :users, :is_deleted, :boolean, default: true
   end
 end
