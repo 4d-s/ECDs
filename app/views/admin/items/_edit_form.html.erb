@@ -1,5 +1,4 @@
-
-    <div class="item-edit-form">
+  <div class="item-edit-form">
       <div class="item-edit-text">
           <%= form_for @item, url:admin_items_path do |item| %>
 
@@ -28,15 +27,12 @@
           <br>
           <label>アーティスト</label>
             <%= item.collection_select :artist_id, Artist.all, :id, :artist_name, :include_blank => true %>
-            <%= link_to "登録", new_admin_artist_path, class: "btn btn-primary" %>
           <br>
           <label>レーベル</label>
             <%= item.collection_select :label_id, Label.all, :id, :label_name,  :include_blank => true %>
-            <%= link_to "登録", new_admin_label_path, class: "btn btn-primary" %>
           <br>
           <label>ジャンル</label>
             <%= item.collection_select :genre_id, Genre.all, :id, :genre_name,  :include_blank => true %>
-            <%= link_to "登録", new_admin_genre_path, class: "btn btn-primary" %>
           <br>
 
           </div>
