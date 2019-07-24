@@ -1,7 +1,8 @@
 <header>
-  <div class="site-logo">
-    logo
-  </div>
+  <%= link_to root_path do%>
+    <div class="site-logo">
+    </div>
+  <% end %>
   <% if user_signed_in? %>
   <div class="welcome-text">
     ようこそ、<%= current_user.name %>さん！！
@@ -12,11 +13,11 @@
   </div>
   <% end %>
 
-  <div class="header-search-box">
+  <div class="form-inline header-search-box">
     <%= form_tag user_items_path, method: :get do %>
-    <%= select_tag 'select_id', options_for_select([["CD名","1"], ["アーティスト名","2"], ["曲名","3"]], :selected=>"1") %>
-    <%= text_field_tag :keyword %>
-    <%= submit_tag '検索' , :item_name => nil%>
+    <%= select_tag 'select_id', options_for_select([["CD名","1"], ["アーティスト名","2"], ["曲名","3"]],class: "bootstrap-select", :selected=>"1" ) %>
+    <%= text_field_tag :keyword, '', placeholder: "キーワードで検索", class: "form-control", size: 30 %>
+    <%= submit_tag '検索' , :item_name => nil, class: "btn btn-success"%>
     <% end %>
   </div>
 

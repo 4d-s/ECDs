@@ -31,7 +31,11 @@ body {
 	position: relative;
 	margin: 0 auto;
 }
-
+.notice {
+	padding: 30px 0 0 30px;
+	font-size: 12px;
+	color: #008000;
+}
 /*header*/
 header {
 	height: 70px;
@@ -40,6 +44,13 @@ header {
 }
 .site-logo{
 	float:left;
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	background-image: url(ECDs_logo.jpg);
+	background-size: cover;
+  	background-position: center;
+  	margin: 10px;
 }
 .welcome-text{
 	padding-left: 30px;
@@ -50,8 +61,14 @@ header {
 .header-search-box{
 	position: absolute;
 	top: 20px;
-	left: 35%;
-	padding-left: 50px;
+	left: 30%;
+}
+.search-select{
+	height: 50px;
+}
+.search-form{
+	width: 200px;
+	display: inline-block;
 }
 .nav-menu {
 	height: 50%;
@@ -76,11 +93,14 @@ header {
 }
 // main
 main {
+	width: 80%;
 	min-height: 500px;
 	padding: 20px 0;
 	margin: 0 auto;
 }
 .top-main {
+	min-height: 500px;
+	padding: 20px 0;
 	background-image: url(Abstract-Music-Rock-Bw-l.jpg);
   	background-position: center;
 }
@@ -94,7 +114,7 @@ footer {
 	text-align: center;
 	line-height: 50px;
 	font-family: "Spectral",serif;
-	color: #000000;
+	color: #FFFFFF;
 }
 
 //  管理側ヘッダー
