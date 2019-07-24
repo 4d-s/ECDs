@@ -24,15 +24,17 @@
 				<h3>曲名リスト</h3>
 				<br>
 			</div>
+		<div>
 			<div>
 				<%= render 'admin/items/form', discs: @disc, f: f, song: @song %>
-			</div>
 				<div class="item-sale-change-btn">
+				<label>販売中<%= f.radio_button :is_sold, 'true' %></label>
+				<label>販売中止<%= f.radio_button :is_sold, 'false' %></label>
 					<div class="item-change">
 						<%= f.submit "商品内容の変更を反映する" %>
 					</div>
 				</div>
+			</div>
 			<% end %>
-		</div>
 	</div>
 </main>
