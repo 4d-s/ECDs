@@ -18,12 +18,12 @@
           <br>
           <label >販売ステータス</label>
           <br>
-          <p>販売中表示</p>
-          <%= item.check_box :is_sold %>
+          <label>販売中<%= item.radio_button :is_sold, 'true' %></label>
+          <label>販売中止<%= item.radio_button :is_sold, 'false' %></label>
           <br>
           <label >画像</label>
           <br>
-          <%= item.attachment_field :image %>
+          <%= item.attachment_field :image, size: "100x100", fallback: "no_image.jpg" %>
           <br>
           <label>アーティスト</label>
           <%= item.collection_select :artist_id, Artist.all, :id, :artist_name, :include_blank => true %>
