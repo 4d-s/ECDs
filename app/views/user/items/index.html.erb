@@ -1,5 +1,10 @@
 <main>
-<h1 class="item-index">All Items</h1><br>
+<% if params[:keyword] != "" %>
+	<p class="search-notice"><%= params[:keyword] + "の検索結果"%></p><br>
+	<% else %>
+	<h1 class="item-index">All Items</h1><br>
+<% end %>
+
 <% @items.each do |item| %>
 <div class="item-box">
 	<%= link_to user_item_path(item.id) do%>
