@@ -28,42 +28,50 @@
 	clear: both;
 }
 body {
-	width: 80%;
+	position: relative;
 	margin: 0 auto;
 }
 
 /*header*/
 header {
-	height: 150px;
-	margin-bottom: 50px;
+	height: 70px;
+	background-color: #006699;
+	opacity: 0.8;
 }
-.logo-area {
-	height: 100px;
-	width: 100px;
-	border: solid 1px black;
-	margin: 20px;
+.site-logo{
+	float:left;
 }
 .welcome-text{
-	margin-top: 40px;
+	padding-left: 30px;
+	float:left;
+	font-family: "Spectral",serif;
+	color: #FFFFFF;
 }
 .header-search-box{
-	text-align:  center;
+	position: absolute;
+	top: 20px;
+	left: 35%;
+	padding-left: 50px;
 }
 .nav-menu {
-	height: 40px;
-	background-color: #000000;
+	height: 50%;
+	font-family: "Spectral",serif;
+	border-bottom: 1px solid #000000;
 }
-.nav-list-item-left, .nav-list-item-right{
+.nav-list-item-left, .nav-list-item-right, .nav-list-item-right2{
+	float: right;
 	display: inline-block;
 	padding-right: 20px;
-	line-height: 40px;
+	line-height: 70px;
 	color: #FFFFFF;
 }
 .nav-list-item-right{
-	float: right;
+	padding-left: 50px;
 }
+
 .link-decoration{
 	text-decoration: none;
+	font-family: "Spectral",serif;
 	color: #FFFFFF;
 }
 // main
@@ -72,16 +80,21 @@ main {
 	padding: 20px 0;
 	margin: 0 auto;
 }
+.top-main {
+	background-image: url(Abstract-Music-Rock-Bw-l.jpg);
+  	background-position: center;
+}
 /*footer*/
 footer {
 	height: 50px;
-	margin-top: 30px;
-	background-color: black;
+	background-color: #006699;
+	opacity: 0.8;
 }
 .footer-text {
 	text-align: center;
 	line-height: 50px;
-	color: #FFFFFF;
+	font-family: "Spectral",serif;
+	color: #000000;
 }
 
 //  管理側ヘッダー
