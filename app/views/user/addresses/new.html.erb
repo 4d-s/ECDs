@@ -1,3 +1,4 @@
+<main class="clearfix">
 <!-- エラーメッセージがあれば表示する -->
 <% if @new_address.errors.any? %>
 	<div class="error-message-area">
@@ -30,3 +31,4 @@
 	<%= a.submit '追加', class: "btn btn-primary" %>
 	<%= link_to '戻る', user_addresses_path, class: "btn btn-default"%>
 <% end %>
+</main>
