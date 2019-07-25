@@ -1,14 +1,12 @@
 <div class="nested-fields form-inline">
   <div class="song">
-  	<%= f.label :曲順 %>
-    <%= f.label :曲番号 %>
-    <%= f.text_field :song_number %>
+  	<%= f.label :曲番号 %>
+    <%= f.text_field :song_number,:placeholder => "※半角数字" %>
     <br>
     <%= f.label :曲名 %>
     <%= f.text_field :song_name %>
     <div class="links">
-      <%= link_to_remove_association "曲削除", f%>
-      <%= link_to_remove_association "曲の削除", f%>
+      <%= link_to_remove_association "曲の削除", f , class: "btn-danger " %>
     </div>
   </div>
 </div>

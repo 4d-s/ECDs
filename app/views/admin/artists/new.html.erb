@@ -9,18 +9,4 @@
 			<br>
 			<%= f.submit %>
 			<% end %>
-			        <div class ="field">
-          <%= item.fields_for :discs do |disc| %>
-          <div class="discs">
-              <%= render 'disc_fields', f: disc %>
-          <% end %>
-            <div class="links">
-              <%= link_to_add_association 'ディスク追加', item, :discs %>
-            </div>
-            <div class="actions">
-              <%= item.submit %>
-            </div>
-          </div>
-          <% end %>
-        </div>
-</main>
+</div>
