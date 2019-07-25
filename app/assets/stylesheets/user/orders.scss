@@ -3,22 +3,19 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // ユーザー購入履歴
-.order-date-box{
-	height: 20px;
-	border: solid 1px;
-}
 .order-address-box{
 	float: left;
+	padding-left: 10px;
 }
 .order-item-box{
-	float: left;
+	text-align: left;
 }
 .user-delivery-pay{
 	text-align: right;
 }
 .user-order-payment{
 	text-align: right;
-	width: 1100px;
+	padding-right: 50px;
 }
 
 .order-title{

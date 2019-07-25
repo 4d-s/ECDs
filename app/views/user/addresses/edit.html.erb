@@ -1,21 +1,22 @@
-<h1>アドレス編集</h1>
-<%= form_for [:user, @edit_address] do |a| %>
+<main class="clearfix">
+	<h1>アドレス編集</h1>
+	<%= form_for [:user, @edit_address] do |a| %>
 
-	<h4>名前</h4>
-	
-	<%= a.text_field :last_name %>
-	<%= a.text_field :first_name %>
+		<h4>名前</h4>
+		<%= a.text_field :last_name %>
+		<%= a.text_field :first_name %>
 
-	<h4>住所</h4>
-	<%= a.text_field :street_address ,size:70%>
+		<h4>住所</h4>
+		<%= a.text_field :street_address ,size:70%>
 
-	<h4>郵便番号</h4>
-	<%= a.text_field :postal_code ,size:70%>
+		<h4>郵便番号</h4>
+		<%= a.text_field :postal_code ,size:70%>
 
-	<h4>電話番号</h4>
-	<%= a.text_field :phone_number ,size:70%>
-	<br><br>
-
-	<%= a.submit '保存', class: "btn btn-default" %>
+		<h4>電話番号</h4>
+		<%= a.text_field :phone_number ,size:70%>
+		<br><br>
+	<%= a.submit '変更内容を保存', class: "btn btn-primary"%>
 	<%= link_to '戻る', user_addresses_path, class: "btn btn-default"%>
-<% end %>
+	<% end %>
+
+</main>

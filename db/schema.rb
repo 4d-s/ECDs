@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2019_07_19_043017) do
     t.integer "price"
     t.boolean "is_sold"
     t.text "image_id"
-    t.integer "order_count"
+    t.integer "order_count", default: 0
     t.datetime "updated_at", null: false
     t.datetime "created_at", null: false
     t.integer "genre_id"
@@ -136,7 +136,7 @@ ActiveRecord::Schema.define(version: 2019_07_19_043017) do
     t.string "street_address"
     t.string "postal_code"
     t.string "phone_number"
-    t.boolean "is_deleted"
+    t.boolean "is_deleted", default: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
