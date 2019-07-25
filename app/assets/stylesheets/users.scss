@@ -1,0 +1,21 @@
+//エンドユーザマイページ/ユーザ編集ページ
+.clearfix::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.text{
+	padding-left: 50px;
+}
+.user-form{
+/*	height: 600px;
+*/	margin: auto;
+	border: solid 1px;
+}
+.bottom{
+	height: 50px;
+}
+.pofile-btn{
+	text-align: right;
+	padding: 30px;
+}

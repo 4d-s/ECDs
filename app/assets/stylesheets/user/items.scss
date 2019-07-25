@@ -52,7 +52,7 @@
 	padding: 10px 0 0 20px;
 }
 .disc-song-box {
-	border: solid 1px black;
+	border: solid 1px gray;
 	margin: 10px 0;
 }
 
@@ -64,12 +64,13 @@
 	margin-right: 15px;
 	margin-left: 10px;
 	margin-bottom: 20px;
-	border: solid 1px;
+/*	border: solid 1px;*/
 	text-align: center;
 }
 .item-contents{
 	margin: 0 auto;
-	padding: 0 15px 0 15px;
+/*	padding: 0 15px 0 15px;*/
+	background-color: white;
 }
 .item-index{
 	text-align: center;

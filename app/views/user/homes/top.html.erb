@@ -16,4 +16,19 @@
 	<%= submit_tag '検索' , :item_name => nil%>
 	<% end %>
 </div>
+
+<div class ="new_area">New Arival
+	<div class ="new_contents_l">
+		<%# #link_to user_item_path(item.id) do%>
+		<%= attachment_image_tag @items, :image,  size: "300x300", fallback: "no_image.jpg" %>
+		<%# end %>
+	</div>
+	<div class ="new_contents_s">
+		<%= attachment_image_tag @items, :image,  size: "100x100", fallback: "no_image.jpg" %>
+	</div>
+	<div class ="new_contents_s">
+		<%= attachment_image_tag @items, :image,  size: "100x100", fallback: "no_image.jpg" %>
+
+	</div>
+</div>
 </main>

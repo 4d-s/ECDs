@@ -4,17 +4,18 @@
 
           <div class="field">
           <br>
-          <label>シングル/アルバム名</label>
+          <label>商品名</label>
           <br>
-          <%= item.text_field :item_name %>
+          <%= item.text_field :item_name, :placeholder => "シングル/アルバム名を入力　" %>
           <br>
           <label >価格</label>
           <br>
-          <%= item.text_field :price %>
+          <%= item.text_field :price, :placeholder => "半角数字で入力　空欄不可" %>
           <br>
           <label >在庫数</label>
           <br>
-          <%= item.text_field :stock %>
+          <%= item.text_field :stock, :placeholder => "半角数字で入力　空欄不可" %>
+          <br>
           <br>
           <label >販売ステータス</label>
           <br>
@@ -29,7 +30,6 @@
           </div>
         </div>
           <br>
-
           <label >画像</label>
           <br>
             <%= item.attachment_field :image %>
@@ -51,10 +51,10 @@
         <div class ="field">
           <%= item.fields_for :discs do |disc| %>
           <div class="discs">
-              <%= render 'disc_fields', f: disc  %>
+              <%= render 'disc_fields', f: disc %>
           <% end %>
             <div class="links">
-              <%= link_to_add_association 'DISC追加', item, :discs %>
+              <%= link_to_add_association 'ディスク追加', item, :discs %>
             </div>
             <div class="actions">
               <%= item.submit %>

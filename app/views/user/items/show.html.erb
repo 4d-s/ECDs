@@ -65,26 +65,22 @@
 		<p class = "item-title2"><%= @item.item_name %></p>
 
 		<% @discs.each do |disc| %>
-		<div class="disc-song-box col-xs-10">
-			<table>
+		<div class="disc-song-box col-xs-12">
+			<table class="table table-striped">
 				<thead>
 					<tr>
 						<th>ディスク<%= disc.disc_number %></th>
 					</tr>
 				</thead>
 				<tbody>
+					<% disc.songs.each do |song| %>
 					<tr>
-						<td>
-						</td>
+					<td>
+						<%= song.song_number %>.
+						<%= song.song_name %>
+					</td>
 					</tr>
-					<tr>
-						<% disc.songs.each do |song| %>
-							<td>
-								<%= song.song_number %>.
-								<%= song.song_name %>
-							</td>
-						<% end %>
-					</tr>
+					<% end %>
 				</tbody>
 			</table>
 		</div>

@@ -1,11 +1,4 @@
-<!DOCTYPEhtml>
-<head>
-	<meta charset="utf-8">
-	<title>ユーザー情報編集</title>
-	<link rel="stylesheet" href="user/users.scss">
-</head>
-<body>
-<main class="clearfix">
+<main>
 	<div class="container">
 	<div class="row">
 			<div class="col-md-3"></div>
@@ -16,31 +9,28 @@
 						<!-- [:user, @user] -->
 						<%= form_for current_user do |f| %>
 						<h2>名前（姓・名）</h2>
-						<span><%= f.text_field :last_name, placeholder:"姓" %></span>
-						<span><%= f.text_field :first_name, placeholder:"名" %></span>
+						<span><%= f.text_field :last_name, placeholder:"姓 ※全角文字のみ" %></span>
+						<span><%= f.text_field :first_name, placeholder:"名　※全角文字のみ" %></span>
 						<h2>名前（カナ姓・カナ名）</h2>
-						<span><%= f.text_field :last_name_katakana, placeholder:"セイ" %></span>
-						<span><%= f.text_field :first_name_katakana, placeholder:"メイ" %></span>
+						<span><%= f.text_field :last_name_katakana, placeholder:"セイ ※全角カタカナ" %></span>
+						<span><%= f.text_field :first_name_katakana, placeholder:"メイ　※全角カタカナ" %></span>
 						<h2>郵便番号</h2>
-						<div><%= f.text_field :postal_code, placeholder:"郵便番号" %></div>
+						<div><%= f.text_field :postal_code, placeholder:"半角数字　ハイフンなし" %></div>
 						<h2>住所</h2>
-						<div><%= f.text_field :street_address, placeholder:"住所" %></div>
+						<div><%= f.text_field :street_address, placeholder:"東京都渋谷区神南１丁目１９−１１ パークウェースクエア2 4階" %></div>
 						<h2>電話番号</h2>
-						<div><%= f.text_field :phone_number, placeholder:"電話番号" %></div>
+						<div><%= f.text_field :phone_number, placeholder:"半角数字　ハイフンなし" %></div>
 						<h2>メールアドレス</h2>
-						<div><%= f.text_field :email, placeholder:"メールアドレス" %></div>
+						<div><%= f.text_field :email, placeholder:"ECD's@ec.com" %></div>
 						</div>
 						<div class="pofile-btn">
-							<%= link_to "back", mypage_path(current_user) %>
-						</div>
-						<div class="pofile-btn">
-							<%= f.submit "プロフィール変更", class: "btn btn-default" %>
+							<%= link_to "戻る", mypage_path(current_user), class: "btn btn-default" %>
+							<%= f.submit "保存	", class: "btn btn-default" %>
 						</div>
 					<% end %>
 					</div>
 				</div>
-			<div class="col-md-3"></div>
+
 	</div>
 	</div>
 </main>
-</body>
