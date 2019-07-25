@@ -46,8 +46,8 @@
 						</tr>
 						<% order.order_item_histories.each do |his| %>
 						<tr>
-							<td width="250"><%= attachment_image_tag his, :image, :size => "100x100", fallback: "no_image.jpg",
-							class:"item-contents-picture"%></td>
+							<td width="250"><%= attachment_image_tag his, :image, :size => "100x100",
+							 fallback: "no_image.jpg"%></td>
 							<td width="500"><%= his.item_name %></td>
 							<td width="200"><%= his.item_price%><%='円（税別）'%></td>
 							<td width="100"><%= his.order_item_count %></td>

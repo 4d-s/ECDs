@@ -4,9 +4,9 @@
 
 //管理側ユーザー購入履歴一覧
 .addmin-order-payment{
-	width: 700px;
 	text-align: right;
 	display: inline-block;
+	padding-left: 450px;
 }
 .addmin-order-status-box{
 	height: 30px;
@@ -15,10 +15,16 @@
 .delivery-status{
 	text-align: right;
 }
+.addmin-order-btn{
+	text-align: center;
+	display: inline-block;
+	padding-left: 50px;
+	padding-bottom: 20px;
+}
 
 //管理側ユーザー購入履歴編集
 .addmin-order-payment-edit{
-	width: 650px;
+	margin-left: 400px;
 	text-align: right;
 	display: inline-block;
 }
