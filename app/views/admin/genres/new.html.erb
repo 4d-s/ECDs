@@ -1,13 +1,12 @@
-
+<div class = "col-xs-9">
 <h1>ジャンル登録</h1>
-
 	<%= form_for(@genre, url: admin_genres_path) do |f| %>
 		<br>
 		<label>ジャンル名</label>
 		<br>
-		<%= f.text_field :genre_name %>
+		<%= f.text_field :genre_name, :placeholder => "ジャンル名を入力" %>
 		<br>
 		<br>
-		<%= f.submit %>
-
+		<%= f.submit "登録", class: "btn btn-primary" %>
 		<% end %>
+</div>

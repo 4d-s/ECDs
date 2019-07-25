@@ -1,73 +1,84 @@
 
-    <div class="item-edit-form">
-      <div class="item-edit-text">
-          <%= form_for @item, url:admin_items_path do |item| %>
+      <div class="item-edit-form">
+        <div class="item-edit-text">
+            <%= form_for @item, url:admin_items_path do |item| %>
 
-          <div class="field">
-          <br>
-          <label>商品名</label>
-          <br>
-          <%= item.text_field :item_name, :placeholder => "シングル/アルバム名を入力　" %>
-          <br>
-          <br>
-          <label >価格</label>
-          <br>
-          <%= item.text_field :price, :placeholder => "※半角数字　空欄不可" %>
-          <br>
-          <br>
-          <label >在庫数</label>
-          <br>
-          <%= item.text_field :stock, :placeholder => "※半角数字　空欄不可" %>
-          <br>
-          <br>
-          <label >販売ステータス</label>
-          <div class="">
-            <div class="radio">
-              <input id="radio-1" name="radio" type="radio" checked>
-              <label for="radio-1" class="radio-label">販売中<%= item.radio_button :is_sold, 'true' %></label>
-            <input id="radio-2" name="radio" type="radio">
-            <label for="radio-2" class="radio-label">販売中止<%= item.radio_button :is_sold, 'false' %></label>
+        <div class="field">
+          <div class="row">
+            <br>
+            <label>商品名</label>
+            <br>
+            <div class="col-xs-11">
+            <%= item.text_field :item_name, class:'form-control', :placeholder => "シングル/アルバム名を入力　" %>
             </div>
           </div>
-          <br>
-          <label >画像</label>
-          <br>
-            <%= item.attachment_field :image, size: "100x100", fallback: "no_image.jpg" %>
-          <br>
-          <br>
-          <label>アーティスト</label>
-            <%= item.collection_select :artist_id, Artist.all, :id, :artist_name, :include_blank => true %>
             <br>
-            <%= link_to "アーティスト追加", new_admin_artist_path, class: "btn btn-success" %>
-          <br>
-          <br>
-          <label>レーベル</label>
-            <%= item.collection_select :label_id, Label.all, :id, :label_name,  :include_blank => true %>
+        <div class="row">
+            <label >価格</label>
             <br>
-            <%= link_to "レーベル追加", new_admin_label_path, class: "btn btn-success" %>
-          <br>
-          <br>
-          <label>ジャンル</label>
-            <%= item.collection_select :genre_id, Genre.all, :id, :genre_name,  :include_blank => true %>
-            <br>
-            <%= link_to "ジャンル追加", new_admin_genre_path, class: "btn btn-success" %>
-          <br>
-          </div>
-          <br>
-        <div class ="field">
-          <%= item.fields_for :discs do |disc| %>
-          <div class="discs">
-              <%= render 'disc_fields', f: disc %>
-          <% end %>
-            <div class="links">
-              <%= link_to_add_association 'ディスクの追加', item, :discs, class: "btn-primary" %>
+            <div class="col-xs-6">
+            <%= item.text_field :price, class:'form-control', :placeholder => "※半角数字　空欄不可" %>
             </div>
-            <br>
-            <div class="actions">
-              <%= item.submit "商品新規追加", class: "btn btn-primary" %>
-            </div>
-          </div>
-          <% end %>
         </div>
+            <br>
+            <br>
+        <div class="row">
+            <label >在庫数</label>
+            <br>
+            <div class="col-xs-6">
+            <%= item.text_field :stock, class:'form-control', :placeholder => "※半角数字　空欄不可" %>
+            </div>
+        </div>
+            <br>
+            <br>
+            <label >販売ステータス</label>
+            <div>
+              <div class="radio">
+                <input id="radio-1" name="radio" type="radio" checked>
+                <label for="radio-1" class="radio-label">販売中<%= item.radio_button :is_sold, 'true' %></label>
+              <input id="radio-2" name="radio" type="radio">
+              <label for="radio-2" class="radio-label">販売中止<%= item.radio_button :is_sold, 'false' %></label>
+              </div>
+            </div>
+            <br>
+            <label >画像</label>
+            <br>
+              <%= item.attachment_field :image, size: "100x100", fallback: "no_image.jpg" %>
+            <br>
+            <br>
+            <label>アーティスト</label>
+              <%= item.collection_select :artist_id, Artist.all, :id, :artist_name, :include_blank => true %>
+              <br>
+              <%= link_to "アーティスト追加", new_admin_artist_path, class: "btn btn-success" %>
+            <br>
+            <br>
+            <label>レーベル</label>
+              <%= item.collection_select :label_id, Label.all, :id, :label_name,  :include_blank => true %>
+              <br>
+              <%= link_to "レーベル追加", new_admin_label_path, class: "btn btn-success" %>
+            <br>
+            <br>
+            <label>ジャンル</label>
+              <%= item.collection_select :genre_id, Genre.all, :id, :genre_name,  :include_blank => true %>
+              <br>
+              <%= link_to "ジャンル追加", new_admin_genre_path, class: "btn btn-success" %>
+            <br>
+            </div>
+            <br>
+          <div class ="field">
+            <%= item.fields_for :discs do |disc| %>
+            <div class="discs">
+                <%= render 'disc_fields', f: disc %>
+            <% end %>
+              <div class="links">
+                <%= link_to_add_association 'ディスクの追加', item, :discs, class: "btn-primary" %>
+              </div>
+              <br>
+              <div class="actions">
+                <%= item.submit "商品新規追加", class: "btn btn-primary" %>
+              </div>
+            </div>
+            <% end %>
+          </div>
+      </div>
     </div>
-  </div>
