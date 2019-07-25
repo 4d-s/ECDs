@@ -1,13 +1,21 @@
 <!-- ヘッダー -->
-  <header class="page-header">
-    <!-- ロゴ -->
-    <div class="col-xs-2">
-      <div class="logo-area">
-        logo
-      </div>
-    </div>
-    <div class="col-xs-10">
-      <h1 class=admin-header-title>ECD's</h1>
-    </div>
 
-  </header>
+<header>
+  <%= link_to admin_path do%>
+    <div class="site-logo">
+    </div>
+  <% end %>
+  <% if administrator_signed_in? %>
+  <div class="welcome-text">
+    管理者アカウントで現在ログインしています
+  </div>
+  <% else %>
+  <div class="welcome-text">
+    管理者アカウントでログインしてください
+  </div>
+  <% end %>
+
+  <p class="admin-header-title">
+    ECD's
+  </p>
+</header>

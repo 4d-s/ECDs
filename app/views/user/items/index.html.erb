@@ -1,10 +1,16 @@
 <main>
-<h1 class="item-index">All Items</h1>
+<% if params[:keyword] != "" %>
+	<p class="search-notice"><%= params[:keyword] + "の検索結果"%></p><br>
+	<% else %>
+	<h1 class="item-index">All Items</h1><br>
+<% end %>
+
 <% @items.each do |item| %>
 <div class="item-box">
 	<%= link_to user_item_path(item.id) do%>
 	<div class ="item-contents">
 		<%= attachment_image_tag item, :image,  size: "300x300", fallback: "no_image.jpg" %><br>
+		<%= attachment_image_tag item, :image,  size: "300x300", fallback: "no_image.jpg", class:"item-contents-picture"%><br>
 		<%= item.item_name %><br>
 		<%= item.price %>円（税別）<br>
 		<% if item.stock > 0 %>

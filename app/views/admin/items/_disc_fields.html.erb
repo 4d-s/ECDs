@@ -5,6 +5,10 @@
       <%= f.text_field :disc_number %>
       <br>
     <%= link_to_remove_association "ディスク削除", f %>
+      <%= f.label :ディスク番号 %>
+      <br>
+      <%= f.text_field :disc_number %>
+    <%= link_to_remove_association "ディスクの削除", f %>
     </div>
   <div class="songs">
       <%= f.fields_for :songs do |song| %>
@@ -12,6 +16,7 @@
       <%end%>
       <div class="links">
         <%= link_to_add_association "曲追加", f, :songs %>
+        <%= link_to_add_association "曲の追加", f, :songs %>
       </div>
   </div>
 </div>

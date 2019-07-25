@@ -23,7 +23,7 @@ class Item < ApplicationRecord
  def self.Artist_search(keyword)
   if keyword
     search_artist = joins(:artist)
-    search_result = search_artist.select("items.*, artists.*").where(['artist_name LIKE ?', "%#{keyword}%"])
+    search_result = search_artist.select("items.*").where(['artist_name LIKE ?', "%#{keyword}%"])
   else
    all
  end
@@ -32,7 +32,7 @@ end
 def self.Song_search(keyword)
   if keyword
     search_song = joins(discs: :songs)
-    search_result = search_song.select("items.*, discs.*, songs.*").where(['song_name LIKE ?', "%#{keyword}%"])
+    search_result = search_song.select("items.*").where(['song_name LIKE ?', "%#{keyword}%"])
   else
     all
   end
