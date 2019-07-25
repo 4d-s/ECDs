@@ -30,9 +30,12 @@
 }
 
 // 注文内容確認欄
-.order-item-area{
-	padding: 20px 0;
-	border: solid 1px black;
+.order-item-box{
+	padding-bottom: 20px;
+}
+.order-item{
+	border-bottom: 1px solid #DCDCDC;
+	padding-top: 20px;
 }
 .order-item-image{
 	height: 120px;
@@ -50,18 +53,10 @@
 .order-payment-table{
 	margin-left: 50px;
 }
-// 配送住所選択欄
-.order-address-choice{
-	border: solid 1px black;
-}
-.order-address-radio {
-	margin: 20px;
-}
-
-// 支払い情報選択欄
-.order-payment-choice{
-	border: solid 1px black;
+// 配送住所選択欄, 支払い情報選択欄
+.radio-button{
+	padding: 10px 0;
 }
 .order-payment-radio{
-	margin: 20px;
+	padding: 20px 0;
 }
