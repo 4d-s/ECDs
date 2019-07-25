@@ -79,7 +79,7 @@ header {
 	height: 50px;
 	width: 50px;
 	border-radius: 50%;
-	background-image: url(ECDs_logo.jpg);
+	background-image: url(logo.jpg);
 	background-size: cover;
   	background-position: center;
   	margin: 10px;
@@ -123,7 +123,7 @@ header {
 	font-family: "Spectral",serif;
 	color: #FFFFFF;
 }
-// main
+/*main*/
 main {
 	width: 80%;
 	min-height: 500px;
@@ -173,11 +173,12 @@ footer .container {
 .admin-sidebar-list{
 	font-size: 24px;
 	margin: 0 auto;
-	padding-left: 40px;
+	padding: 30px 0 0 30px;
+	border: solid 1px black;
 }
 .admin-sidebar-list-menu{
 	text-align: left;
 	font-size: 18px;
+	list-style: none;
+	text-decoration: none;
 }
-
-

@@ -1,10 +1,12 @@
-<h1>アーティスト編集</h1>
-	<%= form_for(@artist, url: admin_artists_path) do |f| %>
-		<br>
-		<label>アーティスト名</label>
-		<br>
-		<%= f.text_field :artist_name %>
-		<br>
-		<br>
-		<%= f.submit %>
-		<% end %>
+<div class = "col-xs-9">
+	<h1>アーティスト登録</h1>
+		<%= form_for(@artist, url: admin_artists_path) do |f| %>
+			<br>
+			<label>アーティスト名</label>
+			<br>
+			<%= f.text_field :artist_name %>
+			<br>
+			<br>
+			<%= f.submit %>
+			<% end %>
+</div>

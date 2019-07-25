@@ -1,33 +1,31 @@
-<main class="col-xs-9">
+<div class="col-xs-9">
 	<h2>購入履歴</h2>
-
 	<% @orders.each do |order| %>
-	<div class="order-date-box">
-		<table width="800">
-			<tr>
-				<th><%= order.created_at.strftime("%Y-%m-%d")%></th>
-				<th class="delivery-status">発送ステータス</th>
-				<th class="delivery-status"><% if order.delivery_status == 1 %>
-					受付中
-					<% elsif order.delivery_status == 2 %>
-					発送準備中
-					<% else %>
-					発送済み
-					<% end %>
-				</th>
-			</tr>
-		</table>
-	</div>
-
-	<div class="container">
+	<div class="panel panel-default">
+		<div class="panel-heading text-font">
+			<table width="800">
+				<tr>
+					<th width="200"><%= "注文日：" + order.created_at.strftime("%Y年%m月%d日")%></th>
+					<th width="400" class="delivery-status">発送ステータス：</th>
+					<th width="200"><% if order.delivery_status == 1 %>
+						受付中
+						<% elsif order.delivery_status == 2 %>
+						発送準備中
+						<% else %>
+						発送済み
+						<% end %>
+					</th>
+				</tr>
+			</table>
+		</div>
 		<div class="row row-eq-height">
-			<div class="col-xs-2">
-				<div class="order-address-box">
+			<div class="col-xs-3">
+				<div class="order-address-box text-font">
 					<h4>送付先</h4>
-					<%= order.order_last_name + '様' %><br>
-					<%= order.order_address %><br>
-					<%= order.order_postal_code %><br>
-					<%= order.order_phone_number %><br>
+					<b><%= order.order_last_name %><%= order.order_first_name + '様' %></b><br>
+					<%= "〒" + order.order_postal_code %><br>
+					<%= "住所：" + order.order_address %><br>
+					<%= "電話番号：" + order.order_phone_number %><br>
 					<% if order.payment == 1 %>
 					<h5>支払い方法：銀行振込</h5>
 					<% elsif order.payment == 2 %>
@@ -37,38 +35,42 @@
 					<% end %>
 				</div>
 			</div>
-			<div class="col-xs-7">
-				<div class="order-item-box">
-					<table width="600">
+			<div class="col-xs-9">
+				<div class="order-item-box text-font">
+					<table class="table" width="1500">
 						<tr>
-							<th colspan="2">商品</th>
-							<th>単価</th>
-							<th>個数</th>
-							<th>小計</th>
+							<th width="500" colspan="2">商品</th>
+							<th width="300">単価</th>
+							<th width="200">個数</th>
+							<th width="200">小計</th>
 						</tr>
 						<% order.order_item_histories.each do |his| %>
 						<tr>
-							<td><%= attachment_image_tag his, :image, :size => "100x100", fallback: "no_image.jpg" %></td>
-							<td><%= his.item_name %></td>
-							<td><%= his.item_price%><%='円（税別）'%></td>
-							<td><%= his.order_item_count %></td>
-							<td><%= his.order_item_count * his.item_price %><%='円'%></td>
+							<td width="200"><%= attachment_image_tag his, :image, :size => "100x100",
+							fallback: "no_image.jpg" %></td>
+							<td width="300"><%= his.item_name %></td>
+							<td width="300"><%= his.item_price%><%='円（税別）'%></td>
+							<td width="200"><%= his.order_item_count %></td>
+							<td width="300"><%= his.order_item_count * his.item_price %><%='円'%></td>
 						</tr>
 						<% end %>
 					</table>
 				</div>
 			</div>
 		</div>
-		<%= link_to '編集', edit_admin_order_path(order.id), class: "btn btn-default"%>
+		<div class="addmin-order-btn text-right">
+		<%= link_to '発送ステータス変更', edit_admin_order_path(order.id), class: "btn btn-success"%>
+		</div>
 		<div class="addmin-order-payment">
 			<div class="user-delivery-pay">
 				<p>送料：500円</p>
 			</div>
-			<p>小計：    </p>
 			<div class="user-order-pay">
-				<% order.order_item_histories.each do |his| %>
-				<%= his.item_price * his.order_item_count %><%='円'%><br>
-				<% end %>
+				<p>小計：
+					<% order.order_item_histories.each do |his| %>
+					<%= his.item_price * his.order_item_count %><%='円'%><br>
+					<% end %>
+				</p>
 			</div>
 			<div class="user-total-pay">
 				<p>合計：<%= order.total%><%='円'%></p>
@@ -77,4 +79,3 @@
 	</div>
 	<% end %>
 </div>
-</main>
