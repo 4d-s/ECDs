@@ -1,4 +1,4 @@
-<main class="clearfix">
+<main class="text-font clearfix">
 	<!-- サクセスメッセージを表示する -->
 	<% if flash[:notice] %>
 		<p class="notice"><%= flash[:notice] %></p>
@@ -11,30 +11,46 @@
 			「注文を確定する」ボタンをクリックする前に、<u>配送料</u>と<u>注文合計</u>をご確認ください。
 		</p>
 	</div>
-	<div class="order-item-area col-xs-7">
+	<div class="order-box col-xs-7">
 		<!-- 商品１ -->
 		<% @sum = 0 %>
 		<% @item_selects.each do |item_select| %>
 			<% @sum += item_select.item.price * item_select.item_count %>
-			<div class="order-item-image col-xs-3">
-				<%= attachment_image_tag item_select.item, :image, size: "120x120", fallback: "no_image.jpg" %>
-			</div>
-			<div class="col-xs-9">
-				<div class="item-text-area col-xs-12">
-					<p class= "order-item-text">
-						「<%= item_select.item.item_name %>」 <br>
-						アーティスト名：artist name<br>
-						単価：¥ <%= item_select.item.price %> <br>
-						数量：<%= item_select.item_count %>
-					</p>
-					<p class ="item-payment">
-						¥ <%= item_select.item.price * item_select.item_count %>
-					</p>
+			<div class="order-item-box col-xs-12">
+				<div class="order-item-image col-xs-3">
+					<%= link_to user_item_path(item_select.item_id) do%>
+						<%= attachment_image_tag item_select.item, :image, size: "120x120", fallback: "no_image.jpg" %>
+					<% end %>
+				</div>
+				<div class="col-xs-9">
+					<div class="item-text-area col-xs-12">
+						<p class="order-item-name">「<%= item_select.item.item_name %>」</p>
+						<table width="200">
+							<tbody>
+								<tr>
+									<td align=right>アーティスト名：</td>
+									<td align=right><% item_select.item.artist.artist_name %></td>
+								</tr>
+								<tr>
+									<td align=right>単価：</td>
+									<td align=right>¥ <%= number_with_delimiter(item_select.item.price, :delimiter => ",") %></td>
+								</tr>
+								<tr>
+									<td align=right>数量：</td>
+									<td align=right><%= number_with_delimiter(item_select.item_count, :delimiter => ",") %>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<p class ="item-payment">
+							¥ <%= number_with_delimiter(item_select.item.price * item_select.item_count, :delimiter => ",") %>
+						</p>
+					</div>
 				</div>
 			</div>
 		<% end %>
-		<p class ="item-payment">
-			<u><b>合計金額： ¥ <%= @sum %>（税込み）</b></u>
+		<p class ="warning-font underline item-payment">
+			合計金額： ¥ <%= number_with_delimiter(@sum, :delimiter => ",") %>（税込み）</u>
 		</p>
 	</div>
 
@@ -42,26 +58,27 @@
 	<%= form_with model: [:user, @order] do |f| %>
 
 	<div class="order-confirm-area col-xs-4">
-			<%= f.submit "注文を確定する" %>
+			<%= f.submit "注文を確定する", class: "center btn btn-warning" %>
 			<table width="200">
 				<caption><b>注文内容</b></caption>
 				<tbody>
 					<tr>
-						<td>商品の小計：</td>
-						<td>¥ <%= @sum %></td>
+						<td align=right>商品の小計：</td>
+						<td align=right>¥ <%= number_with_delimiter(@sum, :delimiter => ",") %></td>
 					</tr>
 					<tr>
-						<td>配送料：</td>
-						<td>¥ 500</td>
+						<td align=right>配送料：</td>
+						<td align=right>¥ 500</td>
 					</tr>
 					<tr>
-						<td>合計：</td>
-						<td>¥ <%= @sum + 500 %></td>
+						<td align=right>合計：</td>
+						<td align=right>¥ <%= number_with_delimiter(@sum + 500, :delimiter => ",") %>
+						</td>
 					</tr>
 				</tbody>
 			</table>
-			<p class= "item-payment">
-				注文合計：¥ <%= @sum + 500 %>
+			<p class= "warning-font underline item-payment">
+				注文合計：¥ <%= number_with_delimiter(@sum + 500, :delimiter => ",") %>（税込み）
 			</p>
 	</div>
 

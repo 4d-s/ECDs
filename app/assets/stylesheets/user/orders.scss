@@ -11,7 +11,8 @@
 	float: left;
 }
 .order-item-box{
-	float: left;
+	padding: 10px 0;
+	border-bottom: 1px solid #CCCCCC;
 }
 .user-delivery-pay{
 	text-align: right;
@@ -20,12 +21,19 @@
 	text-align: right;
 	width: 1100px;
 }
-
+.order-item-name{
+	font-size: 16px;
+	font-weight: bold;
+}
 .order-title{
 	font-size: 22px;
+	font-weight: bold;
 }
 .order-text{
 	font-size: 12px;
+}
+.order-box{
+	border: solid 1px black;
 }
 
 // 注文内容確認欄
@@ -38,6 +46,7 @@
 }
 .item-payment{
 	float: right;
+	padding-top: 20px;
 }
 // 注文確定欄
 .order-confirm-area{
