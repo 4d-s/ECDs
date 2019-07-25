@@ -1,3 +1,4 @@
+<main class="clearfix">
 <h1>新規配送先追加フォーム</h1>
 <%= form_for [:user, @new_address], url: user_create_order_address_path, html: {method: :post} do |add| %>
 
@@ -19,3 +20,4 @@
 	<%= add.submit '追加', class: "btn btn-default" %>
 	<button type="button" onclick="history.back()" class="btn btn-default">戻る</button>
 <% end %>
+</main>
