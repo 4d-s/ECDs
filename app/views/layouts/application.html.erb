@@ -11,24 +11,23 @@
 
   <!-- URLから表示するヘッダー、サイドバーを判断する -->
   <% if request.fullpath.index('/admin') %>
-    <% if request.fullpath.index('/administrators/') %>
-      <%= render 'layouts/administrator_header' %>
-    <% else %>
-      <%= render 'layouts/administrator_header' %>
-    <% end %>
+    <%= render 'layouts/administrator_header' %>
   <% else %>
     <%= render 'layouts/user_header' %>
   <% end %>
 
   <body>
-      <% if request.fullpath.index('/admin') %>
-        <main class="clearfix">
+    <% if request.fullpath.index('/admin') %>
+      <main class="clearfix">
+        <% if request.fullpath.index('/administrators/') %>
+        <% else %>
           <%= render 'layouts/administrator_sidebar' %>
-          <%= yield %>
-        </main>
-      <% else %>
+        <% end %>
         <%= yield %>
-      <% end %>
+      </main>
+    <% else %>
+      <%= yield %>
+    <% end %>
   </body>
 
   <footer>
