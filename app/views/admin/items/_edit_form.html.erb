@@ -1,6 +1,6 @@
   <div class="item-edit-form">
       <div class="item-edit-text">
-          <%= form_for @item, url:admin_items_path do |item| %>
+          <%= form_for @item, url:admin_item_path do |item| %>
 
           <div class="field">
           <br>
@@ -46,7 +46,7 @@
               <%= link_to_add_association 'ディスクの追加', item, :discs %>
             </div>
             <div class="actions">
-              <%= item.submit %>
+              <%= item.submit '商品内容の変更を更新する', class:"btn btn-primary" %>
             </div>
           </div>
           <% end %>
