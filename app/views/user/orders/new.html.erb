@@ -11,7 +11,7 @@
 			「注文を確定する」ボタンをクリックする前に、<u>配送料</u>と<u>注文合計</u>をご確認ください。
 		</p>
 	</div>
-	<div class="order-box col-xs-7">
+	<div class="panel panel-primary box-shadow col-xs-7">
 		<!-- 商品１ -->
 		<% @sum = 0 %>
 		<% @item_selects.each do |item_select| %>
@@ -57,9 +57,9 @@
 	<!-- 注文確定欄 -->
 	<%= form_with model: [:user, @order] do |f| %>
 
-	<div class="order-confirm-area col-xs-4">
+	<div class="panel panel-primary box-shadow order-confirm-area col-xs-4">
 			<%= f.submit "注文を確定する", class: "center btn btn-warning" %>
-			<table width="200">
+			<table width="200" class="order-payment-table">
 				<caption><b>注文内容</b></caption>
 				<tbody>
 					<tr>
@@ -86,7 +86,7 @@
 	<div class="col-xs-12">
 		<h2 class="order-title">配送住所選択</h2>
 	</div>
-	<div class="order-address-choice col-xs-7">
+	<div class="panel panel-primary box-shadow order-address-choice col-xs-7">
 		<div class = "order-address-radio">
 			<% if session[:last_address] == nil %>
 				<label><%= f.radio_button :address_select, "0" , {:checked => true} %>
@@ -112,7 +112,7 @@
 	<div class="col-xs-12">
 		<h2 class="order-title">支払い方法選択</h2>
 	</div>
-	<div class="order-payment-choice col-xs-7">
+	<div class="panel panel-primary box-shadow order-payment-choice col-xs-7">
 		<div class = "order-payment-radio">
 			<label><%= f.radio_button :payment, "1", {:checked => true} %>銀行振込</label><br>
 			<label><%= f.radio_button :payment, "2" %>クレジット支払い</label><br>
