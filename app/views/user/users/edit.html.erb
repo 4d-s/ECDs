@@ -15,26 +15,24 @@
 					<div class="text">
 						<!-- [:user, @user] -->
 						<%= form_for current_user do |f| %>
-						<h2>名前（姓・名）</h2>
-						<span><%= f.text_field :last_name, placeholder:"姓" %></span>
-						<span><%= f.text_field :first_name, placeholder:"名" %></span>
-						<h2>名前（カナ姓・カナ名）</h2>
-						<span><%= f.text_field :last_name_katakana, placeholder:"セイ" %></span>
-						<span><%= f.text_field :first_name_katakana, placeholder:"メイ" %></span>
-						<h2>郵便番号</h2>
-						<div><%= f.text_field :postal_code, placeholder:"郵便番号" %></div>
-						<h2>住所</h2>
-						<div><%= f.text_field :street_address, placeholder:"住所" %></div>
-						<h2>電話番号</h2>
-						<div><%= f.text_field :phone_number, placeholder:"電話番号" %></div>
-						<h2>メールアドレス</h2>
-						<div><%= f.text_field :email, placeholder:"メールアドレス" %></div>
+						<h3>♩ 名前（姓・名）</h3>
+						<span><%= f.text_field :last_name, placeholder:"姓", class: "edit-space" %></span>
+						<span><%= f.text_field :first_name, placeholder:"名", class: "edit-space" %></span>
+						<h3>♪ 名前（カナ姓・カナ名）</h3>
+						<span><%= f.text_field :last_name_katakana, placeholder:"セイ", class: "edit-space" %></span>
+						<span><%= f.text_field :first_name_katakana, placeholder:"メイ", class: "edit-space" %></span>
+						<h3>♬ 郵便番号</h3>
+						<div><%= f.text_field :postal_code, placeholder:"郵便番号", class: "edit-space" %></div>
+						<h3>♫ 住所</h3>
+						<div><%= f.text_field :street_address, placeholder:"住所", class: "edit-space" %></div>
+						<h3>＃ 電話番号</h3>
+						<div><%= f.text_field :phone_number, placeholder:"電話番号", class: "edit-space" %></div>
+						<h3>♭ メールアドレス</h3>
+						<div><%= f.text_field :email, placeholder:"メールアドレス", class: "edit-space" %></div>
 						</div>
 						<div class="pofile-btn">
-							<%= link_to "back", mypage_path(current_user) %>
-						</div>
-						<div class="pofile-btn">
-							<%= f.submit "プロフィール変更", class: "btn btn-default" %>
+							<%= link_to "マイページへ", mypage_path(current_user), class: "btn btn-success" %>
+							<%= f.submit "プロフィール変更", class: "btn btn-primary" %>
 						</div>
 					<% end %>
 					</div>
