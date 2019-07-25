@@ -15,18 +15,24 @@
       <%= render 'layouts/administrator_header' %>
     <% else %>
       <%= render 'layouts/administrator_header' %>
-      <%= render 'layouts/administrator_sidebar' %>
     <% end %>
   <% else %>
     <%= render 'layouts/user_header' %>
   <% end %>
 
   <body>
-    <%= yield %>
+      <% if request.fullpath.index('/admin') %>
+        <main class="clearfix">
+          <%= render 'layouts/administrator_sidebar' %>
+          <%= yield %>
+        </main>
+      <% else %>
+        <%= yield %>
+      <% end %>
   </body>
 
-  <footer class="col-xs-12">
-    <p class="footer-text">©️ 2019, ECD's by 4D's</p>
+  <footer>
+  <%= render 'layouts/footer' %>
   </footer>
 
 </html>
