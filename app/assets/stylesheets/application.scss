@@ -15,6 +15,7 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import " font-awesome ";
 
 /*common*/
 * {
@@ -105,18 +106,31 @@ main {
   	background-position: center;
 }
 /*footer*/
-footer {
+footer{
+	background-color: #708090;
+}
+footer .container {
+	padding: 20px;
+}
+.footer-text{
+	color: #FFFFFF;
+	font-family: "Objective","游ゴシック体","Yu Gothic",YuGothic,"ヒラギノ角ゴ Pro","Hiragino Kaku Gothic Pro","メイリオ","Meiryo",sans-serif;
+}
+.icon-list{
+	display: inline-block;
+	padding-right: 70px;
+	font-size: 20px;
+	color: #FFFFFF;
+}
+.copyright-area{
 	height: 50px;
 	background-color: #006699;
-	opacity: 0.8;
 }
-.footer-text {
-	text-align: center;
+.copyright-text {
 	line-height: 50px;
 	font-family: "Spectral",serif;
 	color: #FFFFFF;
 }
-
 //  管理側ヘッダー
 .admin-header-title{
 	text-align: center;
