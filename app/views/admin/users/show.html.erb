@@ -1,12 +1,11 @@
 <main class="col-xs-9">
 	<div>
 		<h1><%=@user.name%>のマイページ</h1>
-		<%= link_to '購入履歴', admin_order_path(@user.id), class: "btn btn-default"%>
 		<div class="addmin-profile-box">
-			<h3>名前（姓・名）</h3>
-			<div class="space"><%= @user.last_name %><%= @user.first_name %></div>
-			<h3>名前（カナ姓・カナ名）</h3>
-			<div class="space"><%= @user.last_name_katakana %><%= @user.first_name_katakana %></div>
+			<h3>名前</h3>
+			<div class="space"><%= @user.last_name %> <%= @user.first_name %></div>
+			<h3>名前（カナ）</h3>
+			<div class="space"><%= @user.last_name_katakana %> <%= @user.first_name_katakana %></div>
 			<h3>郵便番号</h3>
 			<div class="space"><%= @user.postal_code %></div>
 			<h3>住所</h3>
@@ -16,13 +15,18 @@
 			<h3>メールアドレス</h3>
 			<div class="space"><%= @user.email %></div>
 
-			<button type="button" onclick="history.back()" class="btn btn-default">戻る</button>
-			<%= link_to '編集', edit_admin_user_path(@user.id), class: "btn btn-default" %>
+			<div class="link-btn">
+				<button type="button" onclick="history.back()" class="btn btn-default">戻る</button>
+				<%= link_to '編集', edit_admin_user_path(@user.id), class: "btn btn-success" %>
+				<%= link_to '購入履歴', admin_order_path(@user.id), class: "btn btn-success" %>
+			</div>
 		</div>
-		<% if @user.is_deleted == true%>
-		<%= link_to 'ユーザー情報を削除', admin_user_path(:id => @user.id, :is_deleted => 'false'), :method => :put , class: "btn btn-default"%>
-		<% else %>
-		<%= link_to 'ユーザー情報を復元', admin_user_path(:id => @user.id, :is_deleted => 'true'), :method => :put , class: "btn btn-default"%>
-		<% end %>
+		<div class="user-infor-btn">
+			<% if @user.is_deleted == true%>
+			<%= link_to 'ユーザー情報を削除', admin_user_path(:id => @user.id, :is_deleted => 'false'), :method => :put , class: "btn btn-danger"%>
+			<% else %>
+			<%= link_to 'ユーザー情報を復元', admin_user_path(:id => @user.id, :is_deleted => 'true'), :method => :put , class: "btn btn-primary"%>
+			<% end %>
+		</div>
 	</div>
 </main>
