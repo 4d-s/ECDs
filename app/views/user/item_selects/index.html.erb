@@ -1,5 +1,5 @@
 <main class="cart-area clearfix">
-	<!-- サクセスメッセージを表示する -->
+	<!-- お知らせメッセージを表示する -->
 	<% if flash[:notice] %>
 		<p class="text-font notice"><%= flash[:notice] %></p>
 	<% end %>
@@ -57,9 +57,10 @@
 						<tr>
 								<td class="text-font">¥ <%= number_with_delimiter(item_select.item.price, :delimiter => ",") %></td>
 								<%= form_for item_select, url: user_item_select_path(item_select) do |f| %>
-									<td class="text-font"><%= f.number_field :item_count, class: "col-xs-8" %> </td>
+									<td class="text-font"><%= f.number_field :item_count, min:1, max:99, class: "col-xs-8" %> </td>
 									<td class="text-font">¥ 
-										<%= number_with_delimiter(item_select.item.price * item_select.item_count, :delimiter => ",") %></td>
+										<%= number_with_delimiter(item_select.item.price * item_select.item_count, :delimiter => ",") %>
+									</td>
 									<td class="text-font"><%= f.submit "カートを更新する", class: "btn btn-primary"%></td>
 								<% end %>
 						</tr>
