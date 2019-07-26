@@ -1,7 +1,6 @@
-
 <main class="clearfix">
 <% if params[:keyword] != "" %>
-	<p class="search-notice"><%= params[:keyword] + "の検索結果"%></p><br>
+	<p class="search-notice"><%= "「" + params[:keyword] + "」" + "に関連する商品一覧"%></p><br>
 	<% else %>
 	<h1 class="item-index">All Items</h1><br>
 <% end %>

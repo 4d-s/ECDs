@@ -1,5 +1,18 @@
-<main class="col-xs-9">
-	<h1 class="addmin-item-index">All Items</h1><br>
+<div class="col-xs-9">
+	<% if params[:keyword] != "" %>
+	<p class="search-notice"><%= "「" + params[:keyword] + "」" + "に関連する商品一覧"%></p>
+	<% else %>
+	<h1 class="addmin-item-index">All Items</h1>
+	<% end %>
+
+	<div class="form-inline top-search-box">
+		<%= form_tag admin_items_path, method: :get do %>
+		<%= select_tag 'select_id', options_for_select([["CD名","1"], ["アーティスト名","2"], ["曲名","3"]], :selected=>"1") %>
+		<%= text_field_tag :keyword, '', placeholder: "キーワードで検索", class: "form-control", size: 70%>
+		<%= submit_tag '検索' , :item_name => nil, class: "btn btn-success"%>
+		<% end %>
+	</div><br>
+
 	<% @items.each do |item| %>
 	<div class="addmin-item-box">
 		<%= link_to admin_item_path(item.id) do %>
@@ -17,7 +30,7 @@
 		<% end %>
 	</div>
 	<% end %>
-</main>
+</div>
 <div class="addmin-paginate-items">
 	<%= paginate @items, class: "paginate" %>
 </div>
