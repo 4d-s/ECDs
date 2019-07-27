@@ -1,4 +1,9 @@
 <main class="clearfix">
+	<!-- お知らせメッセージを表示する -->
+	<% if flash[:notice] %>
+		<p class="text-font notice"><%= flash[:notice] %></p>
+		<br>
+	<% end %>
 	<!-- ジャケット画像 -->
 	<div class = "item-image-area col-xs-4">
 		<%= attachment_image_tag @item, :image,  size: "300x300", fallback: "no_image.jpg" %>
@@ -48,7 +53,7 @@
 			<br>
 			<% if user_signed_in? %>
 				<%= form_for @item_select, url: user_item_item_selects_path(@item) do |f| %>
-					<%= f.number_field :item_count, value: 1, class: "col-xs-4" %>
+					<%= f.number_field :item_count, value: 1, min:1, max:99, class: "col-xs-4" %>
 					&nbsp;
 					<%= f.submit "カートに入れる", class:"btn btn-primary" %>
 	    		<% end %>
