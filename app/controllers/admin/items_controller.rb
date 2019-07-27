@@ -39,7 +39,6 @@ before_action :authenticate_administrator!
       else
       flash[:notice] = "登録できません。"
       render :new
-
       end
   end
 

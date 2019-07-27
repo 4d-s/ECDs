@@ -90,7 +90,7 @@ end
 
 def index
  @user = current_user
- @orders = @user.orders
+ @orders = @user.orders.order(id: :desc)
 end
 
 private

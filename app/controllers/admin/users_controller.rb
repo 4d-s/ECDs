@@ -23,9 +23,13 @@ before_action :authenticate_administrator!
   	  	redirect_to admin_users_path
   	  else
   		@user = User.find(params[:id])
-  		@user.update(user_params)
-  		redirect_to admin_user_path(@user.id)
+  		if @user.update(user_params)
+  		  redirect_to admin_user_path(@user.id)
+      else
+        flash[:notice] = "ユーザー情報に不備があります"
+        redirect_to edit_admin_user_path(@user.id)
   	end
+  end
   end
 
 
