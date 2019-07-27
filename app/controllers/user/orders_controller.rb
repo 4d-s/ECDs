@@ -14,6 +14,10 @@ class User::OrdersController < ApplicationController
         flash[:notice] = "在庫数が足りない為、購入出来ない商品があります。"
         redirect_to new_user_order_path
         return
+      elsif item_select.item.is_sold == false
+        flash[:notice] = "現在販売停止中の為、購入出来ない商品があります。"
+        redirect_to new_user_order_path
+        return
       end
 	}
 	@sum += 500
