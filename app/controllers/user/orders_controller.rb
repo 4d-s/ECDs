@@ -82,8 +82,9 @@ def create_address
     session[:last_address] = @new_address.street_address
   	redirect_to new_user_order_path
   else
+    flash[:notice] = "配送先情報が入力されていません"
     session[:last_address] = nil
-    redirect_to new_user_order_path
+    redirect_to user_order_address_path
   end
 end
 
