@@ -1,27 +1,34 @@
-<div class="center">
+<div class="login panel panel-primary box-shadow">
+  <br>
   <h2>ログイン（管理者専用）</h2>
   <br>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field">
-      <b>管理者メールアドレス：　　</b>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <div class="row">
+      <div class="col-xs-2"></div>
+      <div class="col-xs-8">
+      <label>メールアドレス</label>
+      <br>
+      <%= f.email_field :email, autofocus: true, class:'form-control', :placeholder => "管理者専用メールアドレスを入力" %>
+      </div>
     </div>
 
     <br>
-    <div class="field">
-      <b>パスワード：　</b>
-      <%= f.password_field :password, autocomplete: "current-password" %>
-    </div>
-
-    <% if devise_mapping.rememberable? %>
-      <div class="field">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
+    <div class="row">
+      <div class="col-xs-2"></div>
+      <div class="col-xs-8">
+      <b>パスワード　</b>
+      <%= f.password_field :password, class:'form-control', :placeholder => "管理者専用パスワードを入力" %>
+      <br>
+      <% if devise_mapping.rememberable? %>
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
       </div>
+    </div>
     <% end %>
     <br>
     <div class="actions">
-      <%= f.submit "ログイン" %>
+      <%= f.submit "ログイン", class: "btn btn-primary"  %>
     </div>
   <% end %>
+  <br>  
 </div>
