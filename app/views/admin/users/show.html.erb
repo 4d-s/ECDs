@@ -1,7 +1,9 @@
-<main class="col-xs-9 text-font">
+<div class="col-xs-6 text-font">
 	<div class="addmin-profile-box ">
 		<h1><%=@user.name%>(様)のマイページ</h1>
 		<div class="profile-text">
+			<h3>ユーザ名</h3>
+			<div class="space"><%= @user.name %></div>
 			<h3>名前</h3>
 			<div class="space"><%= @user.last_name %> <%= @user.first_name %></div>
 			<h3>名前（カナ）</h3>
@@ -16,9 +18,9 @@
 			<div class="space"><%= @user.email %></div>
 
 			<div class="link-btn">
-				<button type="button" onclick="history.back()" class="btn btn-default">戻る</button>
 				<%= link_to '編集', edit_admin_user_path(@user.id), class: "btn btn-success" %>
 				<%= link_to '購入履歴', admin_order_path(@user.id), class: "btn btn-success" %>
+				<button type="button" onclick="history.back()" class="btn btn-default">戻る</button>
 			</div>
 		</div>
 		<div class="user-infor-btn">
@@ -29,4 +31,4 @@
 			<% end %>
 		</div>
 	</div>
-</main>
+</div>

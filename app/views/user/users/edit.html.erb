@@ -1,36 +1,39 @@
 <main>
 	<div class="container">
-	<div class="row">
-			<div class="col-md-3"></div>
-			<div class="col-md-6 text-font">
-				<h2>ユーザ情報編集</h2>
-				<div class="user-profile-text">
-					<div class="text form-inline">
-						<!-- [:user, @user] -->
-						<%= form_for current_user do |f| %>
-						<h3>名前（姓・名）</h3>
-						<span><%= f.text_field :last_name, class:'form-control', placeholder:"姓 ※全角文字のみ" %></span>
-						<span><%= f.text_field :first_name, class:'form-control', placeholder:"名　※全角文字のみ" %></span>
-						<h3>名前（カナ姓・カナ名）</h3>
-						<span><%= f.text_field :last_name_katakana, class:'form-control', placeholder:"セイ ※全角カタカナ" %></span>
-						<span><%= f.text_field :first_name_katakana, class:'form-control', placeholder:"メイ　※全角カタカナ" %></span>
-						<h3>郵便番号</h3>
-						<div><%= f.text_field :postal_code, class:'form-control', placeholder:"半角数字　ハイフンなし" %></div>
-						<h3>住所</h3>
-						<div><%= f.text_field :street_address, class:'form-control', placeholder:"東京都渋谷区神南１丁目１９−１１ パークウェースクエア2 4階" %></div>
-						<h3>電話番号</h3>
-						<div><%= f.text_field :phone_number, class:'form-control', placeholder:"半角数字　ハイフンなし" %></div>
-						<h3>メールアドレス</h3>
-						<div><%= f.text_field :email, class:'form-control', placeholder:"ECD's@ec.com" %></div>
-					</div>
-						<div class="pofile-btn">
-							<%= link_to "戻る", mypage_path(current_user), class: "btn btn-default" %>
-							<%= f.submit "保存", class: "btn btn-primary" %>
+		<div class="row">
+				<div class="col-md-3"></div>
+				<div class="col-md-6 text-font">
+					<h2>ユーザ情報編集</h2>
+					<div class="user-profile-text">
+						<div class="form-inline">
+							<!-- [:user, @user] -->
+							<%= form_for current_user do |f| %>
+							<h3>ユーザ名</h3>
+							<span><%= f.text_field :name, class:'form-control', placeholder:"※空欄不可" %></span>
+							<h3>名前（姓・名）</h3>
+							<span><%= f.text_field :last_name, class:'form-control', placeholder:"姓 ※全角文字のみ" %></span>
+							<span><%= f.text_field :first_name, class:'form-control', placeholder:"名　※全角文字のみ" %></span>
+							<h3>名前（カナ姓・カナ名）</h3>
+							<span><%= f.text_field :last_name_katakana, class:'form-control', placeholder:"セイ ※全角カタカナ" %></span>
+							<span><%= f.text_field :first_name_katakana, class:'form-control', placeholder:"メイ　※全角カタカナ" %></span>
 						</div>
-					<% end %>
+							<h3>郵便番号</h3>
+							<div><%= f.text_field :postal_code, class:'form-control', placeholder:"半角数字　ハイフンなし" %></div>
+							<h3>住所</h3>
+							<div><%= f.text_field :street_address, class:'form-control', placeholder:"東京都渋谷区神南１丁目１９−１１ パークウェースクエア2 4階" %></div>
+							<h3>電話番号</h3>
+							<div><%= f.text_field :phone_number, class:'form-control', placeholder:"半角数字　ハイフンなし" %></div>
+							<h3>メールアドレス</h3>
+							<div><%= f.text_field :email, class:'form-control', placeholder:"ECD's@ec.com" %></div>
+							<br>
+							<br>
+							<%= f.submit "保存", class: "btn btn-primary" %>
+							<%= link_to "戻る", mypage_path(current_user), class: "btn btn-default" %>
+						</div>
+						<% end %>
+					</div>
 				</div>
-			</div>
 
-	</div>
+		</div>
 	</div>
 </main>
