@@ -2,11 +2,16 @@
 	<h1>アーティスト登録</h1>
 		<%= form_for(@artist, url: admin_artists_path) do |f| %>
 			<br>
-			<label>アーティスト名</label>
-			<br>
-			<%= f.text_field :artist_name, :placeholder => "アーティスト名を入力" %>
-			<br>
-			<br>
-			<%= f.submit "登録", class: "btn btn-primary" %>
-			<% end %>
+			<div class="row">
+				<br>
+				<div class="col-xs-6">
+				<label>アーティスト名</label>
+				<%= f.text_field :artist_name, class:'form-control', :placeholder => "アーティスト名を入力" %>
+				</div>
+				</<div>
+			</div>
+				<br>
+				<br>
+		<%= f.submit "登録", class: "btn btn-primary" %>
+		<% end %>
 </div>
