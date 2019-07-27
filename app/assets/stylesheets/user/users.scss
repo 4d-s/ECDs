@@ -10,33 +10,31 @@
 	clear: both;
 }
 .text{
-	padding-left: 50px;
-}
-.user-form{
-	padding-top: 30px;
-	margin: auto;
-}
-.bottom{
-	height: 50px;
+	padding-left: 30px;
 }
 .pofile-btn{
 	text-align: right;
 	padding: 30px;
 }
-//マイページ
-.pofile{
-	font-size: 24px;
-	padding-top: 50px;
-	padding-right: 100px;
+.user-profile-text{
+	border-radius: 4px;
+	box-shadow: 2px 2px 4px;
+	padding: 1px 0 0 20px;
 }
+
+//マイページ
 .container{
-	padding-top: 50px;
+	padding-top: 30px;
 	padding-bottom: 50px;
 }
 .space{
 	width: 60%;
 	border-bottom: solid 1px;
 }
+.user-link-btn{
+	padding: 10px 0 0 35px;
+}
+
 //ユーザ編集ページ
 .btn{
 	margin-bottom: 5px;
