@@ -1,30 +1,31 @@
 
-<main class="col-xs-6 text-font">
-	<h2>ユーザー情報編集</h2>
+<div class="col-xs-9 text-font">
+	<h2 align="center">ユーザー情報編集</h2>
   	<%= form_for [:admin, @user] do |f| %>
-		<div class="profile-text form-inline">
+		<div class="profile-text">
+			<div class="form-inline">
 			<h3>名前（姓・名）</h3>
 			<%= f.text_field :last_name, class:'form-control', placeholder:"姓" %>
 			<%= f.text_field :first_name, class:'form-control', placeholder:"名" %>
 			<h3>名前（セイ・メイ）</h3>
 			<%= f.text_field :last_name_katakana, class:'form-control', placeholder:"セイ" %>
 			<%= f.text_field :first_name_katakana, class:'form-control', placeholder:"メイ" %>
-			<h3>郵便番号</h3>
-			<%= f.text_field :postal_code, class:'form-control', placeholder:"郵便番号" %>
-			<h3>住所</h3>
-			<%= f.text_field :street_address, class:'form-control', placeholder:"住所" %>
-			<h3>電話番号</h3>
-			<%= f.text_field :phone_number, class:'form-control', placeholder:"電話番号" %>
-			<h3>メールアドレス</h3>
-			<%= f.text_field :email, class:'form-control', placeholder:"メールアドレス" %>
-			<br>
-			<br>
-			<button type="button" onclick="history.back()" class="btn btn-default">戻る</button>
-			<br>
-			<br>
+		    <h3>郵便番号</h3>
+				<%= f.text_field :postal_code, class:'form-control', placeholder:"郵便番号" %>
+		    </div>
+				<h3>住所</h3>
+				<%= f.text_field :street_address, class:'form-control', placeholder:"住所" %>
+				<h3>電話番号</h3>
+				<%= f.text_field :phone_number, class:'form-control', placeholder:"電話番号" %>
+				<h3>メールアドレス</h3>
+				<%= f.text_field :email, class:'form-control', placeholder:"メールアドレス" %>
+				<br>
+				<br>
+				<%= f.submit"プロフィール変更", class: "btn btn-primary" %>
+				<button type="button" onclick="history.back()" class="btn btn-default">戻る</button>
+				<br>
+				<br>
 		</div>
-		<div class="user-infor-btn">
-			<%= f.submit"プロフィール変更", class: "btn btn-primary" %>
-		</div>
+
 	<% end %>
-</main>
+</div>
