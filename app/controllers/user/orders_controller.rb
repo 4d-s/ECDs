@@ -10,6 +10,11 @@ class User::OrdersController < ApplicationController
   	@item_selects = current_user.item_selects
   	@item_selects.each{|item_select|
   		@sum += item_select.item.price * item_select.item_count
+      if item_select.item_count > item_select.item.stock
+        flash[:notice] = "在庫数が足りない為、購入出来ない商品があります。"
+        redirect_to new_user_order_path
+        return
+      end
 	}
 	@sum += 500
 	@order = current_user.orders.new(order_params)
@@ -51,7 +56,8 @@ class User::OrdersController < ApplicationController
       @order_item_history.image_id = item_select.item.image_id
       @order_item_history.order_item_count = item_select.item_count
       @order_item_history.save
-      item_select.item.order_count += item_select.item_count
+      item_select.item.order_count += item_select.item_count # 累計販売個数を、購入された数だけ増やす
+      item_select.item.stock -= item_select.item_count # 在庫数を購入された数だけ減らす
       item_select.item.save
     }
 
@@ -76,8 +82,9 @@ def create_address
     session[:last_address] = @new_address.street_address
   	redirect_to new_user_order_path
   else
+    flash[:notice] = "配送先情報が入力されていません"
     session[:last_address] = nil
-    redirect_to new_user_order_path
+    redirect_to user_order_address_path
   end
 end
 

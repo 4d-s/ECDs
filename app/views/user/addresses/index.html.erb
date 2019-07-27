@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<head>
-	<meta charset="utf-8">
-	<title>アドレス一覧</title>
-</head>
 <main class="clearfix">
 	<h1 class="address-index">アドレス帳</h1>
+	<br>
 
 	<%= link_to new_user_address_path do%>
 	<div class="new-address">
@@ -15,12 +11,12 @@
 	<% @addresses.each do |address| %>
 	<div class="address-box">
 		<div class ="address-contents">
-			<%= address.last_name %><%= address.first_name %><br>
-			<%= address.postal_code %><br>
+			<b><%= address.last_name + ""%><%= address.first_name %></b><br>
+			<%= "〒" + address.postal_code %><br>
 			<%= address.street_address %><br>
-			<%= address.phone_number %><br>
-			<%= link_to "変更", edit_user_address_path(address.id) %>
-			<%= link_to '削除', user_address_path(address.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+			<%= "電話番号:" + address.phone_number %><br><br><br><br>
+			<%= link_to "変更", edit_user_address_path(address.id), class:"btn btn-success" %>
+			<%= link_to '削除', user_address_path(address.id), method: :delete, "data-confirm" => "本当に削除しますか？", class:"btn btn-danger" %>
 		</div>
 	</div>
 	<% end %>

@@ -13,7 +13,7 @@ class Item < ApplicationRecord
 
   #検索用メソッド（空欄で検索した場合は、一覧を表示する）
   def self.Item_search(keyword)
-    if keyword
+   unless keyword.empty?
      where(['item_name LIKE ?', "%#{keyword}%"])
    else
      all
@@ -21,7 +21,7 @@ class Item < ApplicationRecord
  end
 
  def self.Artist_search(keyword)
-  if keyword
+  unless keyword.empty?
     search_artist = joins(:artist)
     search_result = search_artist.select("items.*").where(['artist_name LIKE ?', "%#{keyword}%"])
   else
@@ -30,7 +30,7 @@ class Item < ApplicationRecord
 end
 
 def self.Song_search(keyword)
-  if keyword
+  unless keyword.empty?
     search_song = joins(discs: :songs)
     search_result = search_song.select("items.*").where(['song_name LIKE ?', "%#{keyword}%"])
   else

@@ -10,46 +10,32 @@
 	clear: both;
 }
 .text{
-	padding-left: 50px;
-}
-.user-form{
-	margin: auto;
-	border: solid 1px;
-}
-.bottom{
-	height: 50px;
+	padding-left: 30px;
 }
 .pofile-btn{
 	text-align: right;
 	padding: 30px;
 }
-//マイページ
-.pofile{
-	font-size: 24px;
-	color: orange;
-	padding-top: 50px;
-	padding-right: 10px;
+.user-profile-text{
+	border-radius: 4px;
+	box-shadow: 2px 2px 4px;
+	padding: 1px 0 0 20px;
 }
+
+//マイページ
 .container{
-	padding-top: 50px;
+	padding-top: 30px;
 	padding-bottom: 50px;
 }
-.mori{
-	background-image: url(../piano.jpg);
-	background-size: cover;
-  	background-position: center;
-  	opacity: 0.5;
-}
-.user-form{
-	background: white;
-	opacity: 1;
-}
-//ユーザ編集ページ
 .space{
 	width: 60%;
-	padding: 10px;
-	border: solid 1px;
+	border-bottom: solid 1px;
 }
+.user-link-btn{
+	padding: 10px 0 0 35px;
+}
+
+//ユーザ編集ページ
 .btn{
 	margin-bottom: 5px;
 }

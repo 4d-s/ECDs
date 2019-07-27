@@ -3,41 +3,46 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // ユーザー購入履歴
-.order-date-box{
-	height: 20px;
-	border: solid 1px;
-}
 .order-address-box{
 	float: left;
-}
-.order-item-box{
-	float: left;
+	padding-left: 10px;
 }
 .user-delivery-pay{
 	text-align: right;
 }
 .user-order-payment{
 	text-align: right;
-	width: 1100px;
+	padding-right: 50px;
 }
-
+.order-item-name{
+	font-size: 16px;
+	font-weight: bold;
+}
 .order-title{
 	font-size: 22px;
+	font-weight: bold;
 }
 .order-text{
 	font-size: 12px;
 }
+.box-shadow{
+	filter: drop-shadow(2px 2px 2px #000000);
+}
 
 // 注文内容確認欄
-.order-item-area{
-	padding: 20px 0;
-	border: solid 1px black;
+.order-item-box{
+	padding-bottom: 20px;
+}
+.order-item{
+	border-bottom: 1px solid #DCDCDC;
+	padding-top: 20px;
 }
 .order-item-image{
 	height: 120px;
 }
 .item-payment{
 	float: right;
+	padding-top: 20px;
 }
 // 注文確定欄
 .order-confirm-area{
@@ -45,18 +50,13 @@
 	margin-left: 20px;
 	border: solid 1px black;
 }
-// 配送住所選択欄
-.order-address-choice{
-	border: solid 1px black;
+.order-payment-table{
+	margin-left: 50px;
 }
-.order-address-radio {
-	margin: 20px;
-}
-
-// 支払い情報選択欄
-.order-payment-choice{
-	border: solid 1px black;
+// 配送住所選択欄, 支払い情報選択欄
+.radio-button{
+	padding: 10px 0;
 }
 .order-payment-radio{
-	margin: 20px;
+	padding: 20px 0;
 }

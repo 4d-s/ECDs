@@ -46,9 +46,13 @@
               <%= item.attachment_field :image, size: "100x100", fallback: "no_image.jpg" %>
             <br>
             <br>
+          <div class="row">
+            <div class="col-xs-6">
             <label>アーティスト</label>
               <%= item.collection_select :artist_id, Artist.all, :id, :artist_name, :include_blank => true %>
               <br>
+            </div>
+          </div>
               <%= link_to "アーティスト追加", new_admin_artist_path, class: "btn btn-success" %>
             <br>
             <br>

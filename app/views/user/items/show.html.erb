@@ -1,4 +1,9 @@
 <main class="clearfix">
+	<!-- お知らせメッセージを表示する -->
+	<% if flash[:notice] %>
+		<p class="text-font notice"><%= flash[:notice] %></p>
+		<br>
+	<% end %>
 	<!-- ジャケット画像 -->
 	<div class = "item-image-area col-xs-4">
 		<%= attachment_image_tag @item, :image,  size: "300x300", fallback: "no_image.jpg" %>
@@ -7,34 +12,36 @@
 	<div class = "col-xs-8">
 		<div class = "item-name-area col-xs-8">
 			<!-- シングル、アルバム名 -->
-			<h4 class = "item-title">シングル/アルバム名：</h4>
 			<p class= "item-title-text1">
 				<%= @item.item_name %>
 			</p>
-			<h4 class = "item-title">アーティスト名：<h4>
-			<p class= "item-title-text1">
-				<%= @item.artist.artist_name %>
+			<p class= "item-title-text2">
+				<%= link_to @item.artist.artist_name, user_items_path(select_id: 2, keyword: @item.artist.artist_name)%>
 			</p>
 			<!-- 登録情報 -->
 			<div class = "item-text-area panel panel-default">
-				<h4>登録情報</h4>
-				<h4 class= "item-title">レーベル名：</h4>
-				<p class= "item-title-text2">
-					<%= @item.label.label_name %>
-				</p>
-				<h4 class= "item-title">ジャンル：</h4>
-				<p class= "item-title-text2">
-					<%= @item.genre.genre_name %>
-				</p>
+				<div class="panel-heading">
+					<h4><b>登録情報</b></h4>
+				</div>
+				<table class="table">
+					<tr>
+						<td>レーベル名：</td>
+						<td><%= @item.label.label_name %></td>
+					</tr>
+					<tr>
+						<td>ジャンル：</td>
+						<td><%= @item.genre.genre_name %></td>
+					</tr>
+				</table>
 			</div>
 		</div>
 		<!-- 価格情報 -->
 		<div class = "item-price-area well col-xs-4">
 			<p class ="item-price-title" >取扱情報：
 				<% if @item.is_sold %>
-					取り扱い中
+					<b><font color="#008000">取り扱い中</font></b>
 				<% else %>
-					取扱停止中
+					<b><font color="#ff0000">取扱停止中</font></b>
 				<% end %>
 			</p>
 			<div class="panel">
@@ -46,26 +53,27 @@
 			<br>
 			<% if user_signed_in? %>
 				<%= form_for @item_select, url: user_item_item_selects_path(@item) do |f| %>
-					<%= f.number_field :item_count, value: 1, class: "col-xs-4" %>
+					<%= f.number_field :item_count, value: 1, min:1, max:99, class: "col-xs-4" %>
 					&nbsp;
-					<%= f.submit "カートに入れる" %>
+					<%= f.submit "カートに入れる", class:"btn btn-primary" %>
 	    		<% end %>
 	    	<% end %>
 
 			<p class ="item-price-title" ><br>在庫：
 			<% if @item.stock > 0 %>
-				有り
+				<b><font color="#008000">有り</font></b>
 			<% else %>
-				無し
+				<b><font color="#ff0000">無し</font>
 			<% end %>
 			</p>
 		</div>
 	</div>
-	<div class = "item-song-text-area col-xs-12">
-		<p class = "item-title2"><%= @item.item_name %></p>
-
+	<div class = "item-song-text-area col-xs-12 panel panel-warning">
+		<div class = "panel-heading">
+		<%= @item.item_name %>
+		</div>
 		<% @discs.each do |disc| %>
-		<div class="disc-song-box col-xs-12">
+		<div class="disc-song-box col-xs-12 panel panel-warning">
 			<table class="table table-striped">
 				<thead>
 					<tr>
