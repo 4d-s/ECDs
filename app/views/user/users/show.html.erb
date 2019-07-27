@@ -3,11 +3,18 @@
 	<div class="container">
 		<div class="row">
 				<div class="col-md-3"></div>
-				<div class="col-md-5 text-font">
-					<h2>マイプロフィール</h2>
+				<div class="col-md-6 text-font">
+					<div class="user-link-btn">
+						<h2>マイプロフィール
+						<span class="btn"><%= link_to "アドレス帳", user_addresses_path(@user.id), class: "btn btn-success" %></span>
+						<span class="btn"><%= link_to "購入履歴", user_orders_path(@user.id), class: "btn btn-success" %></span>
+						</h2>
+					</div>
 					<!-- プロフィール内容 -->
 					<div class="user-profile-text">
 						<div class="text">
+							<h3>ユーザ名</h3>
+							<div class="space"><%= @user.name %></div>
 							<h3>お名前</h3>
 							<div class="space"><%= @user.last_name %><%= @user.first_name %></div>
 							<h3>お名前（カナ）</h3>
@@ -21,17 +28,13 @@
 							<h3>メールアドレス</h3>
 							<div class="space"><%= @user.email %></div>
 						</div>
-						<div class="user-link-btn">
-							<span class="btn"><%= link_to "アドレス帳", user_addresses_path(@user.id), class: "btn btn-success" %></span>
-							<span class="btn"><%= link_to "購入履歴", user_orders_path(@user.id), class: "btn btn-success" %></span>
-						</div>
-						<div class="pofile-btn">
-							<%= link_to "戻る", root_path, class: "btn btn-default" %>
+						<div class="user-pofile-btn">
 							<%= link_to "編集", mypage_edit_path(@user.id), class: "btn btn-danger" %>
+							<%= link_to "戻る", root_path, class: "btn btn-default" %>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4"></div>
+				<div class="col-md-3"></div>
 		</div>
 	</div>
 </main>
