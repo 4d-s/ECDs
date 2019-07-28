@@ -33,7 +33,8 @@
 				<div class="order-item-box text-font">
 					<table class="table" width="1500">
 						<tr>
-							<th width="500" colspan="2">商品</th>
+							<th width="250">商品</th>
+							<th width="250">商品名</th>
 							<th width="300">単価</th>
 							<th width="200">個数</th>
 							<th width="200">小計</th>
@@ -53,8 +54,8 @@
 			</div>
 		</div>
 		<div class="addmin-order-btn text-right">
-		<button type="button" onclick="history.back()" class="btn btn-default">戻る</button>
 		<%= ord.submit '発送ステータスを保存' ,class: "btn btn-primary"%>
+		<button type="button" onclick="history.back()" class="btn btn-default">戻る</button>
 		</div>
 		<% end %>
 		<div class="addmin-order-payment-edit text-font">
