@@ -6,7 +6,7 @@
 	<% end %>
 	<h2 align="center">ユーザー情報編集</h2>
   	<%= form_for [:admin, @user] do |f| %>
-		<div class="profile-text">
+		<div class="profile-text panel panel-primary box-shadow">
 			<div class="form-inline">
 			<h3>ユーザ名</h3>
 			<span><%= f.text_field :name, class:'form-control', placeholder:"※空欄不可" %></span>
