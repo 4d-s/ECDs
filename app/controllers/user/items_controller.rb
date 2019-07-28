@@ -1,5 +1,4 @@
 class User::ItemsController < ApplicationController
-
 	def index
 		select_item_kind = params[:select_id]
 		#CD名での検索
