@@ -10,8 +10,12 @@ class User::UsersController < ApplicationController
 
 	def update
 		@user = User.find(current_user.id)
-		@user.update(user_params)
+		if @user.update(user_params)
 		redirect_to mypage_path(current_user)
+		else
+		flash[:notice] = "編集の更新に失敗しました"
+		redirect_to mypage_edit_path(current_user)
+		end
 	end
 
 	private
