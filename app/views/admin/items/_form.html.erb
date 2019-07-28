@@ -10,7 +10,7 @@
             <label>商品名</label>
             <br>
             <div class="col-xs-8">
-            <%= item.text_field :item_name, class:'form-control', :placeholder => "シングル/アルバム名を入力　" %>
+            <%= item.text_field :item_name, class:'form-control', :placeholder => "シングル/アルバム名を入力　※２５文字以内　" %>
             </div>
           </div>
             <br>
@@ -51,23 +51,31 @@
             <br>
           <div class="row">
             <div class="col-xs-6">
-            <label>アーティスト</label>
-              <%= item.collection_select :artist_id, Artist.all, :id, :artist_name, :include_blank => true %>
-              <br>
+            <label>アーティスト名</label>
+              <%= item.collection_select(
+              :artist_id, Artist.all, :id, :artist_name, {:include_blank => true}, {class: "form-control input-sm"}) %>
             </div>
           </div>
-              <%= link_to "アーティスト追加", new_admin_artist_path, class: "btn btn-success" %>
+          <%= link_to "アーティスト追加", new_admin_artist_path, class: "btn btn-success" %>
             <br>
             <br>
-            <label>レーベル</label>
-              <%= item.collection_select :label_id, Label.all, :id, :label_name,  :include_blank => true %>
-              <br>
-              <%= link_to "レーベル追加", new_admin_label_path, class: "btn btn-success" %>
+          <div class="row">
+            <div class="col-xs-6">
+            <label>レーベル名</label>
+              <%= item.collection_select(
+              :label_id, Label.all, :id, :label_name, {:include_blank => true}, {class: "form-control input-sm"}) %>
+            </div>
+          </div>
+          <%= link_to "レーベル追加", new_admin_label_path, class: "btn btn-success" %>
             <br>
             <br>
+          <div class="row">
+            <div class="col-xs-6">
             <label>ジャンル</label>
-              <%= item.collection_select :genre_id, Genre.all, :id, :genre_name,  :include_blank => true %>
-              <br>
+              <%= item.collection_select(
+              :genre_id, Genre.all, :id, :genre_name, {:include_blank => true}, {class: "form-control input-sm"}) %>
+            </div>
+          </div>
               <%= link_to "ジャンル追加", new_admin_genre_path, class: "btn btn-success" %>
             <br>
             </div>
