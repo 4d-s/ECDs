@@ -10,11 +10,18 @@ class User::UsersController < ApplicationController
 
 	def update
 		@user = User.find(current_user.id)
+		flag = params[:is_deleted]
+  	  	if flag == 'false'
+  	  	@user.update_attribute(:is_deleted, params[:is_deleted])
+  	  	sign_out_and_redirect(current_user)
+  	  	else
+  	  	@user = User.find(current_user.id)
 		if @user.update(user_params)
-		redirect_to mypage_path(current_user)
+			redirect_to mypage_path(current_user)
 		else
-		flash[:notice] = "編集の更新に失敗しました"
-		redirect_to mypage_edit_path(current_user)
+			flash[:notice] = "編集の更新に失敗しました"
+			redirect_to mypage_edit_path(current_user)
+		end
 		end
 	end
 

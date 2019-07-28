@@ -1,13 +1,13 @@
 <body>
-<main class="clearfix">
-	<div class="container">
-		<div class="row">
+	<main class="clearfix">
+		<div class="container">
+			<div class="row">
 				<div class="col-md-3"></div>
 				<div class="col-md-6 text-font">
 					<div class="user-link-btn">
 						<h2>マイプロフィール
-						<span class="btn"><%= link_to "アドレス帳", user_addresses_path, class: "btn btn-success" %></span>
-						<span class="btn"><%= link_to "購入履歴", user_orders_path, class: "btn btn-success" %></span>
+							<span class="btn"><%= link_to "アドレス帳", user_addresses_path, class: "btn btn-success" %></span>
+							<span class="btn"><%= link_to "購入履歴", user_orders_path, class: "btn btn-success" %></span>
 						</h2>
 					</div>
 					<!-- プロフィール内容 -->
@@ -33,9 +33,15 @@
 							<%= link_to "戻る", root_path, class: "btn btn-default" %>
 						</div>
 					</div>
+					<div class="user-delete-btn">
+						<% if @user.is_deleted == true%>
+						<%= link_to '退会する', user_path(:id => @user.id, :is_deleted => 'false'),
+						:method => :patch,"data-confirm" => "本当に退会しますか？" , class: "btn btn-danger"%>
+						<% end %>
+					</div>
 				</div>
 				<div class="col-md-3"></div>
+			</div>
 		</div>
-	</div>
-</main>
+	</main>
 </body>
