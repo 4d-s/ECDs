@@ -16,6 +16,12 @@ class User::ItemSelectsController < ApplicationController
     # 同一の商品が既にカートにある場合、その商品の個数を増やす。
     @item_selects.each{|item_select|
       if item_select.item_id == @item.id
+        # カート内の商品の個数変更後の値が在庫数を超える場合には、追加出来ず商品詳細画面へ戻る
+        if item_select.item_count + @item_select.item_count > item_select.item.stock
+          flash[:notice] = "商品の在庫が足りない為、カートに商品を追加出来ませんでした。"
+          redirect_to user_item_path(@item)
+        return
+        end
         item_select.update( item_count: item_select.item_count + @item_select.item_count )
         flash[:notice] = "同じ商品をカートに追加しました"
         redirect_to user_item_selects_path

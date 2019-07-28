@@ -1,4 +1,4 @@
-class Admin::LabelsController < ApplicationController
+  class Admin::LabelsController < ApplicationController
 before_action :authenticate_administrator!
 	def new
 		@label = Label.new
@@ -6,8 +6,12 @@ before_action :authenticate_administrator!
 
 	def create
 		@label = Label.new(label_params)
-		@label.save
-		redirect_to new_admin_item_path
+		if @label.save
+		   redirect_to new_admin_item_path
+		else
+		   flash[:notice] = "登録名が空欄です。"
+    	   redirect_to new_admin_label_path
+    	end
 	end
 
 	private

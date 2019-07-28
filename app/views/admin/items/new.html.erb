@@ -1,7 +1,9 @@
 <div class = "col-xs-9">
-	          <% if flash[:notice] %>
-          <p class="notice"><%= flash[:notice] %></p>
-          <% end %>
 	<h1>商品新規追加画面</h1>
     <%= render 'admin/items/form', item: @item %>
+    <% if flash[:notice] %>
+      <div class="alert alert-danger">
+        <%= flash[:notice] %>
+      </div>
+     <% end %>
 </main>

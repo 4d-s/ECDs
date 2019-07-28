@@ -1,5 +1,5 @@
 class Admin::UsersController < ApplicationController
-before_action :authenticate_administrator!
+  before_action :authenticate_administrator!
   def index
     @users = User.all
   end
@@ -23,14 +23,14 @@ before_action :authenticate_administrator!
   	  	redirect_to admin_users_path
   	  else
   		@user = User.find(params[:id])
-  		if @user.update(user_params)
-        flash[:notice] = "プロフィール内容を変更しました。"
-  		  redirect_to admin_user_path(@user.id)
-      else
-        flash[:notice] = "プロフィール内容の変更に失敗しました。"
-        redirect_to edit_admin_user_path(@user.id)
+    		if @user.update(user_params)
+          flash[:notice] = "プロフィール内容を変更しました。"
+    		  redirect_to admin_user_path(@user.id)
+        else
+          flash[:notice] = "ユーザー情報に不備があります"
+          redirect_to edit_admin_user_path(@user.id)
+    	  end
       end
-  	end
   end
 
 
