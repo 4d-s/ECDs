@@ -12,12 +12,12 @@
 	<div class = "col-xs-8">
 		<div class = "item-name-area col-xs-8">
 			<!-- シングル、アルバム名 -->
-			<p class= "item-title-text1">
+			<div class= "item-title-text1">
 				<%= @item.item_name %>
-			</p>
-			<p class= "item-title-text2">
-				<%= link_to @item.artist.artist_name, user_items_path(select_id: 2, keyword: @item.artist.artist_name)%>
-			</p>
+			</div>
+			<div class= "item-title-text2">
+				<%= link_to @item.artist.artist_name, admin_items_path(select_id: 2, keyword: @item.artist.artist_name)%>
+			</div>
 			<!-- 登録情報 -->
 			<div class = "item-text-area panel panel-default">
 				<div class="panel-heading">
