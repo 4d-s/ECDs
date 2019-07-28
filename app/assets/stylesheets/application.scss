@@ -131,10 +131,56 @@ main {
 	margin: 0 auto;
 }
 .top-main {
-	min-height: 500px;
-	padding: 20px 0;
-	background-image: url(Abstract-Music-Rock-Bw-l.jpg);
-  	background-position: center;
+	position: relative;
+	height: 500px;
+	z-index: 1;
+}
+
+.top-title{
+	padding: 0;
+	margin: 0;
+	font-size: 300px;
+	font-family: "Spectral",serif;
+	font-weight: bold;
+	position: absolute; 
+    text-align: center;
+    top: 50%; 
+    left: 50%; 
+    transform: translateY(-60%) translateX(-50%); 
+    z-index: 9999;
+    opacity: 0.9;
+}
+.top-search-box{
+	position: absolute; 
+    text-align: center;
+    top: 80%; 
+    left: 50%; 
+    transform: translateY(-50%) translateX(-50%); 
+    z-index: 9999;
+	opacity: 0.6;
+}
+.search-notice{
+	text-align:  center;
+	font-size: 30px;
+}
+.image1 {
+background-image: url(Abstract-Music-Rock-Bw-l.jpg);
+
+}
+.image2 {
+background-image: url(guitar.jpg);
+
+}
+.image3 {
+background-image: url(dj1.jpeg);
+}
+.image4 {
+background-image: url(cool_music.jpg);
+
+}
+.image5 {
+background-image: url(piano5.jpg);
+background-position: right;
 }
 /*footer*/
 footer{
