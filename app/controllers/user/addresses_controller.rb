@@ -25,8 +25,12 @@ class User::AddressesController < ApplicationController
 
   def update
     @address = Address.find(params[:id])
-    @address.update(address_params)
+    if @address.update(address_params)
     redirect_to user_addresses_path
+    else
+      flash[:notice] = "アドレス情報に不備があります"
+      redirect_to edit_user_address_path(params[:id])
+    end
   end
 
   def destroy
