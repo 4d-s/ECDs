@@ -56,7 +56,7 @@ before_action :authenticate_administrator!
 
   def destroy
     @item = Item.find(params[:id])
-    if @item.destroy(item.id)
+    if @item.destroy
       flash[:notice] = "商品を削除しました。"
       redirect_to admin_items_path
     else
