@@ -21,11 +21,7 @@
 			<br>
 			<%= item.item_name %><br>
 			<%= item.price %>円（税別）<br>
-			<% if item.stock > 0 %>
-			<p>在庫　あり</p>
-			<%else%>
-			<p>在庫　なし</p>
-			<%end%>
+			在庫：<%= item.stock %>個
 		</div>
 		<% end %>
 	</div>

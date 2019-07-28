@@ -11,7 +11,7 @@
 				<%= @item.item_name %>
 			</p>
 			<p class= "item-title-text2">
-				<%= @item.artist.artist_name%>
+				<%= link_to @item.artist.artist_name, admin_items_path(select_id: 2, keyword: @item.artist.artist_name)%>
 			</p>
 			<!-- 登録情報 -->
 			<div class = "item-text-area panel panel-default">
@@ -51,11 +51,7 @@
 			</div>
 			<br>
 			<p class ="item-price-title" ><br>在庫：
-			<% if @item.stock > 0 %>
-				<b><font color="#008000">有り</font></b>
-			<% else %>
-				<b><font color="#ff0000">無し</font>
-			<% end %>
+			<%= @item.stock %>個
 			</p>
 		</div>
 	</div>
