@@ -9,7 +9,7 @@
   	if @genre.save
   	redirect_to new_admin_item_path
     else
-    flash[:notice] = "登録できません。"
+    flash[:notice] = "登録名が空欄です。"
     redirect_to new_admin_genre_path
     end
   end
