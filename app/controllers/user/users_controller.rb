@@ -14,6 +14,7 @@ class User::UsersController < ApplicationController
   	  	if flag == 'false'
   	  	@user.update_attribute(:is_deleted, params[:is_deleted])
   	  	sign_out_and_redirect(current_user)
+  	  	flash[:notice] = "退会しました。またのご利用をお待ちしております！"
   	  	else
   	  	@user = User.find(current_user.id)
 		if @user.update(user_params)
