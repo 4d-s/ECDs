@@ -1,7 +1,16 @@
 class User::OrdersController < ApplicationController
   before_action :authenticate_user!
   def new
+    @sum = 0
   	@item_selects = current_user.item_selects
+    @item_selects.each{|item_select|
+      @sum += item_select.item.price * item_select.item_count
+    }
+    if @sum == 0
+      flash[:notice] = "カートに商品が追加されていない為、購入へ進む事ができません。"
+      redirect_to user_item_selects_path
+      return
+    end
   	@order = Order.new
   end
 
