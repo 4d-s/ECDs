@@ -7,6 +7,7 @@ class Admin::ArtistsController < ApplicationController
 	def create
 		@artist = Artist.new(artist_params)
 		if  @artist.save
+			flash[:notice] = "アーティスト名を登録しました。"
 			redirect_to new_admin_item_path
 		else
 			flash[:notice] = "登録名が空欄です。"

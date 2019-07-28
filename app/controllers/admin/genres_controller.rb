@@ -6,11 +6,12 @@ class Admin::GenresController < ApplicationController
 
   def create
   	@genre = Genre.new(genre_params)
-  	if @genre.save
-  	redirect_to new_admin_item_path
+    if　@genre.save
+        flash[:notice] = "ジャンル名を登録しました。"
+        redirect_to new_admin_item_path
     else
-    flash[:notice] = "登録名が空欄です。"
-    redirect_to new_admin_genre_path
+        flash[:notice] = "登録名が空欄です。"
+        redirect_to new_admin_genre_path
     end
   end
 
