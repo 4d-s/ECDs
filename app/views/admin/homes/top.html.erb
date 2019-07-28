@@ -1,10 +1,7 @@
 
-
-<head>
-	<meta charset="UTH-8">
-	<link rel="stylesheet" href="admin/homes.scss">
-</head>
-
+<% if flash[:notice] %>
+	<p class="text-font notice"><%= flash[:notice] %></p>
+<% end %>
 <div class="col-xs-9">
 	<div class="admin-top">
 		<h2>管理者TOP PAGE</h2>

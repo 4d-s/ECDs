@@ -5,6 +5,7 @@
 //  商品一覧ページ
 .addmin-item-box{
 	width: 30%;
+  height: 300px;
 	float: left;
 	display: inline-block;
 	margin-right: 15px;
@@ -13,6 +14,7 @@
 	padding-top: 20px;
 	text-align: center;
 	background-color: #ffffff;
+  word-wrap: break-word;
 }
 .addmin-item-contents{
 	margin: 0 auto;
@@ -45,7 +47,6 @@
 }
 //  商品詳細ページ
 
-
 //商品編集ページ
 .item-edit-form{
 	width: 80%;
@@ -69,6 +70,11 @@
 }
 .image-edit-btn{
 	padding: 15px;
+}
+.admin-item-delete-btn{
+  text-align: right;
+  padding-right: 170px;
+  padding-top: 20px;
 }
 
 //　商品新規追加画面

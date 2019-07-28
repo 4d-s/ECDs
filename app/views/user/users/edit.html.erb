@@ -3,6 +3,11 @@
 		<div class="row">
 				<div class="col-md-3"></div>
 				<div class="col-md-6 text-font">
+					<% if flash[:notice] %>
+      				<div class="alert alert-danger">
+			        <%= flash[:notice] %>
+				      </div>
+				    <% end %>
 					<h2>ユーザ情報編集</h2>
 					<div class="user-profile-text">
 						<div class="form-inline">
@@ -10,10 +15,10 @@
 							<%= form_for current_user do |f| %>
 							<h3>ユーザ名</h3>
 							<span><%= f.text_field :name, class:'form-control', placeholder:"※空欄不可" %></span>
-							<h3>名前（姓・名）</h3>
+							<h3>お名前（姓・名）</h3>
 							<span><%= f.text_field :last_name, class:'form-control', placeholder:"姓 ※全角文字のみ" %></span>
 							<span><%= f.text_field :first_name, class:'form-control', placeholder:"名　※全角文字のみ" %></span>
-							<h3>名前（カナ姓・カナ名）</h3>
+							<h3>お名前（セイ・メイ）</h3>
 							<span><%= f.text_field :last_name_katakana, class:'form-control', placeholder:"セイ ※全角カタカナ" %></span>
 							<span><%= f.text_field :first_name_katakana, class:'form-control', placeholder:"メイ　※全角カタカナ" %></span>
 						</div>
