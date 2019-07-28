@@ -1,4 +1,7 @@
 <div class="col-xs-6 text-font">
+	<% if flash[:notice] %>
+		<%= flash[:notice] %>
+	<% end %>
 	<div class="addmin-profile-box ">
 		<h1><%=@user.name%>(様)のマイページ</h1>
 		<div class="profile-text">

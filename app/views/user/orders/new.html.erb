@@ -13,9 +13,7 @@
 	</div>
 	<div class="order-item-box panel panel-primary box-shadow col-xs-7">
 		<!-- 商品１ -->
-		<% @sum = 0 %>
 		<% @item_selects.each do |item_select| %>
-			<% @sum += item_select.item.price * item_select.item_count %>
 			<div class="order-item col-xs-12">
 				<div class="order-item-image col-xs-3">
 					<%= link_to user_item_path(item_select.item_id) do%>
@@ -23,13 +21,13 @@
 					<% end %>
 				</div>
 				<div class="col-xs-9">
-					<div class="item-text-area col-xs-12">
+					<div class="col-xs-12">
 						<p class="order-item-name">「<%= item_select.item.item_name %>」</p>
 						<table width="200">
 							<tbody>
 								<tr>
 									<td align=right>アーティスト名：</td>
-									<td align=right><% item_select.item.artist.artist_name %></td>
+									<td align=right><%= item_select.item.artist.artist_name %></td>
 								</tr>
 								<tr>
 									<td align=right>単価：</td>
@@ -49,7 +47,7 @@
 				</div>
 			</div>
 		<% end %>
-		<p class ="warning-font underline item-payment">
+		<p class ="underline item-payment">
 			合計金額： ¥ <%= number_with_delimiter(@sum, :delimiter => ",") %>（税込み）</u>
 		</p>
 	</div>

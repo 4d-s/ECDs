@@ -35,21 +35,34 @@ before_action :authenticate_administrator!
   def create
       @item = Item.new(item_params)
       if @item.save
-      redirect_to admin_items_path
+        flash[:notice] = "登録しました"
+        redirect_to admin_items_path
       else
-      flash[:notice] = "登録箇所に不備があります。"
-      render :new
+        flash.now[:notice] = "登録箇所に不備があります。"
+        render :new
       end
   end
 
   def update
     @item = Item.find(params[:id])
-    @item.update(item_params)
-    redirect_to admin_item_path
+    if @item.update(item_params)
+      flash[:notice] = "商品内容を変更しました。"
+      redirect_to admin_item_path
+    else
+      flash[:notice] = "変更内容の更新に失敗しました"
+      redirect_to edit_admin_item_path
+    end
   end
 
   def destroy
-
+    @item = Item.find(params[:id])
+    if @item.destroy(item.id)
+      flash[:notice] = "商品を削除しました。"
+      redirect_to admin_items_path
+    else
+      flash[:notice] = "商品の削除に失敗しました。"
+      redirect_to edit_admin_item_path
+    end
   end
 
   private
