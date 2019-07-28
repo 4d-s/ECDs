@@ -15,4 +15,10 @@ class User < ApplicationRecord
    validates :postal_code, presence: true, format: { with: /\A[0-9]+\z/, message: "半角数字のみが使用できます" }
    validates :phone_number, presence: true, format: { with: /\A[0-9]+\z/, message: "半角数字のみが使用できます" }
 
+   def active_for_authentication?
+      super && self.is_deleted?
+   end
+   def inactive_message
+    self.is_deleted? ? super : :special_condition_is_not_valid
+   end
 end
