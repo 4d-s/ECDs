@@ -1,5 +1,5 @@
 class Admin::UsersController < ApplicationController
-before_action :authenticate_administrator!
+  before_action :authenticate_administrator!
   def index
     @users = User.all
   end
@@ -28,7 +28,7 @@ before_action :authenticate_administrator!
       else
         flash[:notice] = "ユーザー情報に不備があります"
         redirect_to edit_admin_user_path(@user.id)
-  	end
+  	 end
   end
   end
 
