@@ -81,3 +81,5 @@ gem 'cocoon'
 gem 'pry-byebug'
 
 gem "font-awesome-rails"
+
+gem 'data-confirm-modal'

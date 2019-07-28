@@ -19,3 +19,4 @@
 // @ app/assets/javascripts/application.js
 //= require cocoon
 //= require jquery
+//= require data-confirm-modal

@@ -56,7 +56,7 @@
 	<%= form_with model: [:user, @order] do |f| %>
 
 	<div class="panel panel-primary box-shadow order-confirm-area col-xs-4">
-			<%= f.submit "注文を確定する", class: "center btn btn-warning" %>
+			<%= f.submit "注文を確定する", class: "center btn btn-warning", data: { confirm: "購入を確定してよろしいですか？"} %>
 			<br><br>
 			<p class="order-item-name">注文内容</p>
 			<table width="200" class="order-payment-table">
