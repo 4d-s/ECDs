@@ -13,14 +13,14 @@
 //= require rails-ujs
 //= require activestorage
 //= require jquery
+//= require turbolinks
 //= require cocoon
 //= require_tree .
 // @ app/assets/javascripts/application.js
 //= require cocoon
-//= require jquery
 
 
-$(window).on('load', function(){
+$(window).on('turbolinks:load', function(){
   $('.scroll-box').infiniteslide({
   			//画像のスライドの速度
 			speed: 40,
@@ -28,7 +28,7 @@ $(window).on('load', function(){
 		});
 });
 
-$(document).ready(function () {
+$(document).on('turbolinks:load', function () {
   $("#theTarget").skippr({
       // スライドショーの変化 ("fade" or "slide")
       transition : 'fade',
