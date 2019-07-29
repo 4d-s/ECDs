@@ -1,11 +1,15 @@
 class Admin::ArtistsController < ApplicationController
 	before_action :authenticate_administrator!
+
+	@@backurl = nil
+
 	def new
 		@artist = Artist.new
 	end
 
 	def edit
     	@artist = Artist.find(params[:id])
+    	@@backurl = request.query_parameters[:backurl]
   	end
 
 	def create
@@ -22,7 +26,11 @@ class Admin::ArtistsController < ApplicationController
 	    @artist = Artist.find(params[:id])
 	    if @artist.update(artist_params)
 	      flash[:notice] = "アーティスト名を変更しました。"
-	      redirect_to edit_admin_item_path
+	    	if @@backurl.blank?
+	      		redirect_to  edit_admin_artist_path
+	    	else
+	    		redirect_to  @@backurl
+	    	end
 	    else
 	      flash[:notice] = "登録名が空欄です。"
 	      redirect_to  edit_admin_artist_path

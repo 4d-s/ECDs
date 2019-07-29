@@ -46,7 +46,7 @@
             <label>アーティスト</label>
               <%= f.collection_select :artist_id, Artist.all, :id, :artist_name, :include_blank => true %>
             <br>
-            <%= link_to "アーティスト編集", edit_admin_artist_path(item.artist_id), class: "btn btn-success" %>
+            <%= link_to "アーティスト編集", edit_admin_artist_path(item.artist_id,backurl:request.path), class: "btn btn-success" %>
             <br>
             <br>
             <label>レーベル</label>
