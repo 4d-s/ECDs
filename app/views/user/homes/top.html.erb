@@ -1,15 +1,9 @@
-
-<!DOCTYPE html>
-<head>
-	<meta charset="utf-8">
-	<title>トップページ</title>
-</head>
-
+<body data-turbolinks="false">
 <div class="top-main">
 	<% if flash[:notice] %>
 		<p class="notice"><%= flash[:notice] %></p>
 	<% end %>
-	<div class="form-inline top-search-box">
+	<div class="form-inline top-search-box clearfix">
 		<h1 class="top-title">ECD's</h1>
 		<%= form_tag user_items_path, method: :get do %>
 		<%= select_tag 'select_id', options_for_select([["CD名","1"], ["アーティスト名","2"], ["曲名","3"]], :selected=>"1") %>
@@ -18,3 +12,14 @@
 		<% end %>
 	</div>
 </div>
+
+<div class="ranking-box" >
+		<% @rankings.first(10).each do |rank| %>
+		<div class="ranking-contents">
+		<%= link_to user_item_path(rank.id) do%>
+		<%= attachment_image_tag rank, :image,  size: "200x200", fallback: "no_image.jpg"%>
+		<% end %>
+		</div>
+		<% end %>
+</div>
+</body>

@@ -13,7 +13,7 @@
 		<div class = "item-name-area col-xs-8">
 			<!-- シングル、アルバム名 -->
 			<div class= "item-title-text1">
-				<%= @item.item_name %>
+				<%="「" + @item.item_name + "」"%>
 			</div>
 			<div class= "item-title-text2">
 				<%= link_to @item.artist.artist_name, admin_items_path(select_id: 2, keyword: @item.artist.artist_name)%>
