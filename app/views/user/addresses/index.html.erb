@@ -1,0 +1,27 @@
+<main class="clearfix">
+	<!-- お知らせメッセージを表示する -->
+	<% if flash[:notice] %>
+		<p class="text-font notice"><%= flash[:notice] %></p>
+	<% end %>
+	<h1 class="address-index">アドレス帳</h1>
+	<br>
+
+	<%= link_to new_user_address_path do%>
+	<div class="new-address">
+		<h3>新しい住所を追加</h3>
+	</div>
+	<% end %>
+
+	<% @addresses.each do |address| %>
+	<div class="address-box">
+		<div class ="address-contents">
+			<b><%= address.last_name + ""%><%= address.first_name %></b><br>
+			<%= "〒" + address.postal_code %><br>
+			<%= address.street_address %><br>
+			<%= "電話番号:" + address.phone_number %><br><br><br><br>
+			<%= link_to "変更", edit_user_address_path(address.id), class:"btn btn-success" %>
+			<%= link_to '削除', user_address_path(address.id), method: :delete, "data-confirm" => "本当に削除しますか？", class:"btn btn-danger" %>
+		</div>
+	</div>
+	<% end %>
+</main>

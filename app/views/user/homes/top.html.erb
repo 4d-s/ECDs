@@ -1,0 +1,30 @@
+<div class="top-main">
+	<div id="theTarget">
+		<div class="image1"></div>
+		<div class="image2"></div>
+		<div class="image3"></div>
+		<div class="image4"></div>
+		<div class="image5"></div>
+	</div>
+	<% if flash[:notice] %>
+		<p class="top-notice notice"><%= flash[:notice] %></p>
+	<% end %>
+	<h1 class="top-title">ECD's</h1>
+	<div class="form-inline top-search-box">
+		<%= form_tag user_items_path, method: :get do %>
+		<%= select_tag 'select_id', options_for_select([["CD名","1"], ["アーティスト名","2"], ["曲名","3"]], :selected=>"1") %>
+		<%= text_field_tag :keyword, '', placeholder: "キーワードで検索", class: "form-control", size: 70%>
+		<%= submit_tag '検索' , :item_name => nil, class: "btn btn-success"%>
+		<% end %>
+	</div>
+</div>
+
+<div class="scroll-box" >
+		<% @rankings.first(10).each do |rank| %>
+		<div class="scroll-contents">
+		<%= link_to user_item_path(rank.id) do%>
+		<%= attachment_image_tag rank, :image,  size: "200x200", fallback: "no_image.jpg"%>
+		<% end %>
+		</div>
+		<% end %>
+</div>

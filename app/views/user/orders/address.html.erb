@@ -1,0 +1,31 @@
+<main class="clearfix">
+	<!-- エラーメッセージを表示する -->
+	 <% if flash[:notice] %>
+      <div class="alert alert-danger">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+<h1>新規配送先追加フォーム</h1>
+<div class="form-group col-xs-3">
+<%= form_for [:user, @new_address], url: user_create_order_address_path, html: {method: :post} do |add| %>
+
+	<label>名前</label>
+
+	<%= add.text_field :last_name, class: "form-control input-sm", placeholder:"姓" %>
+	<%= add.text_field :first_name, class: "form-control input-sm", placeholder:"名"%>
+
+	<label>住所</label>
+	<%= add.text_field :street_address ,class: "form-control input-sm", placeholder:"住所"%>
+
+	<label>郵便番号</label>
+	<%= add.text_field :postal_code ,class: "form-control input-sm", placeholder:"郵便番号"%>
+
+	<label>電話番号</label>
+	<%= add.text_field :phone_number ,class: "form-control input-sm", placeholder:"電話番号"%>
+	<br><br>
+
+	<%= add.submit '追加', class: "btn btn-primary" %>
+	<%= link_to '戻る', new_user_order_path, class: "btn btn-default"%>
+<% end %>
+</div>
+</main>

@@ -1,0 +1,21 @@
+<!-- ヘッダー -->
+
+<header>
+  <%= link_to admin_path do%>
+    <div class="site-logo">
+    </div>
+  <% end %>
+  <% if administrator_signed_in? %>
+  <div class="welcome-text">
+    管理者アカウントで現在ログインしています
+  </div>
+  <% else %>
+  <div class="welcome-text">
+    管理者アカウントでログインしてください
+  </div>
+  <% end %>
+
+  <p class="admin-header-title">
+    ECD's
+  </p>
+</header>

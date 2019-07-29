@@ -1,0 +1,95 @@
+<main class="cart-area clearfix">
+	<!-- お知らせメッセージを表示する -->
+	<% if flash[:notice] %>
+		<p class="text-font notice"><%= flash[:notice] %></p>
+	<% end %>
+	<!-- カート上部 -->
+	<div class="cart-top col-xs-12">
+		<div class="col-xs-6">
+			<h2 class="text-font cart-title">ショッピングカート</h2>
+		</div>
+			<div class="col-xs-3">
+					<% @sum = 0 %>
+					<% @item_selects.each do |item_select| %>
+						<% @sum += item_select.item.price * item_select.item_count %>
+					<% end %>
+					<p class="payment-text">
+							合計：￥ <%= number_with_delimiter(@sum, :delimiter => ",") %>
+					</p>
+			</div>
+			<% if @sum != 0 %>
+				<div class="text-font buy-button-area col-xs-2">
+					<%= link_to "購入ページへ", new_user_order_path, class: "btn btn-warning buy-button" %>
+				</div>
+			<% end %>
+	</div>
+	<!-- 商品１ -->
+	<% @item_selects.each do |item_select| %>
+	<div class="cart-item col-xs-12">
+		<hr class="w-100 clearfix d-md-none">
+		<div class="item-image col-xs-3">
+			<%= link_to user_item_path(item_select.item_id) do%>
+				<%= attachment_image_tag item_select.item, :image, size: "200x200", fallback: "no_image.jpg" %>
+			<% end %>
+		</div>
+		<div class="col-xs-9">
+			<div class="item-text col-xs-12">
+				<p class= "item-name-text">
+					「 <%= item_select.item.item_name %> 」
+				</p>
+			</div>
+			<div class="text-font col-xs-4">
+                	<%= link_to user_item_item_select_path([item_select.item.id], id: item_select.id), method: :delete do %>
+                		商品をカートから削除
+                	<% end %>
+			</div>
+			<div class="col-xs-5">
+				<table width = "500" class="table-condensed">
+					<thead>
+						<tr>
+							<th class="text-font" width = "100">単価</th>
+							<th class="text-font" width = "100">数量</th>
+							<th class="text-font" width = "100">小計</th>
+							<th class="text-font" width = "100"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td class="text-font">¥ <%= number_with_delimiter(item_select.item.price, :delimiter => ",") %></td>
+								<%= form_for item_select, url: user_item_select_path(item_select) do |f| %>
+									<td class="text-font"><%= f.number_field :item_count, min:1, max:99, class: "col-xs-8" %> </td>
+									<td class="text-font">¥ 
+										<%= number_with_delimiter(item_select.item.price * item_select.item_count, :delimiter => ",") %>
+									</td>
+									<td class="text-font"><%= f.submit "カートを更新する", class: "btn btn-primary"%></td>
+								<% end %>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<% end %>
+
+	<!-- カート下部 -->
+	<% if @sum == 0 %>
+	<div class="col-xs-12">
+		<hr class="w-100 clearfix d-md-none">
+		カートに商品がありません
+	</div>
+	<% else %>
+	<div class="col-xs-12">
+		<hr class="w-100 clearfix d-md-none">
+		<div class="col-xs-6">
+		</div>
+		<div class="text-font col-xs-2">
+			<%= link_to "購入ページへ", new_user_order_path, class: "btn btn-warning" %>
+		</div>
+		<div class="total-area col-xs-4">
+			<p class="payment-text2">
+				合計：￥ <%= number_with_delimiter(@sum, :delimiter => ",") %>
+			</p>
+		</div>
+	</div>
+	<% end %>
+</main>

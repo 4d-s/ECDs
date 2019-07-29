@@ -1,0 +1,106 @@
+// Place all the styles related to the user/items controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+//  商品詳細ページ
+.main-area{
+	width: 90%;
+	margin: 0 auto;
+	padding: 30px 0;
+}
+.item-image-area{
+	height: 300px;
+}
+.item-title{
+	font-size: 16px;
+	padding-left: 10px;
+}
+.item-title-text1{
+	width: auto;
+	font-size: 24px;
+	text-align: left;
+	line-height: -1px;
+	padding-top: 15px;
+	word-wrap: break-word;
+}
+.item-title-text2{
+	font-size: 16px;
+	text-align: left;
+	word-wrap: break-word;
+}
+.item-text-area{
+	margin: 110px 0;
+}
+.item-price-area{
+	height: 280px;
+}
+.item-price-title{
+	padding: 10px 0;
+}
+.item-price-number{
+	text-align: right;
+	padding-right: 30px;
+	font-size: 20px;
+	color: #0000FF;
+}
+.item-song-text-area{
+
+	border: solid 1px black;
+	margin: 20px 0;
+}
+.item-song-text-box{
+	border: solid 1px black;
+	margin: 5px 0;
+}
+.item-title2{
+	font-size: 16px;
+	padding: 10px 0 0 20px;
+}
+.disc-song-box {
+	border: solid 1px black;
+	margin: 10px 0;
+}
+.cart-button{
+	margin-left: 40px;
+}
+
+//  商品一覧ページ
+
+.item-box{
+	width: 31%;
+	height: 380px;
+	float: left;
+	display: inline-block;
+	margin-right: 15px;
+	margin-left: 10px;
+	margin-bottom: 20px;
+	padding-top: 20px;
+	text-align: center;
+	background-color: #ffffff;
+}
+.item-contents{
+	margin: 0 auto;
+	padding: 0 15px 0 15px;
+}
+
+.item-contents-picture{
+	box-shadow:	0 0 0 0 rgba(0,0,0,0.25);
+	background-color: #ffffff;
+	color: #fff;
+	cursor: pointer;
+	transition: all 0.3s ease 0s;
+}
+.item-contents:hover > .item-contents-picture{
+	box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+	transform: translateY(-1.1875em);
+}
+.item-contents:hover{
+	color: orange;
+}
+.item-index{
+	text-align: center;
+}
+.user-paginate-items{
+	margin: 0 auto;
+	text-align: center;
+}

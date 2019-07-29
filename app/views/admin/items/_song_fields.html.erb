@@ -1,0 +1,23 @@
+<div class="nested-fields form-inline">
+  <div class="row">
+    <div class="song">
+      <div class="col-xs-6">
+        <%= f.label :曲№ %>
+        <%= f.text_field :song_number, class:'form-control',:placeholder => "曲番号を入力　※半角数字" %>
+      </div>
+    </div>
+  </div>
+    <br>
+  <div class="row">
+    <div class="song">
+      <div class="col-xs-6">
+       <%= f.label :曲名 %>
+        <%= f.text_field :song_name, class:'form-control',:placeholder => "曲名を入力" %>
+       <br>
+      </div>
+    </div>
+  </div>
+  <div class="links">
+    <%= link_to_remove_association "曲の削除", f , class: "btn-danger " %>
+  </div>
+</div>

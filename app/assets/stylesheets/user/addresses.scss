@@ -1,0 +1,31 @@
+// Place all the styles related to the user/addresses controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// アドレス一覧
+.new-address{
+	padding: 110px 100px 0 100px;
+	margin: 0 50px 50px 100px;
+	border: solid 1px;
+	width: 35%;
+	height: 300px;
+	float: left;
+	background-color: #ffffff;
+	border-radius: 5px;
+}
+
+.address-box{
+	padding: 60px 100px 0 60px;
+	margin: 0 50px 50px 100px;
+	border: solid 1px;
+	width: 35%;
+	height: 300px;
+	float: left;
+	background-color: #ffffff;
+	border-radius: 5px;
+}
+
+.address-index{
+	text-align: center;
+}
+

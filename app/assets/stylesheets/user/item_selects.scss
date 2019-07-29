@@ -1,0 +1,43 @@
+// Place all the styles related to the user/item_selects controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// カートページ
+.cart-area{
+	width: 80%;
+	margin: 0 auto;
+}
+	// カート上部分
+.cart-top{
+	height: 100px;
+}
+.payment-text, .payment-text2{
+	font-size: 20px;
+	color: #FF0000;
+	font-family: "Spectral",serif;
+}
+.payment-text {
+	padding-top: 25px;
+}
+.buy-button-area{
+	position: relative;
+}
+.buy-button{
+	position:absolute;
+	top: 24px;
+}
+
+	// カート商品部分
+.cart-item{
+	padding: 20px 0;
+}
+.item-image{
+	height: 200px;
+}
+.item-text{
+	height: 100px;
+}
+.item-name-text{
+	font-size: 20px;
+	font-family: "Spectral",serif;
+}

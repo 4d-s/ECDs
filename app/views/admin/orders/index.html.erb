@@ -1,0 +1,42 @@
+<main class="text-font col-xs-9">
+	<!-- お知らせメッセージを表示する -->
+	<% if flash[:notice] %>
+		<p class="text-font notice"><%= flash[:notice] %></p>
+	<% end %>
+	<div class = "admin-orders-area">
+		<h1 class= "admin-orders-title">注文一覧</h1>
+		<table class ="table table-striped">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>注文者</th>
+					<th>受注日</th>
+					<th>注文数</th>
+					<th>配送状況</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @orders.each do |order| %>
+					<tr>
+						<td width=10%><%= order.user.id %></td>
+						<td width=20%><%= order.user.name %></td>
+						<td width=25%><%= order.created_at.strftime("%Y-%m-%d %R")%></td>
+						<td width=15%><%= order.order_item_histories.count %></td>
+						<td width=15%>
+							<% if order.delivery_status == 1 %>
+								<p class="warning-font"><%= "受付中" %></p>
+							<% elsif order.delivery_status == 2 %>
+								<p class="prepare-font"><%= "発送準備中" %></p>
+							<% elsif order.delivery_status == 3 %>
+								<p class="done-font"><%= "発送済み" %></p>
+							<% else %>
+								<p class="warning-font"><%= "要確認" %></p>
+							<% end %>
+						</td>
+						<td width=20%><%= link_to "注文詳細ページへ", edit_admin_order_path(order), class: "btn btn-primary" %></td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</main>

@@ -1,0 +1,238 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+ @import " font-awesome ";
+
+/*common*/
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.clearfix::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+body {
+	position: relative;
+	margin: 0 auto;
+}
+.notice {
+	padding: 30px 0 0 30px;
+	font-size: 12px;
+	color: #008000;
+}
+// かっこいいフォント
+.text-font{
+	font-family: "Spectral",serif;
+}
+// 読みやすいフォント
+.text-font2 {
+	font-family: "Objective","游ゴシック体","Yu Gothic",YuGothic,"ヒラギノ角ゴ Pro","Hiragino Kaku Gothic Pro","メイリオ","Meiryo",sans-serif;
+}
+// 赤文字で目立たせる
+.warning-font{
+	color: #FF0000;
+	font-weight: bold;
+}
+// 緑文字で目立たせる
+.prepare-font{
+	color: #00DD00;
+	font-weight: bold;
+}
+// 青文字で目立たせる
+.done-font{
+	color: #0000EE;
+	font-weight: bold;
+}
+// 下線を引く
+.underline{
+	text-decoration: underline;
+}
+// 枠に影をつける
+.box-shadow{
+	filter: drop-shadow(2px 2px 2px #2F4F4F);
+}
+/*header*/
+header {
+	height: 70px;
+	background-color: #006699;
+	opacity: 0.8;
+}
+.site-logo{
+	float:left;
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	background-image: url(logo.jpg);
+	background-size: cover;
+  	background-position: center;
+  	margin: 10px;
+}
+.welcome-text{
+	padding-left: 30px;
+	float:left;
+	font-family: "Spectral",serif;
+	color: #FFFFFF;
+}
+.header-search-box{
+	position: absolute;
+	top: 20px;
+	left: 30%;
+}
+.search-select{
+	height: 50px;
+}
+.search-form{
+	width: 200px;
+	display: inline-block;
+}
+.nav-menu {
+	height: 50%;
+	font-family: "Spectral",serif;
+	border-bottom: 1px solid #000000;
+}
+.nav-list-item-left, .nav-list-item-right, .nav-list-item-right2{
+	float: right;
+	display: inline-block;
+	padding-right: 20px;
+	line-height: 70px;
+	color: #FFFFFF;
+}
+.nav-list-item-right{
+	padding-left: 50px;
+}
+
+.link-decoration{
+	text-decoration: none;
+	font-family: "Spectral",serif;
+	color: #FFFFFF;
+}
+/*main*/
+main {
+	width: 80%;
+	min-height: 500px;
+	padding: 20px 0;
+	margin: 0 auto;
+}
+.top-main {
+	background-image: url(Abstract-Music-Rock-Bw-l.jpg);
+  	background-position: center;
+	position: relative;
+	height: 500px;
+	z-index: 1;
+}
+
+.top-title{
+	padding: 0;
+	margin: 0;
+	font-size: 300px;
+	font-family: "Spectral",serif;
+	font-weight: bold;
+	position: absolute; 
+    text-align: center;
+    top: 50%; 
+    left: 50%; 
+    transform: translateY(-60%) translateX(-50%); 
+    z-index: 9999;
+    opacity: 0.9;
+}
+.top-search-box{
+	position: absolute; 
+    text-align: center;
+    top: 80%; 
+    left: 50%; 
+    transform: translateY(-50%) translateX(-50%); 
+    z-index: 9999;
+	opacity: 0.6;
+}
+.search-notice{
+	text-align:  center;
+	font-size: 30px;
+}
+.top-notice{
+	font-size: 12px;
+	color: #008000;
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	z-index: 9999;
+}
+.image1 {
+background-image: url(Abstract-Music-Rock-Bw-l.jpg);
+
+}
+.image2 {
+background-image: url(guitar.jpg);
+
+}
+.image3 {
+background-image: url(dj1.jpeg);
+}
+.image4 {
+background-image: url(cool_music.jpg);
+
+}
+.image5 {
+background-image: url(piano5.jpg);
+background-position: right;
+}
+/*footer*/
+footer{
+	background-color: #708090;
+}
+footer .container {
+	padding: 20px;
+}
+.footer-text{
+	color: #FFFFFF;
+	font-family: "Objective","游ゴシック体","Yu Gothic",YuGothic,"ヒラギノ角ゴ Pro","Hiragino Kaku Gothic Pro","メイリオ","Meiryo",sans-serif;
+}
+.icon-list{
+	display: inline-block;
+	padding-right: 70px;
+	font-size: 20px;
+	color: #FFFFFF;
+}
+.copyright-area{
+	height: 50px;
+	background-color: #006699;
+}
+.copyright-text {
+	line-height: 50px;
+	font-family: "Spectral",serif;
+	color: #FFFFFF;
+}
+//  管理側ヘッダー
+.admin-header-title{
+	font-size: 60px;
+	padding-left: 40%;
+	font-family: "Spectral",serif;
+}
+
+// 管理側サイドバー
+.admin-sidebar-list{
+	font-size: 24px;
+	margin: 0 auto;
+}
+.admin-sidebar-list-menu{
+	text-align: left;
+	font-size: 18px;
+	list-style: none;
+	text-decoration: none;
+}

@@ -1,0 +1,30 @@
+// Place all the styles related to the admin/orders controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+//管理側ユーザー購入履歴一覧
+.addmin-order-payment{
+	text-align: right;
+	display: inline-block;
+	padding-left: 450px;
+}
+.addmin-order-status-box{
+	height: 30px;
+	border: solid 1px;
+}
+.delivery-status{
+	text-align: right;
+}
+.addmin-order-btn{
+	text-align: center;
+	display: inline-block;
+	padding-left: 50px;
+	padding-bottom: 20px;
+}
+
+//管理側ユーザー購入履歴編集
+.addmin-order-payment-edit{
+	margin-left: 400px;
+	text-align: right;
+	display: inline-block;
+}
