@@ -6,15 +6,15 @@
       <%= render "devise/shared/error_messages", resource: resource %>
             <div class="profile-text">
                   <div class="form-inline">
-                  <h3>ユーザー名</h3>
-                  <%= f.text_field :name, class:'form-control', placeholder:"※空欄不可" %>
-                  <h3>名前（姓・名）</h3>
-                  <%= f.text_field :last_name, class:'form-control', placeholder:"姓　※全角" %>
-                  <%= f.text_field :first_name, class:'form-control', placeholder:"名　※全角" %>
-                  <h3>名前（セイ・メイ）</h3>
-                  <%= f.text_field :last_name_katakana, class:'form-control', placeholder:"セイ　※全角カタカナ" %>
-                  <%= f.text_field :first_name_katakana, class:'form-control', placeholder:"メイ　※全角カタカナ" %>
-                <h3>郵便番号</h3>
+                        <h3>ユーザー名</h3>
+                        <%= f.text_field :name, class:'form-control', placeholder:"※空欄不可" %>
+                        <h3>名前（姓・名）</h3>
+                        <%= f.text_field :last_name, class:'form-control', placeholder:"姓　※全角" %>
+                        <%= f.text_field :first_name, class:'form-control', placeholder:"名　※全角" %>
+                        <h3>名前（セイ・メイ）</h3>
+                        <%= f.text_field :last_name_katakana, class:'form-control', placeholder:"セイ　※全角カタカナ" %>
+                        <%= f.text_field :first_name_katakana, class:'form-control', placeholder:"メイ　※全角カタカナ" %>
+                        <h3>郵便番号</h3>
                         <%= f.text_field :postal_code, class:'form-control', placeholder:"※半角　ハイフンなし" %>
                   </div>
                   <h3>住所</h3>
