@@ -1,7 +1,7 @@
 class Admin::OrdersController < ApplicationController
 before_action :authenticate_administrator!
   def index
-  	@orders = Order.all
+  	@orders = Order.all.order(id: :desc)
   end
 
   def show
@@ -16,7 +16,7 @@ before_action :authenticate_administrator!
   def update
     @order = Order.find(params[:id])
     @order.update(order_params)
-    flash[:notice] = "発送ステータスを更新完了"
+    flash[:notice] = "発送ステータスの更新完了"
     redirect_to admin_orders_path
   end
 

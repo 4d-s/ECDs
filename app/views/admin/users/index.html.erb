@@ -1,4 +1,7 @@
 <main class="col-xs-9">
+	<% if flash[:notice] %>
+		<%= flash[:notice] %>
+	<% end %>
 	<div class = "admin-users-area">
 		<h1 class= "text-font admin-users-title">ユーザー一覧</h1>
 		<table class ="table table-striped text-font">

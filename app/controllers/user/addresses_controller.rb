@@ -17,8 +17,10 @@ class User::AddressesController < ApplicationController
     @new_address = Address.new(address_params)
     @new_address.user_id = current_user.id
     if @new_address.save
+      flash[:notice] = "新しい住所を追加しました。"
       redirect_to user_addresses_path
     else
+      flash.now[:notice] = "アドレス情報に不備があります。"
       render :new
     end
   end
@@ -26,7 +28,8 @@ class User::AddressesController < ApplicationController
   def update
     @address = Address.find(params[:id])
     if @address.update(address_params)
-    redirect_to user_addresses_path
+      flash[:notice] = "アドレス情報の更新をしました。"
+      redirect_to user_addresses_path
     else
       flash[:notice] = "アドレス情報に不備があります"
       redirect_to edit_user_address_path(params[:id])
@@ -36,6 +39,7 @@ class User::AddressesController < ApplicationController
   def destroy
     @destroy_address = Address.find(params[:id])
     @destroy_address.destroy
+    flash[:notice] = "アドレス情報を削除しました"
     redirect_to user_addresses_path
   end
 

@@ -1,13 +1,8 @@
 // Place all the styles related to the user/homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.top-title{
-	padding: 0;
-	margin: 0;
-	font-size: 300px;
-	font-family: "Spectral",serif;
-	font-weight: bold;
-}
+
+
 .top-search-box{
 	text-align:  center;
 	opacity: 0.8;
@@ -19,17 +14,4 @@
 .admin-top{
 	margin-left: 100px;
 	margin-top: 70px;
-}
-
-.ranking-box{
-	margin: 0 auto;
-	background-color: #708090;
-
-}
-
-.ranking-contents{
-	width: 20%;
-	padding: 10px 0px 10px 0px;
-	float: left;
-	background-color: #2F4F4F;
 }
