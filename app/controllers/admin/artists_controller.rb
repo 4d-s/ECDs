@@ -22,7 +22,7 @@ class Admin::ArtistsController < ApplicationController
 	    @artist = Artist.find(params[:id])
 	    if @artist.update(artist_params)
 	      flash[:notice] = "アーティスト名を変更しました。"
-	      redirect_to edit_admin_item_path(artist.item_id)
+	      redirect_to edit_admin_item_path
 	    else
 	      flash[:notice] = "登録名が空欄です。"
 	      redirect_to  edit_admin_artist_path
