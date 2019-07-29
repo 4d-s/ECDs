@@ -1,6 +1,6 @@
   <div class="item-edit-form text-font panel panel-primary box-shadow">
       <div class="item-edit-text">
-          <%= form_for @item, url:admin_item_path do |item| %>
+          <%= form_for @item, url:admin_item_path do |f| %>
 
           <div class="field">
             <div class="row">
@@ -8,7 +8,7 @@
               <label>商品名</label>
               <br>
               <div class="col-xs-4">
-                <%= item.text_field :item_name, class:'form-control', :placehoder => "シングル/アルバム名を入力" %>
+                <%= f.text_field :item_name, class:'form-control', :placehoder => "シングル/アルバム名を入力" %>
               </div>
             </div>
             <br>
@@ -16,7 +16,7 @@
             <label >価格</label>
             <br>
             <div class="col-xs-3">
-              <%= item.text_field :price, class:'form-control', :placeholder => "※半角数字" %>
+              <%= f.text_field :price, class:'form-control', :placeholder => "※半角数字" %>
             </div>
           </div>
           <br>
@@ -24,46 +24,54 @@
             <label >在庫数</label>
             <br>
             <div class="col-xs-3">
-              <%= item.text_field :stock, class:'form-control', :placeholder => "※半角数字　空欄不可" %>
+              <%= f.text_field :stock, class:'form-control', :placeholder => "※半角数字　空欄不可" %>
             </div>
           </div>
           <br>
           <label >販売ステータス</label>
             <div>
               <div class="radio">
-                <%= item.radio_button :is_sold, 'true', { id:"radio-1", type:"radio", checked: true}%>
+                <%= f.radio_button :is_sold, 'true', { id:"radio-1", type:"radio", checked: true}%>
                 <label for="radio-1" class="radio-label">販売中</label>
               </div>
               <div class="radio">
-                <%= item.radio_button :is_sold, 'false', { id:"radio-2", type:"radio"} %>
+                <%= f.radio_button :is_sold, 'false', { id:"radio-2", type:"radio"} %>
                 <label for="radio-2" class="radio-label">販売中止</label>
               </div>
             </div>
             <br>
           <label >画像</label>
           <br>
-            <%= item.attachment_field :image, size: "100x100", fallback: "no_image.jpg" %>
+            <%= f.attachment_field :image, size: "100x100", fallback: "no_image.jpg" %>
           <br>
           <label>アーティスト</label>
-            <%= item.collection_select :artist_id, Artist.all, :id, :artist_name, :include_blank => true %>
+            <%= f.collection_select :artist_id, Artist.all, :id, :artist_name, :include_blank => true %>
+          <br>
+          <%= link_to "アーティスト編集", edit_admin_artist_path(item.artist_id), class: "btn btn-success" %>
+          <br>
           <br>
           <label>レーベル</label>
-            <%= item.collection_select :label_id, Label.all, :id, :label_name,  :include_blank => true %>
+            <%= f.collection_select :label_id, Label.all, :id, :label_name,  :include_blank => true %>
+            <br>
+            <%= link_to "レーベル編集", edit_admin_label_path(item.label_id), class: "btn btn-success" %>
+          <br>
           <br>
           <label>ジャンル</label>
-            <%= item.collection_select :genre_id, Genre.all, :id, :genre_name,  :include_blank => true %>
+            <%= f.collection_select :genre_id, Genre.all, :id, :genre_name,  :include_blank => true %>
+            <br>
+            <%= link_to "ジャンル編集", edit_admin_genre_path(item.genre_id), class: "btn btn-success" %>
           </div>
           <br>
         <div class ="field">
-          <%= item.fields_for :discs do |disc| %>
+          <%= f.fields_for :discs do |disc| %>
           <div class="discs">
               <%= render 'disc_fields', f: disc  %>
           <% end %>
             <div class="links">
-              <%= link_to_add_association 'ディスクの追加', item, :discs %>
+              <%= link_to_add_association 'ディスクの追加', f, :discs %>
             </div>
             <div class="actions">
-              <%= item.submit '商品内容の変更を更新する', class:"btn btn-primary" %>
+              <%= f.submit '商品内容の変更を更新する', class:"btn btn-primary" %>
             </div>
           </div>
           <% end %>
