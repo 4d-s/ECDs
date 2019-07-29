@@ -17,6 +17,16 @@
 //= require_tree .
 // @ app/assets/javascripts/application.js
 //= require cocoon
+//= require jquery
+
+
+$(window).on('load', function(){
+  $('.scroll-box').infiniteslide({
+  			//画像のスライドの速度
+			speed: 40,
+			clone: 10
+		});
+});
 
 $(document).ready(function () {
   $("#theTarget").skippr({
