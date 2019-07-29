@@ -1,6 +1,7 @@
 <main class="col-xs-9">
+	<!-- お知らせメッセージを表示する -->
 	<% if flash[:notice] %>
-		<%= flash[:notice] %>
+		<p class="text-font notice"><%= flash[:notice] %></p>
 	<% end %>
 	<div class = "admin-users-area">
 		<h1 class= "text-font admin-users-title">ユーザー一覧</h1>

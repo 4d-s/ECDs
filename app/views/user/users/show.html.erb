@@ -4,8 +4,9 @@
 			<div class="row">
 				<div class="col-md-3"></div>
 				<div class="col-md-6 text-font">
+					<!-- お知らせメッセージを表示する -->
 					<% if flash[:notice] %>
-						<%= flash[:notice] %>
+						<p class="text-font notice"><%= flash[:notice] %></p>
 					<% end %>
 					<div class="user-link-btn">
 						<h2>マイプロフィール
