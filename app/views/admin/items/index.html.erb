@@ -10,7 +10,7 @@
 	<h1 class="addmin-item-index">All Items</h1>
 	<% end %>
 
-	<div class="form-inline top-search-box">
+	<div class="form-inline addmin-search-box">
 		<%= form_tag admin_items_path, method: :get do %>
 		<%= select_tag 'select_id', options_for_select([["CD名","1"], ["アーティスト名","2"], ["曲名","3"]], :selected=>"1") %>
 		<%= text_field_tag :keyword, '', placeholder: "キーワードで検索", class: "form-control", size: 70%>
