@@ -1,15 +1,17 @@
 <main class="clearfix">
 <!-- エラーメッセージがあれば表示する -->
 <% if @new_address.errors.any? %>
-	<div class="error-message-area">
-		<h2><%= @new_address.errors.count %> errors prohibited this obj from being saved:</h2>
-		<ul  class="error-detail">
-			<% @new_address.errors.full_messages.each do |message| %>
-			<li><%= message %></li>
-			<% end %>
-		</ul>
-	</div>
-<% end %>
+	<div class="alert alert-danger">
+		<div class="error-message-area">
+			<h2><%= @new_address.errors.count %> errors prohibited this obj from being saved:</h2>
+			<ul  class="error-detail" style="padding-left: 5px;" >
+				<% @new_address.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+</div>
 <div class="text-font form-inline">
 	<h1>新規住所追加</h1>
 	<%= form_for [:user, @new_address] do |a| %>

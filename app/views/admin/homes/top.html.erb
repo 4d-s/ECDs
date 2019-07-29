@@ -1,8 +1,9 @@
-
-<% if flash[:notice] %>
-	<p class="text-font notice"><%= flash[:notice] %></p>
-<% end %>
 <div class="col-xs-9">
+	<div class="admin-home-flash">
+		<% if flash[:notice] %>
+			<p class="text-font notice"><%= flash[:notice] %></p>
+		<% end %>
+	</div>
 	<div class="admin-top">
 		<h2>管理者TOP PAGE</h2>
 		<div>管理者用のページです</div>

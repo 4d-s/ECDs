@@ -1,4 +1,7 @@
 <main class="clearfix">
+	<% if flash[:notice] %>
+		<%= flash[:notice] %>
+	<% end %>
 	<h1 class="address-index">アドレス帳</h1>
 	<br>
 

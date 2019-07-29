@@ -17,9 +17,11 @@ class Admin::UsersController < ApplicationController
   	  flag = params[:is_deleted]
   	  if flag == 'false'
   	  	@user.update_attribute(:is_deleted, params[:is_deleted])
+        flash[:notice] = "１名のお客様のアカウントを削除しました。"
   	  	redirect_to admin_users_path
   	  elsif flag == 'true'
   	  	@user.update_attribute(:is_deleted, params[:is_deleted])
+        flash[:notice] = "１名のお客様のアカウントを復元しました。"
   	  	redirect_to admin_users_path
   	  else
   		@user = User.find(params[:id])

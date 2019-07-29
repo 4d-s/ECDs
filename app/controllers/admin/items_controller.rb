@@ -38,7 +38,7 @@ before_action :authenticate_administrator!
         flash[:notice] = "登録しました"
         redirect_to admin_items_path
       else
-        flash[:notice] = "登録情報に不備があります。"
+        flash[:notice] = "登録情報に不備がありました。再入力お願い致します。"
         redirect_to new_admin_item_path
       end
   end
