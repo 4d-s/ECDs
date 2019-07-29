@@ -16,7 +16,7 @@
 				<%="「" + @item.item_name + "」"%>
 			</div>
 			<div class= "item-title-text2">
-				<%= link_to @item.artist.artist_name, admin_items_path(select_id: 2, keyword: @item.artist.artist_name)%>
+				<%= link_to @item.artist.artist_name, user_items_path(select_id: 2, keyword: @item.artist.artist_name)%>
 			</div>
 			<!-- 登録情報 -->
 			<div class = "item-text-area panel panel-default">
