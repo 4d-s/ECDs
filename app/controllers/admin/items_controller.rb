@@ -30,8 +30,6 @@ before_action :authenticate_administrator!
   end
   def edit
     @item = Item.find(params[:id])
-    # p "-----------------------"
-    # p @item
   end
 
   def create
